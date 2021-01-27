@@ -1,17 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.PlayerLoop;
-using Vector3 = UnityEngine.Vector3;
 
-public class ScalableObject : MonoBehaviour
+public class ScalableObject : ScalableObjectBase
 {
     public float MinScaleMultiplier, MaxScaleMultiplier;
-    public Scaling_VFX highlightFX;
     [HideInInspector] public Vector3 minScale, maxScale;
+    public float ScaleSpeed = 1;
+    protected float scaleSpeed;
+    public float AutoDecreaseSpeed;
 
     protected Vector3 newScale;
 
@@ -21,8 +17,6 @@ public class ScalableObject : MonoBehaviour
     protected float newMass;
     protected float minMass, maxMass;
 
-    public float ScaleSpeed;
-    protected float scaleSpeed;
 
     protected float currentScaleAmount;
 
@@ -37,7 +31,7 @@ public class ScalableObject : MonoBehaviour
 
     protected float initScaleAmount;
 
-    public void SetInit(float scale)
+    public override void SetInit(float scale)
     {
         newScale = Vector3.one * scale;
         if (newScale.x > maxScale.x)
@@ -70,7 +64,7 @@ public class ScalableObject : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitTime()
+    protected virtual IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(.5f);
         transform.localScale = maxScale;
@@ -88,7 +82,7 @@ public class ScalableObject : MonoBehaviour
         }
     }
     
-    public void SetMax()
+    public override void SetMax()
     {
         StartCoroutine(WaitTime());
     }
@@ -124,7 +118,7 @@ public class ScalableObject : MonoBehaviour
         }
     }
 
-    public virtual void ScaleUp(bool deltaTimed)
+    public override void ScaleUp(bool deltaTimed)
     {
         scaleSpeed = (deltaTimed) ? ScaleSpeed * Time.deltaTime : ScaleSpeed;
         if (transform.localScale.x < maxScale.x)
@@ -157,7 +151,7 @@ public class ScalableObject : MonoBehaviour
         }
     }
 
-    public virtual void ScaleDown(bool deltaTimed)
+    public override void ScaleDown(bool deltaTimed)
     {
         scaleSpeed = (deltaTimed) ? ScaleSpeed * Time.deltaTime : ScaleSpeed;
         if (transform.localScale.x > minScale.x)
@@ -188,5 +182,80 @@ public class ScalableObject : MonoBehaviour
             }
         }
     }
-    
+
+    public override void AutoScale(float time, bool Up)
+    {
+        StartCoroutine(ScaleAuto(time, Up));
+    }
+
+    private IEnumerator ScaleAuto(float time, bool Up)
+    {
+        float currentTime = 0;
+        while(currentTime < time)
+        {
+            currentTime += Time.deltaTime;
+            if (Up)
+            {
+                if (transform.localScale.x < maxScale.x)
+                {
+                    newScale = transform.localScale;
+                    newScale += AutoDecreaseSpeed * Time.deltaTime * Vector3.one;
+                    if (newScale.x > maxScale.x)
+                    {
+                        newScale = maxScale;
+                    }
+                    transform.localScale = newScale;
+                    if (UpdateMass)
+                    {
+                        rigid.mass = Mathf.Lerp(minMass, maxMass,
+                            GeneralFunctions.ConvertRange(minScale.x, maxScale.x, 0, 1, newScale.x));
+                        if (joint)
+                        {
+                            joint.massScale = Mathf.Lerp(maxJointMass, minJointMass,
+                                GeneralFunctions.ConvertRange(minScale.x, maxScale.x, 0, 1, newScale.x));
+                        }
+                    }
+
+                    if (pulleySystem)
+                    {
+                        currentLimit = Mathf.Lerp(linearMinLimit, linerMaxLimit,
+                            GeneralFunctions.ConvertRange(minScale.x, maxScale.x, 0, 1, newScale.x));
+                        SoftJointLimit temp = new SoftJointLimit { limit = currentLimit };
+                        configurableJoint.linearLimit = temp;
+                    }
+                }
+            }
+            else
+            {
+                if (transform.localScale.x > minScale.x)
+                {
+                    newScale = transform.localScale;
+                    newScale -= AutoDecreaseSpeed * Time.deltaTime * Vector3.one;
+                    if (newScale.x < minScale.x)
+                    {
+                        newScale = minScale;
+                    }
+                    transform.localScale = newScale;
+                    if (UpdateMass)
+                    {
+                        rigid.mass = Mathf.Lerp(minMass, maxMass,
+                            GeneralFunctions.ConvertRange(minScale.x, maxScale.x, 0, 1, newScale.x));
+                        if (joint)
+                        {
+                            joint.massScale = Mathf.Lerp(maxJointMass, minJointMass,
+                                GeneralFunctions.ConvertRange(minScale.x, maxScale.x, 0, 1, newScale.x));
+                        }
+                    }
+                    if (pulleySystem)
+                    {
+                        currentLimit = Mathf.Lerp(linearMinLimit, linerMaxLimit,
+                            GeneralFunctions.ConvertRange(minScale.x, maxScale.x, 0, 1, newScale.x));
+                        SoftJointLimit temp = new SoftJointLimit { limit = currentLimit };
+                        configurableJoint.linearLimit = temp;
+                    }
+                }
+            }
+            yield return new WaitForFixedUpdate();
+        }
+    }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be26d71cab37af641b4e2adcdb277889, type: 3}
   m_Name: MagicAmount
   m_EditorClassIdentifier: 
-  value: 30
+  value: 50
   MinValue: 0
-  MaxValue: 30
+  MaxValue: 50

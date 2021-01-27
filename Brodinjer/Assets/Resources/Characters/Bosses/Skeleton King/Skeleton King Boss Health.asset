@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5002f135a0933c54cb6d39f0d886a119, type: 3}
   m_Name: Skeleton King Boss Health
   m_EditorClassIdentifier: 
-  TotalHealth: 150
+  TotalHealth: 100
   ArmorDamageDecrease: 0
   Death_Version: {fileID: 11400000, guid: 889766dd3c5c8c048b1a3a8e6a3a4611, type: 2}
   health: {fileID: 11400000, guid: 5a82753df781f4240accb996e7a0fc74, type: 2}

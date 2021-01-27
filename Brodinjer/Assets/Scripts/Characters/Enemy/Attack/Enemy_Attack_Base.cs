@@ -23,6 +23,7 @@ public abstract class Enemy_Attack_Base : MonoBehaviour
     private void Start()
     {
        player = FindObjectOfType<PlayerMovement>().transform;
+        Debug.Log("Init: "+player);
         if (animations != null && animator != null)
         {
             Animation_Base temp = animations.GetClone();

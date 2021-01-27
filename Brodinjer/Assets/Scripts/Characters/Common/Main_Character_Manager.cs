@@ -11,6 +11,11 @@ public class Main_Character_Manager : Character_Manager
     private bool running;
     private float currentTime;
 
+    public void SetDamageCooldown(float value)
+    {
+        damageCoolDown = value;
+    }
+
     public override void Init()
     {
         base.Init();
@@ -24,7 +29,10 @@ public class Main_Character_Manager : Character_Manager
     {
         movement.Stun();
         weapons.WeaponFreeze();
+        anim.SetTrigger("Idle");
+        anim.speed = 0;
         yield return new WaitForSeconds(stuntime);
+        anim.speed = 1;
         movement.UnStun();
         weapons.WeaponUnfreeze();
         stunned = false;
@@ -34,9 +42,16 @@ public class Main_Character_Manager : Character_Manager
     {
         if (_cc != null)
         {
-            difference = _cc.transform.position - other.BaseObj.transform.position;
-            difference.y = 0;
-            difference = (difference.normalized * other.KnockbackForce);
+            if (other.knockbackDirection == Vector3.zero)
+            {
+                difference = _cc.transform.position - other.BaseObj.transform.position;
+                difference.y = 0;
+                difference = (difference.normalized * other.KnockbackForce);
+            }
+            else
+            {
+                difference = other.knockbackDirection * other.KnockbackForce;
+            }
             if(!running)
                 StartCoroutine(KnockCo(other));
         }

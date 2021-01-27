@@ -9,11 +9,9 @@ public class ScalingMagic : MonoBehaviour
     public WeaponManager wm;
     private Transform ScalingObj;
     public float ScaleTime;
-    private float timeLeft;
     private WaitForFixedUpdate _fixedUpdate;
     [HideInInspector]
-    public ScalableObject scaleObj;
-    private Vector3 newScale, scaleIncrease;
+    public ScalableObjectBase scaleObj;
     public float IncreaseAmount;
     public string stopButton;
     [HideInInspector] public bool hitObj = false;
@@ -30,7 +28,6 @@ public class ScalingMagic : MonoBehaviour
     {
         hitObj = false;
         _fixedUpdate = new WaitForFixedUpdate();
-        scaleIncrease = new Vector3(IncreaseAmount, IncreaseAmount, IncreaseAmount);
 
 
     }
@@ -53,7 +50,9 @@ public class ScalingMagic : MonoBehaviour
                 Debug.Log("Hit obj");
                 hitObj = true;
                 ScalingObj = other.gameObject.transform;
-                scaleObj = ScalingObj.GetComponent<ScalableObject>();
+                scaleObj = ScalingObj.GetComponent<ScalableObjectBase>();
+                if (scaleObj == null)
+                    scaleObj = ScalingObj.GetComponentInParent<ScalableObjectBase>();
                 art.SetActive(false);
                 StartCoroutine(Scale());
             }
@@ -76,12 +75,13 @@ public class ScalingMagic : MonoBehaviour
     private IEnumerator Scale()
     {
         //movement.StopAll();
-        timeLeft = ScaleTime;
-        scaleObj.highlightFX.Highlight();
+        if (scaleObj != null)
+        {
+            scaleObj.highlightFX.Highlight();
+        }
         scalescript.inUse = true;
         while (MagicAmount.value > 0 /*&& timeLeft > 0*/ && scalescript.currWeapon)
         {
-            newScale = ScalingObj.localScale;
             if (Input.GetAxis(ScaleAxis) > 0)
             {
                 MagicAmount.SubFloat(decreaseSpeed*Time.deltaTime);
@@ -97,7 +97,6 @@ public class ScalingMagic : MonoBehaviour
                 Destroy(this.gameObject);
 
             }
-            timeLeft -= Time.deltaTime;
             yield return _fixedUpdate;
         }
         Destroy(this.gameObject);

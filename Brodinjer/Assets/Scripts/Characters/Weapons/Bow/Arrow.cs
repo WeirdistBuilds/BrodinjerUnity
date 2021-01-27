@@ -14,6 +14,7 @@ public class Arrow : MonoBehaviour
     public GameObject ArrowTip;
     private bool fired;
     public GameObject ArrowCollider;
+    public ParticleSystem weaponTrail;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class Arrow : MonoBehaviour
         fired = true;
         ArrowTip.SetActive(true);
         ArrowCollider.SetActive(true);
-
+        weaponTrail.Play();
     }
 
 
@@ -41,6 +42,7 @@ public class Arrow : MonoBehaviour
     {
         if (fired)
         {
+            weaponTrail.Stop();
             stickable = other.gameObject.GetComponentInChildren<Stickable>();
             if (stickable)
             {

@@ -89,7 +89,8 @@ public abstract class Character_Manager : MonoBehaviour
     {
         if (canDamage && !damaged && !dead)
         {
-            if (coll.gameObject.layer == ToLayer(DamageLayer.value))
+            //layermask == (layermask | (1 << layer))
+            if (DamageLayer != (DamageLayer | coll.gameObject.layer))
             {
                 WeaponDamageAmount temp = coll.GetComponent<WeaponDamageAmount>();
                 if (temp != null)
@@ -101,11 +102,22 @@ public abstract class Character_Manager : MonoBehaviour
                     }
 
                     damaged = true;
-                    if(damageAnimate && DamageAnimation)
-                        DamageAnimation.StartAnimation();
+                    if (damageAnimate)
+                    {
+                        if (temp.DamageAnimationTrigger != "")
+                        {
+                            anim.SetTrigger(temp.DamageAnimationTrigger);
+                        }
+                        else
+                        {
+                            if(DamageAnimation!= null)
+                                DamageAnimation.StartAnimation();
+                        }
+                    }
                     if (!temp.SingleHit || (temp.SingleHit && !temp.hit))
                     {
                         temp.hit = true;
+                        Debug.Log("Damage: " + coll.gameObject.name);
                         TakeDamage(temp.DamageAmount, temp.DecreasedbyArmor);
                     }
 

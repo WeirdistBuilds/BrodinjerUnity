@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbd2fc8487b7a347b20c1e03183c8a6, type: 3}
+  m_Name: MagicCam
+  m_EditorClassIdentifier: 
+  minCamAngle: -80
+  maxCamAngle: 60
+  rotationSpeed: 15
+  mouseXMultiplier: 3
+  mouseYMultiplier: 2
+  DirectionFloatName: 
+  cameraObject: {fileID: 0}

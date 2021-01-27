@@ -9,6 +9,8 @@ public class Rake_Attack : Enemy_Attack_Base
     
     public override IEnumerator Attack()
     {
+        if(resetAnims)
+            resetAnims.ResetAllTriggers();
         animator.SetTrigger(AnimationTriggerName);
         yield return new WaitForSeconds(AttackStartTime);
         WeaponAttackobj.SetActive(true);

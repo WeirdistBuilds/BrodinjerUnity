@@ -18,21 +18,18 @@ public class MeleeWeapon : WeaponBase
     public float attackActivateTime01, attackActivateTime02, attackActivateTime03;
     public PlayerMovement playermove;
     public bool freezeWhenAttack;
-    private float origwalkfor, origwalkside, origrunfor, origrunside;
+    public float origwalkfor, origwalkside, origrunfor, origrunside;
     public CharacterTranslate origMovement;
     public CharacterRotate freezeRotation;
     public CharacterRotate origRotation;
     private WeaponDamageAmount damage;
     public float DamageAttack1, DamageAttack2, DamageAttack3;
     private bool running = false;
+    public ParticleSystem WeaponTrail;
 
     private void Start()
     {
         running = false;
-        origwalkfor = origMovement.ForwardSpeed;
-        origwalkside = origMovement.SideSpeed;
-        origrunfor = origMovement.RunForwardSpeed;
-        origrunside = origMovement.RunSideSpeed;
     }
 
     public override void Initialize()
@@ -80,6 +77,7 @@ public class MeleeWeapon : WeaponBase
                 yield return  new WaitForSeconds(attackActivateTime01);
                 damage.DamageAmount = DamageAttack1;
                 knockbackObj.SetActive(true);
+                WeaponTrail.Play();
                 AxUsedEvent.Invoke();
                 currentTime = 0;
                 while (currentTime < comboTime01 && !frozen && currWeapon)
@@ -139,7 +137,7 @@ public class MeleeWeapon : WeaponBase
                     origMovement.ForwardSpeed = origwalkfor;
                     origMovement.SideSpeed = origwalkside;
                 }
-
+                WeaponTrail.Stop();
                 Debug.Log("Finish Attack");
                 knockbackObj.SetActive(false);
                 anim.SetInteger(ComboNumInteger, 0);

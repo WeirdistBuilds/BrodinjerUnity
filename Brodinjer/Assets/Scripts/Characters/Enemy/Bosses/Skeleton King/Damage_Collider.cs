@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Damage_Collider : MonoBehaviour
 {
     public Boss_Character_Manager bossManager;
     public LayerMask DamageLayer;
-    public Animator anim;
-    public string DamageAnimationTrigger;
     public float ArmorAmount;
+    public UnityEvent DamageEvent;
 
-    private void OnTriggerEnter(Collider coll)
+    private IEnumerator OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.layer == ToLayer(DamageLayer.value))
         {
@@ -19,9 +19,21 @@ public class Damage_Collider : MonoBehaviour
             {
                 if (!temp.SingleHit || (temp.SingleHit && !temp.hit))
                 {
-                    anim.SetTrigger(DamageAnimationTrigger);
+                    Debug.Log("Take Damage");
                     temp.hit = true;
-                    bossManager.TakeDamage(temp.DamageAmount, temp.DecreasedbyArmor, ArmorAmount);
+                    if (temp.DamageAnimationTrigger != "")
+                    {
+                        bossManager.TakeDamage(temp.DamageAmount, temp.DecreasedbyArmor, ArmorAmount, temp.DamageAnimationTrigger);
+                    }
+                    else
+                    {
+                        bossManager.TakeDamage(temp.DamageAmount, temp.DecreasedbyArmor, ArmorAmount);
+                    }
+                    yield return new WaitForSeconds(.1f);
+                    if (bossManager.health.health.value > 0)
+                    {
+                        DamageEvent.Invoke();
+                    }
                 }
             }
         }

@@ -32,3 +32,5 @@ MonoBehaviour:
   DodgeTime: 0.25
   DodgeAmount: 20
   DodgeAnimations: {fileID: 11400000, guid: bd8a522237b2bdf478f01d489e27ec73, type: 2}
+  FallTrigger: 
+  LandTrigger: Land

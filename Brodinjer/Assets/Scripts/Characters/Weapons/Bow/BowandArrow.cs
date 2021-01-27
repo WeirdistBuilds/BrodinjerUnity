@@ -13,8 +13,6 @@ public class BowandArrow : WeaponBase
     private float currPower, currentTime;
     public float MaxPower, PowerIncreaseScale;
     private GameObject currArrow;
-    private Vector3 direction;
-    private Vector3 rotDirection;
     public GameObject WeaponObj;
     public CameraRotationManager cameraRotation;
     public CameraRotationBase bowCamera;
@@ -27,14 +25,12 @@ public class BowandArrow : WeaponBase
     public LimitIntData numArrows;
     public float CameraSwapTime;
     private Coroutine swapFunc;
-
+    public GameObject CenterCursor;
     
     //Arrow Variables
     public UnityEvent BowEquiped, BowPulled, ArrowFired, BowUnequipped;
     public float cooldowntime, reloadTime;
     private bool running, aiming, exited;
-
-
 
 
 
@@ -78,6 +74,7 @@ public class BowandArrow : WeaponBase
                 yield return _waitforbutton;
             if (!frozen && numArrows.value > 0)
             {
+                CenterCursor.SetActive(true);
                 cameraRotation.AnimationOffset = 0;
                 bowstring.Pull();
                 anim.SetTrigger("Bow Pull");
@@ -137,6 +134,7 @@ public class BowandArrow : WeaponBase
                     currArrow.GetComponent<Arrow>().Fired();
                     inUse = false;
                     aiming = false;
+                    CenterCursor.SetActive(false);
                     cameraRotation.PauseTime(false);
                     yield return new WaitForSeconds(cooldowntime);
                     anim.SetTrigger("Bow Released");
