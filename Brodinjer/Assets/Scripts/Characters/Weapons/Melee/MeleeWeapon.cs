@@ -171,6 +171,7 @@ public class MeleeWeapon : WeaponBase
         origMovement.RunSideSpeed = origrunside;
         origMovement.ForwardSpeed = origwalkfor;
         origMovement.SideSpeed = origwalkside;
+        WeaponTrail.Stop();
     }
     
     private bool CheckInput()
@@ -194,6 +195,8 @@ public class MeleeWeapon : WeaponBase
         origMovement.RunSideSpeed = origrunside;
         origMovement.ForwardSpeed = origwalkfor;
         origMovement.SideSpeed = origwalkside;
+        WeaponTrail.Stop();
+
     }
 
     public override void On()

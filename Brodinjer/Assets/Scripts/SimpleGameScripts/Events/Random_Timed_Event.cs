@@ -9,7 +9,7 @@ public class Random_Timed_Event : MonoBehaviour
     public UnityEvent Event;
     public bool OnAwake;
     public bool Repeat;
-    private bool repeating;
+    public bool repeating;
     public bool RunOnStart = false;
     public float StartDelay;
 
@@ -19,6 +19,7 @@ public class Random_Timed_Event : MonoBehaviour
     {
         if (OnAwake)
         {
+            repeating = Repeat;
             yield return new WaitForSeconds(StartDelay);
             if (RunOnStart)
             {
@@ -38,8 +39,8 @@ public class Random_Timed_Event : MonoBehaviour
 
     public void Call()
     {
-        waitFunc = StartCoroutine(Wait());
         repeating = Repeat;
+        waitFunc = StartCoroutine(Wait());
     }
 
 

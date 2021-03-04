@@ -15,6 +15,7 @@ public class Freeze_Magic : Trigger_Event_Base
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hit: " + other.gameObject);
         if(!isRunning)
             StartCoroutine(CheckTrigger(other));
     }

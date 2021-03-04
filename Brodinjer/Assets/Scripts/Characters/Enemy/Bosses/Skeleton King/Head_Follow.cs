@@ -9,14 +9,14 @@ public class Head_Follow : MonoBehaviour
     public Transform RBrowPosition, LBrowPosition;
     public bool Rotating;
     //public List<Transform> destinations;
-    public float RotationSpeed;
+    public Head_Inbetween headRotate;
 
     private void LateUpdate()
     {
         if (Rotating)
         {
             //transform.rotation = FollowRotation.rotation;
-            transform.rotation = Quaternion.Lerp(transform.rotation, FollowRotation.rotation, RotationSpeed * Time.deltaTime);
+            transform.rotation = FollowRotation.rotation;
             R_Brow.position = RBrowPosition.position;
             R_Brow.rotation = RBrowPosition.rotation;
             L_Brow.position = LBrowPosition.position;
@@ -26,6 +26,7 @@ public class Head_Follow : MonoBehaviour
 
     public void SetRotate(bool val)
     {
+        headRotate.SetRotate(true);
         Rotating = val;
     }
 }

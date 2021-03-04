@@ -24,7 +24,7 @@ public class Head_Rotation_Set : MonoBehaviour
             anim.SetFloat("X", X);
             anim.SetFloat("Y", Y);
             anim.SetFloat("Z", Z);
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForFixedUpdate();
         }
     }
 

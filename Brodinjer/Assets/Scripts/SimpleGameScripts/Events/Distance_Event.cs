@@ -84,8 +84,8 @@ public class Distance_Event : MonoBehaviour
     {
         while (checking)
         {
-            if(debug)
-                Debug.Log("Checking Distance: " + this.name);
+            /*if(debug)
+                Debug.Log("Checking Distance: " + this.name);*/
             if (CheckDistance())
             {
                 if (!inDistance)
