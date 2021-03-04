@@ -13,7 +13,6 @@ public class StraightForwardMove : NavMesh_Enemy_Base
             AnimationBase.StartAnimation();
         while (moving)
         {
-            Debug.Log(agent.transform.forward * Time.deltaTime * Speed);
             if(agent.enabled)
                 agent.destination += agent.transform.forward * Time.deltaTime * Speed;
             yield return fixedUpdate;

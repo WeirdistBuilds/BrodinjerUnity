@@ -7,7 +7,6 @@ public class Destroy_Death : Death_Base
     public float waitTime=0;
     public override IEnumerator Death()
     {
-        Debug.Log("Destroy");
         yield return new WaitForSeconds(waitTime);
         Destroy(character.gameObject);
     }

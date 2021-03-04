@@ -35,7 +35,6 @@ public class Main_Character_Manager : Character_Manager
     {
         if (!stunned)
         {
-            Debug.Log("Stunned");
             stunned = true;
             movement.Stun();
             weapons.WeaponFreeze();
@@ -45,7 +44,6 @@ public class Main_Character_Manager : Character_Manager
             movement.UnStun();
             weapons.WeaponUnfreeze();
             stunned = false;
-            Debug.Log("Unstun");
 
         }
         yield return new WaitForFixedUpdate();

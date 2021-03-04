@@ -33,7 +33,6 @@ public class DirectionalHit : Trigger_Event_Base
 
     public override IEnumerator CheckTrigger(Collider coll)
     {
-        //Debug.Log(coll.gameObject.layer + " " + coll.gameObject.name);
         switch (checksFor)
         {
             case Check.Layer:
@@ -88,7 +87,6 @@ public class DirectionalHit : Trigger_Event_Base
 
         angle /= 360;
         angle += .5f;
-        //Debug.Log(angle);
         return angle;
     }
 }

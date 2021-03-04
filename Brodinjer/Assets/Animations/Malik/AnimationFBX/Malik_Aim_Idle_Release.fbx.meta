@@ -12,7 +12,22 @@ ModelImporter:
   - first:
       74: 232216612444209767
     second: Malik Release Idle Low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Malik_Rig_Malik_Body_Mat1
+    second: {fileID: 2100000, guid: 12290fdd2abf33b459fbf53ef5b19da5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Malik_Rig_Malik_Head_Mat
+    second: {fileID: 2100000, guid: 26760e57c96531748bed12d5a215f06a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 6eb1c14dc8dadfd40b22e39a0f3867cc, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

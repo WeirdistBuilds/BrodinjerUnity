@@ -26,51 +26,6 @@ public class KnockBack_NavMesh : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        enemyRB = other.GetComponent<Rigidbody>();
-        if (enemyRB != null)
-        {
-            Debug.Log("Knockback");
-            OnKnockback.Invoke();
-            enemyManager = other.GetComponent<Enemy_Manager>();
-
-            agent = other.GetComponent<NavMeshAgent>();
-            if (agent != null)
-            {
-                agent.enabled = false;
-            }
-            difference = enemyRB.transform.position - BaseObj.transform.position;
-            difference.y = 0;
-            difference = difference.normalized * thrust;
-            enemyRB.AddForce(difference, ForceMode.Impulse);
-            if ((Reset = other.GetComponent<Timed_Event>()) != null)
-            {
-                Reset.Call();
-            }
-            
-            StartCoroutine(KnockCo(enemyRB, agent, enemyManager));
-        }
-
-    }
-
-    private IEnumerator KnockCo(Rigidbody enemy, NavMeshAgent Agent = null, Enemy_Manager Manager = null)
-    {
-        if(enemy != null)
-        {
-            yield return new WaitForSeconds(knockTime);
-            enemy.velocity = Vector3.zero;
-            if (Agent)
-            {
-                Agent.enabled = true;
-            }
-            OnKnockbackEnd.Invoke();
-            
-            yield return new WaitForSeconds(knockTime);
-            
-            
-        }
-    }*/
     
     protected virtual void OnTriggerEnter(Collider other)
     {

@@ -100,7 +100,6 @@ public class Dialogue_Manager : MonoBehaviour
             _text_to_display = "";
             if (NPC.dialogue.lines[i].Contains(_actionCharacter))
             {
-                Debug.Log("Action: ");
 
                 _actionIndex = int.Parse(NPC.dialogue.lines[i].Split('^')[1]);
                 dialogueActions[_actionIndex].Invoke();

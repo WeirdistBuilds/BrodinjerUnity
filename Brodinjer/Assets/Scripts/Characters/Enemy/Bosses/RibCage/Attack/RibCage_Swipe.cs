@@ -13,6 +13,7 @@ public class RibCage_Swipe : Enemy_Attack_Base
     private float currentVelocity;
     private bool Right;
 
+    public List<GameObject> WeaponObjs;
     
     public override IEnumerator Attack()
     {
@@ -21,9 +22,13 @@ public class RibCage_Swipe : Enemy_Attack_Base
         {
             animations.StartAnimation();
         }
+        attackSound.Play();
         yield return new WaitForSeconds(AttackStartTime);
-        WeaponAttackobj.SetActive(true);
-        currentRotation = 0;
+        foreach(var obj in WeaponObjs)
+        {
+            obj.SetActive(true);
+        }
+        /*currentRotation = 0;
         Right = false;
         while (currentRotation < numRotations)
         {
@@ -89,9 +94,13 @@ public class RibCage_Swipe : Enemy_Attack_Base
             currentRotation++;
             Right = !Right;
             yield return new WaitForFixedUpdate();
+        }*/
+        yield return new WaitForSeconds(AttackActiveTime);
+        foreach (var obj in WeaponObjs)
+        {
+            obj.SetActive(false);
         }
-        WeaponAttackobj.SetActive(false);
-        if(animations)
+        if (animations)
             animations.StopAnimation();
         yield return new WaitForSeconds(CoolDownTime);
         attacking = false;

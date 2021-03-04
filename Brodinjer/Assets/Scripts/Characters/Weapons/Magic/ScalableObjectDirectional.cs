@@ -31,7 +31,6 @@ public class ScalableObjectDirectional : ScalableObjectBase
 
     public override bool ScaleDown(bool deltaTimed)
     {
-        Debug.Log(currentfloat);
         if (currentfloat <= 0)
             return false;
         currentScalePoint = Mathf.Clamp(currentScalePoint - Time.deltaTime, 0, TimeFromMinToMax);
@@ -46,7 +45,7 @@ public class ScalableObjectDirectional : ScalableObjectBase
 
     public override bool ScaleUp(bool deltaTimed)
     {
-        Debug.Log(currentfloat);
+
         if (currentfloat >= 1)
             return false;
         currentScalePoint = Mathf.Clamp(currentScalePoint + Time.deltaTime, 0, TimeFromMinToMax);

@@ -24,6 +24,7 @@ public class Skeleton_King_Phase_01 : Phase_Base
     private int currentAttack = -1;
     private List<float> alteredNums;
     private List<float> percent;
+    public Head_Follow headLook;
 
     private void Start()
     {
@@ -46,7 +47,6 @@ public class Skeleton_King_Phase_01 : Phase_Base
         {
             currentNum += num[i];
             temp.Add(currentNum);
-            Debug.Log("Attack " + i + ": " + currentNum);
         }
         return temp;
     }
@@ -55,6 +55,7 @@ public class Skeleton_King_Phase_01 : Phase_Base
     {
         if (!currentPhase)
         {
+            headLook.SetRotate(true);
             alteredNums = nums;
             percent = Percentages;
             currentPhase = true;
@@ -73,21 +74,20 @@ public class Skeleton_King_Phase_01 : Phase_Base
             //Randomize Attack
             attack = PhaseAttacks[RandomAttack()];
             attack.attacking = true;
-            Debug.Log("Start Attack");
+            headLook.SetRotate(false);
             yield return StartCoroutine(attack.Attack());
             if (damaged)
             {
-                Debug.Log("Damaged");
                 yield return new WaitForSeconds(DamageWaitTime);
             }
             else
             {
-                Debug.Log("Reset");
                 if (resetTriggers)
                     resetTriggers.ResetAllTriggers();
                 anim.SetTrigger("Idle");
             }
             damaged = false;
+            headLook.SetRotate(true);
         }
     }
 
@@ -97,7 +97,6 @@ public class Skeleton_King_Phase_01 : Phase_Base
         {
             int randint = Random.Range(0, 100);
             float randFloat = randint / 100f;
-            Debug.Log(randFloat);
             float currentnum = 0;
             for (int i = 0; i < nums.Count; i++)
             {

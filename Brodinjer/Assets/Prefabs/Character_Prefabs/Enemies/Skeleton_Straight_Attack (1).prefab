@@ -8625,6 +8625,41 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 1.4014912
       objectReference: {fileID: 0}
+    - target: {fileID: 9028290134377620926, guid: 6fbe71f74934b3f409a1ac9273b20ad7,
+        type: 3}
+      propertyPath: _mClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028290134377620926, guid: 6fbe71f74934b3f409a1ac9273b20ad7,
+        type: 3}
+      propertyPath: _mClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c6cb0c0b4be08dd4d83bc2e7d24547b4, type: 3}
+    - target: {fileID: 9028290134377620926, guid: 6fbe71f74934b3f409a1ac9273b20ad7,
+        type: 3}
+      propertyPath: _mClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c3533de6ca0302647b08cb03b59aaee8, type: 3}
+    - target: {fileID: 9028290134377620926, guid: 6fbe71f74934b3f409a1ac9273b20ad7,
+        type: 3}
+      propertyPath: _mClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f427043a43ef8b408d055cfad086cca, type: 3}
+    - target: {fileID: 9028290134377620926, guid: 6fbe71f74934b3f409a1ac9273b20ad7,
+        type: 3}
+      propertyPath: _mClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fc1bf602d3313c4ba10538c49a32659, type: 3}
+    - target: {fileID: 9028290134377620926, guid: 6fbe71f74934b3f409a1ac9273b20ad7,
+        type: 3}
+      propertyPath: _mClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: f54ae17970f89a044b5f34d9c62e93d0, type: 3}
+    - target: {fileID: 9028290134377620926, guid: 6fbe71f74934b3f409a1ac9273b20ad7,
+        type: 3}
+      propertyPath: _mClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fc1bf602d3313c4ba10538c49a32659, type: 3}
     - target: {fileID: 9028290134377620927, guid: 6fbe71f74934b3f409a1ac9273b20ad7,
         type: 3}
       propertyPath: m_Name

@@ -16,7 +16,6 @@ public class Randomize_Rib_Attack : MonoBehaviour
     public void RunRandomEvent()
     {
         randomNum = Random.Range(0, 11);
-        Debug.Log("Random num: " + randomNum);
         if ((randomNum/10.0f) < percentage01)
         {
             Attack01.Invoke();

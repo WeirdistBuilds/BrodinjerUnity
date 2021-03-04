@@ -62,7 +62,6 @@ public class PauseMenu : MonoBehaviour
 
     public void OptionsMenu()
     {
-        //Debug.Log("Options Menu Loaded");
         optionsMenuUI.SetActive(true);
         pauseMenuUI.SetActive(false);
         optionsMenuIsActive = true;
@@ -70,7 +69,6 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        //Debug.Log("Quit to Main Menu");
         optionsMenuUI.SetActive(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;

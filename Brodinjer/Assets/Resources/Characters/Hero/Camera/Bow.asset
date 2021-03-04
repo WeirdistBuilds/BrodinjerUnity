@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbd2fc8487b7a347b20c1e03183c8a6, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
-  minCamAngle: -53.75
+  minCamAngle: -65
   maxCamAngle: 49
   rotationSpeed: 15
   mouseXMultiplier: 3
@@ -23,4 +23,5 @@ MonoBehaviour:
   ShakeMaxFrequency: 1
   cameraObject: {fileID: 0}
   vc: {fileID: 0}
-  targeting: 1
+  targeting: 0
+  shaking: 0

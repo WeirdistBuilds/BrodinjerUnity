@@ -28,7 +28,6 @@ public class ForcePlayerWalk : MonoBehaviour
     
     private void Start()
     {
-        //Debug.Log("Camera: " + camera.gameObject.name);
         moving = false;
         _cc = GetComponent<CharacterController>();
         resetAnims = anim.GetComponent<ResetTriggers>();
@@ -54,15 +53,18 @@ public class ForcePlayerWalk : MonoBehaviour
         if(resetAnims)
             resetAnims.ResetAllTriggers();
         anim.SetTrigger(StartTrigger);
-        while (_moveVec.magnitude > .1f && moving)
+        Vector3 moveCheck = _moveVec;
+        while (moveCheck.magnitude > .1f && moving)
         {
 
             _moveVec = _moveVec.normalized * ForwardSpeed;
-            anim.SetFloat(SpeedFloat, 1);
+            anim.SetFloat(SpeedFloat, getSpeed());
             anim.SetFloat(DirectionFloat, getMoveAngle());
             _cc.Move(_moveVec * Time.deltaTime);
             _moveVec = Target.position - transform.position;
-            _moveVec.y = 0;
+            _moveVec.y = -30 * Time.deltaTime;
+            moveCheck = _moveVec;
+            moveCheck.y = 0;
             yield return fixedUpdate;
         }
         ReachDestEvent.Invoke();
@@ -70,7 +72,7 @@ public class ForcePlayerWalk : MonoBehaviour
         moving = false;
     }
 
-    public void StopMove()
+    public void StopMove(bool movePlayer)
     {
         if(moveFunc!= null)
             StopCoroutine(moveFunc);
@@ -79,6 +81,10 @@ public class ForcePlayerWalk : MonoBehaviour
         if(EndTrigger != "")
             anim.SetTrigger(EndTrigger);
         moving = false;
+        if (movePlayer)
+        {
+            _cc.transform.position = Target.position;
+        }
     }
 
     public float getMoveAngle()
@@ -107,6 +113,8 @@ public class ForcePlayerWalk : MonoBehaviour
 
     public float getSpeed()
     {
-        return GeneralFunctions.ConvertRange(0, AnimSpeedMax, 0, 1, _cc.velocity.magnitude);
+        Vector3 Velocity = _cc.velocity;
+        Velocity.y = 0;
+        return GeneralFunctions.ConvertRange(0, AnimSpeedMax, 0, 1, Velocity.magnitude);
     }
 }

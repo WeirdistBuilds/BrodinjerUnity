@@ -24,7 +24,6 @@ public class ThirdPersonTranslate : CharacterTranslate
     
     public override void Init(MonoBehaviour caller, CharacterController _cc, Transform camera, Z_Targeting target, Animator animator, RandomSoundController jump)
     {
-        //Debug.Log("Camera: " + camera.gameObject.name);
         base.Init(caller, _cc, camera, target, animator, jump);
         if(DodgeAnimations!= null)
             DodgeAnimations.Init(caller, animator, _cc.transform, null);
@@ -134,7 +133,7 @@ public class ThirdPersonTranslate : CharacterTranslate
         if (_cc.isGrounded) {
             vSpeed = -10;
             if (!jumping && !falling && (Input.GetButtonDown ("Jump"))) {
-                if (!dodging && target.isTargeting && (Input.GetButton(HorizontalAxis) || Input.GetButton(VerticalAxis)))
+                if (!dodging && (target != null && target.isTargeting) && (Input.GetButton(HorizontalAxis) || Input.GetButton(VerticalAxis)))
                 {
                     if(DodgeAnimations!= null)
                         DodgeAnimations.StartAnimation();

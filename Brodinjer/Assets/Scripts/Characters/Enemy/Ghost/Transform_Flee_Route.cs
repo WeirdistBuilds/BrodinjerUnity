@@ -74,7 +74,6 @@ public class Transform_Flee_Route : Transform_Movement_Base
 
     private IEnumerator ChangeDest()
     {
-        Debug.Log("Change Dest");
         if (currentDestIndex <= 0)
         {
             backDest = destinations[destinations.Count-1].position;

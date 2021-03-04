@@ -61,8 +61,6 @@ public class Enemy_Patrol_Random : Enemy_Patrol
                 }
             }
         }
-        //Debug.Log("Min: (" + minx + ", " + miny + ", " + minz + ")");
-        //Debug.Log("Max: (" + maxx + ", " + maxy + ", " + maxz + ")");
 
     }
       

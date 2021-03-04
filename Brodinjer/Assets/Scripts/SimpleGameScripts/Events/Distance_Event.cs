@@ -84,6 +84,8 @@ public class Distance_Event : MonoBehaviour
     {
         while (checking)
         {
+            if(debug)
+                Debug.Log("Checking Distance: " + this.name);
             if (CheckDistance())
             {
                 if (!inDistance)
@@ -130,8 +132,6 @@ public class Distance_Event : MonoBehaviour
         zdist = (checkZ) ? Math.Pow((vector2.z - vector1.z), 2) : 0;
 
         distance =  Math.Sqrt(xdist + ydist + zdist);
-        /*if(debug)
-        Debug.Log(gameObject.name + " Distance: " + distance);*/
         return distance;
     }
 

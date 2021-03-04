@@ -20,7 +20,6 @@ public class Damage_Collider : MonoBehaviour
             {
                 if (!temp.SingleHit || (temp.SingleHit && !temp.hit))
                 {
-                    Debug.Log("Take Damage");
                     temp.hit = true;
                     yield return new WaitForSeconds(damageDelay);
                     if (temp.DamageAnimationTrigger != "")

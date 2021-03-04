@@ -19,7 +19,6 @@ public class Magic_Burst : MonoBehaviour
     {
         if (!other.gameObject.CompareTag(IgnoreTag))
         {
-            Debug.Log(other.gameObject + " " + other.gameObject.tag);
             position = ProjectilePrefab.transform.position;
             rotation = ProjectilePrefab.transform.rotation;
             if (BurstPrefab != null)

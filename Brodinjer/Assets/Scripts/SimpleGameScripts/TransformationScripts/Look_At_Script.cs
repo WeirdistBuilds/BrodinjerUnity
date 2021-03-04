@@ -36,9 +36,16 @@ public class Look_At_Script : MonoBehaviour
     {
         while (looking)
         {
-            facingDirection = Quaternion.LookRotation((LookAtObject.transform.position - transform.position).normalized);
-            transform.rotation =
-                Quaternion.Lerp(transform.rotation, facingDirection, Speed * Time.deltaTime);
+            if (Speed < 0)
+            {
+                transform.rotation = facingDirection;
+            }
+            else
+            {
+                facingDirection = Quaternion.LookRotation((LookAtObject.transform.position - transform.position).normalized);
+                transform.rotation =
+                    Quaternion.Lerp(transform.rotation, facingDirection, Speed * Time.deltaTime);
+            }
             yield return new WaitForFixedUpdate();
         }
     }

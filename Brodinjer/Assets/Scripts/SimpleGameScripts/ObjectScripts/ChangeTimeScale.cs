@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ChangeTimeScale : MonoBehaviour
 {
-    /*private void Start()
+    private void Start()
     {
         Time.timeScale = 1;
-    }*/
+    }
 
     public void SetScale(float scale)
     {

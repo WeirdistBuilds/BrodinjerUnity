@@ -8,7 +8,6 @@ public class Deactivate_Player_Death : Death_Base
     
     public override IEnumerator Death()
     {
-        Debug.Log("Deactivate");
         yield return new WaitForSeconds(waitTime);
         character.GetComponent<PlayerMovement>().StopAll();
     }

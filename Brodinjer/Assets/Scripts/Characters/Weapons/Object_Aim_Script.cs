@@ -19,7 +19,6 @@ public class Object_Aim_Script : MonoBehaviour
 
     public void StartAim()
     {
-        //Debug.Log("Start Aim");
         if (!aiming)
         {
             aiming = true;

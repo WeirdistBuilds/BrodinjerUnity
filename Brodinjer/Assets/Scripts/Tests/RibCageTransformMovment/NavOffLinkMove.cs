@@ -49,7 +49,6 @@ public class NavOffLinkMove : MonoBehaviour
     {
         if (!climbing)
         {
-            Debug.Log("Start Climb");
             climbing = true;
             agent.updateRotation = false;
             agent.enabled = false;
@@ -57,18 +56,6 @@ public class NavOffLinkMove : MonoBehaviour
             {
                 case TransformPosition.Floor:
                     newPos = CheckTransformDirection();
-                    if (newPos == TransformPosition.WallX)
-                    {
-                        Debug.Log("Floor To WallX");
-                    }
-                    else if(newPos == TransformPosition.WallZ)
-                    {
-                        Debug.Log("Floor To WallZ");
-                    }
-                    else
-                    {
-                        Debug.Log("Something is really weird in Floor Switch");
-                    }
                     currentTime = 90 / RotateSpeed;
                     translateSpeed = TranslateAmount / currentTime;
                     yrotation = agent.transform.rotation.eulerAngles.y % 360;
@@ -92,12 +79,10 @@ public class NavOffLinkMove : MonoBehaviour
                     currentPos = newPos;
                     break;
                 case TransformPosition.WallX:
-                    Debug.Log("On WallX");
                     newPos = CheckTransformDirection();
                     switch (newPos)
                     {
                         case TransformPosition.WallZ:
-                            Debug.Log("WallZ to Cieling");
                             currentTime = 90 / RotateSpeed;
                             translateSpeed = TranslateAmount / currentTime;
                             yrotation = agent.transform.rotation.eulerAngles.y % 360;
@@ -119,7 +104,6 @@ public class NavOffLinkMove : MonoBehaviour
                             agent.transform.Rotate(0, 0, -yrotation, Space.Self);
                             break;
                         case TransformPosition.Cieling:
-                            Debug.Log("WallX to Cieling");
                             xrotation = (-180 - agent.transform.rotation.eulerAngles.x) % 360;
                             if (xrotation > 180)
                             {
@@ -145,10 +129,8 @@ public class NavOffLinkMove : MonoBehaviour
                                 currentTime -= Time.deltaTime;
                                 yield return new WaitForFixedUpdate();
                             }
-                            //transform.Rotate(0, yrotation, zrotation);
                             break;
                         case TransformPosition.Floor:
-                            Debug.Log("WallX to Floor");
                             xrotation = (180 - agent.transform.rotation.eulerAngles.x) % 360;
                             if (xrotation > 180)
                             {
@@ -174,22 +156,18 @@ public class NavOffLinkMove : MonoBehaviour
                                 currentTime -= Time.deltaTime;
                                 yield return new WaitForFixedUpdate();
                             }
-                            //transform.Rotate(0, yrotation, zrotation);
                             break;                        
                         default:
-                            Debug.Log("Something is wrong with the WallX code");
                             break;
                     }
 
                     currentPos = newPos;
                     break;
                 case TransformPosition.WallZ:
-                    Debug.Log("On WallZ");
                     newPos = CheckTransformDirection();
                     switch (newPos)
                     {
                         case TransformPosition.WallX:
-                            Debug.Log("WallZ to WallX");
                             currentTime = 90 / RotateSpeed;
                             translateSpeed = TranslateAmount / currentTime;
                             yrotation = agent.transform.rotation.eulerAngles.y % 360;
@@ -210,7 +188,6 @@ public class NavOffLinkMove : MonoBehaviour
                             //agent.transform.Rotate(0, 0, -yrotation, Space.Self);
                             break;
                         case TransformPosition.Cieling:
-                            Debug.Log("WallZ to Cieling");
                             xrotation = (-180 - agent.transform.rotation.eulerAngles.x) % 360;
                             if (xrotation > 180)
                             {
@@ -239,7 +216,6 @@ public class NavOffLinkMove : MonoBehaviour
                             //transform.Rotate(0, yrotation, zrotation);
                             break;                        
                         case TransformPosition.Floor:
-                            Debug.Log("WallZ to Floor");
                             xrotation = (180 - agent.transform.rotation.eulerAngles.x) % 360;
                             if (xrotation > 180)
                             {
@@ -268,7 +244,6 @@ public class NavOffLinkMove : MonoBehaviour
                             //transform.Rotate(0, yrotation, zrotation);
                             break;  
                         default:
-                            Debug.Log("Something is wrong with the WallX code");
                             break;
                     }
 
@@ -276,18 +251,6 @@ public class NavOffLinkMove : MonoBehaviour
                     break;
                 case TransformPosition.Cieling:
                     newPos = CheckTransformDirection();
-                    if (newPos == TransformPosition.WallX)
-                    {
-                        Debug.Log("Cieling To WallX");
-                    }
-                    else if(newPos == TransformPosition.WallZ)
-                    {
-                        Debug.Log("Cieling To WallZ");
-                    }
-                    else
-                    {
-                        Debug.Log("Something is really weird in Cieling Switch");
-                    }
                     currentTime = 90 / RotateSpeed;
                     translateSpeed = TranslateAmount / currentTime;
                     yrotation = agent.transform.rotation.eulerAngles.y % 360;
@@ -310,7 +273,6 @@ public class NavOffLinkMove : MonoBehaviour
                     currentPos = newPos;
                     break;
                 default:
-                    Debug.Log("Something Wrong With Everything");
                     break;
             }
 
@@ -318,7 +280,6 @@ public class NavOffLinkMove : MonoBehaviour
             agent.updateRotation = true;
             agent.enabled = true;
             agent.SetDestination(Destination.position);
-            Debug.Log("End Climb");
             climbing = false;
         }
 

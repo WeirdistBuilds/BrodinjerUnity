@@ -73,10 +73,6 @@ public class UpdateMeshCollider : MonoBehaviour
             if(UpdateOnAwake)
                 StartUpdate();
         }
-        else
-        {
-            Debug.LogError(gameObject.name + ": SkinnedCollisionHelper: this object either has no SkinnedMeshRenderer or has no MeshCollider!");
-        }
         
  
     }

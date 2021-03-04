@@ -42,7 +42,7 @@ public class MovePlayer : MonoBehaviour
         }
         yield return new WaitForFixedUpdate();
         ObjToMove.transform.position = PlaceToMoveTo.transform.position;
-        ObjToMove.rotation = PlaceToMoveTo.rotation;
+        //ObjToMove.rotation = PlaceToMoveTo.rotation;
         FadedEvent.Invoke();
         if (_cc != null)
             _cc.enabled = true;

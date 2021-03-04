@@ -102,7 +102,6 @@ public class Z_Targeting : MonoBehaviour
                             //If there are more objects to the Right;
                             if ((targetIndex = objInRange.IndexOf(objClosest) - 1) >= 0)
                             {
-                                Debug.Log("Right");
                                 UnTarget(objClosest);
                                 nextTarget = objInRange[targetIndex];
                                 if (GetAngle(nextTarget.transform, mainCamera) < Mathf.Abs(m_Angle))
@@ -125,7 +124,6 @@ public class Z_Targeting : MonoBehaviour
                             //If objects to Left
                             if ((targetIndex = objInRange.IndexOf(objClosest) + 1) < objInRange.Count)
                             {
-                                Debug.Log("Left");
                                 UnTarget(objClosest);
                                 nextTarget = objInRange[targetIndex];
 
@@ -200,23 +198,6 @@ public class Z_Targeting : MonoBehaviour
 
     private List<GameObject> InAngle(List<GameObject> objs)
     {
-        /*List<GameObject> temp = new List<GameObject>();
-        
-        for (int i = 0; i<objs.Count; i++)
-        {
-            Vector3 facingDirection = Quaternion.LookRotation((objs[i].transform.position - forwardDirection.position)).eulerAngles;
-            float x = facingDirection.x;
-            if (x > 180)
-            {
-                x -= 360;
-            }
-            Debug.Log("X: " + objs[i].name + " " +  x);
-            if(x >= cameraRot.cameraRotation.minCamAngle && x <= cameraRot.cameraRotation.maxCamAngle)
-            {
-                temp.Add(objs[i]);
-            }
-        }
-        return temp;*/
         return objs;
     }
 

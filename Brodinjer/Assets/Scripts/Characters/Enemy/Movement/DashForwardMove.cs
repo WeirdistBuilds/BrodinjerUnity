@@ -17,7 +17,6 @@ public class DashForwardMove : NavMesh_Enemy_Base
         agent.speed = DashSpeed;
         if(agent.enabled)
             agent.destination += agent.transform.forward * Time.deltaTime * DashSpeed;
-        Debug.Log("Start Dash");
         while (currentTime < dashTime && canMove && moving)
         {
             currentTime += Time.deltaTime;
@@ -25,7 +24,6 @@ public class DashForwardMove : NavMesh_Enemy_Base
                 agent.destination += agent.transform.forward * Time.deltaTime * DashSpeed;
             yield return fixedUpdate;
         }
-        Debug.Log("Finish Dash");
         agent.speed = Speed;
         while (canMove && moving)
         {

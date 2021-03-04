@@ -19,6 +19,11 @@ public class Timed_Event : MonoBehaviour
         
     }
 
+    public void ForceEvent()
+    {
+        Event.Invoke();
+    }
+
     public void Call()
     {
         waitFunc = StartCoroutine(Wait());

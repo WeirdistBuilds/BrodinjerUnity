@@ -60,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
             rotating = true;
             rotateFunc = StartCoroutine(rotate.Rotate());
         }
-        Debug.Log("Dead");
     }
 
     private void FixedUpdate()
@@ -75,11 +74,11 @@ public class PlayerMovement : MonoBehaviour
             pauseInits = false;
             StartAll();
         }
-        if(targetScript.isTargeting && !targeting)
+        if(targetScript!= null && targetScript.isTargeting && !targeting)
         {
             Target();
         }
-        else if(!targetScript.isTargeting && targeting)
+        else if(targetScript != null && !targetScript.isTargeting && targeting)
         {
             UnTarget();
         }
@@ -322,7 +321,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Target()
     {
-        Debug.Log("Target");
         prevRotate = rotate;
         prevTranslate = translate;
         SwapMovement(zRotation, translate, extraControls);
@@ -331,7 +329,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void UnTarget()
     {
-        Debug.Log("Un Target");
         targeting = false;
         SwapMovement(prevRotate, prevTranslate, extraControls);
     }

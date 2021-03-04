@@ -35,7 +35,7 @@ public class Animation_Movement : Animation_Base
             {
                 anim.speed = 1;
             }
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(.5f);
         }
     }
 

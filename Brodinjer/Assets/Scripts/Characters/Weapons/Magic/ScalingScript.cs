@@ -129,7 +129,7 @@ public class ScalingScript : WeaponBase
                             {
                                 currPower = MaxPower;
                             }
-                            else
+                            else if(currSpell != null)
                             {
                                 currPower += Time.deltaTime * PowerIncreaseScale;
                                 currSpell.transform.localScale = Vector3.Lerp(Vector3.zero, finalScale, GeneralFunctions.ConvertRange(0, MaxPower, 0, 1, currPower));
@@ -144,14 +144,19 @@ public class ScalingScript : WeaponBase
                             yield return new WaitForSeconds(.25f);
                             aiming = false;
                             CenterCursor.SetActive(false);
-                            SpellBall.constraints = RigidbodyConstraints.FreezeRotation;
-                            currSpell.transform.parent = null;
-                            temp = currSpell.GetComponentInChildren<ScalingMagic>();
+                            if (SpellBall != null)
+                                SpellBall.constraints = RigidbodyConstraints.FreezeRotation;
+                            if (currSpell != null)
+                            {
+                                currSpell.transform.parent = null;
+                                temp = currSpell.GetComponentInChildren<ScalingMagic>();
+                            }
                             if (temp && temp.VFX)
                                 temp.VFX.SetActive(true);
                             temp.Fire();
                             MagicCastSound.Play();
-                            SpellBall.AddForce(Direction.transform.forward * currPower, ForceMode.Impulse);
+                            if (SpellBall != null)
+                                SpellBall.AddForce(Direction.transform.forward * currPower, ForceMode.Impulse);
                             currentSpellDuration = maxSpellDuration * (currPower / MaxPower);
                         }
                         else
@@ -204,8 +209,8 @@ public class ScalingScript : WeaponBase
 
     private IEnumerator WaitDestroy()
     {
-        yield return new WaitForSeconds(.5f);
-
+        yield return new WaitForSeconds(.1f);
+        Destroy(currSpell.gameObject);
     }
     
 

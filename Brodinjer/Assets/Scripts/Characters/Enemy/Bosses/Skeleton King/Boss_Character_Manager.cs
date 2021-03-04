@@ -16,6 +16,7 @@ public class Boss_Character_Manager : MonoBehaviour
     private ResetTriggers reset;
     private bool pause;
     public SoundController damageSound;
+    public Head_Follow headlook;
     
     private void Start()
     {
@@ -65,8 +66,7 @@ public class Boss_Character_Manager : MonoBehaviour
     public void TakeDamage(float amount, bool armor, float ArmorAmount, string DamageTrigger = "Damage")
     {
         if (!dead && !damaged)
-        {
-            damaged = true;
+        {            damaged = true;
             health.TakeDamage(amount, armor, ArmorAmount);
             StartCoroutine(PauseDamage());
             if (reset)
@@ -82,6 +82,7 @@ public class Boss_Character_Manager : MonoBehaviour
             currentPhase.StopDamage();
             if (health.health.value <= healthMarks[currentHealthMark])
             {
+                headlook.SetRotate(false);
                 currentHealthMark++;
                 if(currentHealthMark < healthMarks.Count)
                     StartNextPhase();

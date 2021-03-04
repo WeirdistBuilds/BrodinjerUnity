@@ -31,8 +31,6 @@ public abstract class WeaponBase : MonoBehaviour
     }
     public virtual void Unfreeze()
     {
-        Debug.Log("Unfreeze");
-
         frozen = false;
     }
 

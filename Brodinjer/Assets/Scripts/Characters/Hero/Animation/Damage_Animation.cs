@@ -26,7 +26,6 @@ public class Damage_Animation : Animation_Base
         if(reset)
             reset.ResetAllTriggers();
         anim.SetFloat(DirectionName, GetDirection(hitDirection));
-        Debug.Log("Damage Animation");
 
         anim.SetTrigger(StartTriggerName);
     }

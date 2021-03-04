@@ -5,7 +5,9 @@ using UnityEngine;
 public class Rake_Attack : Enemy_Attack_Base
 {
     public string AnimationTriggerName;
-    public GameObject AttackObj2;
+    public GameObject AttackObj2, PalmAttackObj;
+    public SoundController swipeSound;
+    public float waittime01, waittime02;
     
     public override IEnumerator Attack()
     {
@@ -13,8 +15,16 @@ public class Rake_Attack : Enemy_Attack_Base
             resetAnims.ResetAllTriggers();
         animator.SetTrigger(AnimationTriggerName);
         yield return new WaitForSeconds(AttackStartTime);
-        WeaponAttackobj.SetActive(true);
+        PalmAttackObj.SetActive(true);
+        yield return new WaitForSeconds(waittime01);
+        attackSound.Play();
+        yield return new WaitForSeconds(.5f);
+        PalmAttackObj.SetActive(false);
+        yield return new WaitForSeconds(waittime02);
+        swipeSound.Play();
+        yield return new WaitForSeconds(.25f);
         AttackObj2.SetActive(true);
+        WeaponAttackobj.SetActive(true);
         yield return new WaitForSeconds(AttackActiveTime);
         WeaponAttackobj.SetActive(false);
         AttackObj2.SetActive(false);

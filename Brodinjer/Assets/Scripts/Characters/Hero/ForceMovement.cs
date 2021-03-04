@@ -8,29 +8,54 @@ public class ForceMovement : MonoBehaviour
     public float JumpBackDistance, JumpTime;
     public string JumpBackString;
     public Animator anim;
+    public float RotationSpeed;
+    public float RunSpeed;
 
     public float TurnTime;
+    public Transform destination;
 
+
+    public void StopMove()
+    {
+        StopAllCoroutines();
+        anim.SetTrigger("Idle");
+        anim.SetFloat("Speed", 0);
+    }
 
     public void JumpBack(Transform direction)
     {
-        StartCoroutine(Dodge(direction.transform.forward, JumpBackDistance, JumpTime, JumpBackString));
+        StartCoroutine(Dodge(destination, JumpBackDistance, JumpTime, JumpBackString));
     }
-    private IEnumerator Dodge(Vector3 dodgeDirection, float amount, float dodgeTime, string animationString)
+    private IEnumerator Dodge(Transform dodgeDirection, float amount, float dodgeTime, string animationString)
     {
-        if(animationString != "")
+        float currentTime = 0;
+        if (animationString != "")
         {
             anim.speed = 1;
             anim.gameObject.GetComponent<ResetTriggers>().ResetAllTriggers();
             anim.SetTrigger(animationString);
         }
-        float currentTime = 0;
         while (currentTime < dodgeTime)
         {
-            Vector3 _moveVec = dodgeDirection * amount;
-            controller.Move(_moveVec * Time.deltaTime);
+            Vector3 targetRotation = dodgeDirection.position;
+            targetRotation = (targetRotation - controller.transform.position).normalized;
+            Quaternion facingDirection = Quaternion.LookRotation(targetRotation);
+            Quaternion YRotation = Quaternion.Euler(controller.transform.rotation.eulerAngles.x,
+                facingDirection.eulerAngles.y, controller.transform.rotation.eulerAngles.z);
+            if (!GeneralFunctions.CheckDestination(controller.transform.rotation.eulerAngles,
+                YRotation.eulerAngles, .1f))
+            {
+                controller.transform.rotation =
+                    Quaternion.Lerp(controller.transform.rotation, YRotation, RotationSpeed * Time.deltaTime);
+            }
             currentTime += Time.deltaTime;
+            Vector3 targetDestination = controller.transform.position + (controller.transform.forward * RunSpeed * Time.deltaTime);
+            targetDestination.y = controller.transform.position.y;
+            controller.transform.position =
+                Vector3.MoveTowards(controller.transform.position, targetDestination, RunSpeed * Time.deltaTime);
+
             yield return new WaitForFixedUpdate();
+
         }
         anim.SetTrigger("Idle");
     }

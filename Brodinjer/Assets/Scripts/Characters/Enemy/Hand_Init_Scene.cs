@@ -11,7 +11,7 @@ public class Hand_Init_Scene : MonoBehaviour
     public Animator HandAnim, DoorAnim;
     public NavMeshAgent HandAgent;
 
-    public GameObject SceneCam, PlayerCam;
+    public GameObject SceneCam;// PlayerCam;
 
     public float InitWait, HandSurpriseWait, HandScurryTime, EndTimeWait;
 
@@ -30,7 +30,7 @@ public class Hand_Init_Scene : MonoBehaviour
 
     private IEnumerator Run()
     {
-        PlayerCam.SetActive(false);
+        //PlayerCam.SetActive(false);
         yield return new WaitForSeconds(InitWait);
         HandAnim.SetTrigger("Surprise");
         yield return new WaitForSeconds(HandSurpriseWait);
@@ -55,7 +55,7 @@ public class Hand_Init_Scene : MonoBehaviour
         DoorAnim.SetTrigger("Close");
         yield return new WaitForSeconds(EndTimeWait);
         endEvent.Invoke();
-        PlayerCam.SetActive(true);
+        //PlayerCam.SetActive(true);
         SceneCam.SetActive(false);
     }
     

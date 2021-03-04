@@ -19,14 +19,12 @@ public class AxeSwingTriggerEvent : Trigger_Event_Base
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(gameObject.name + " " + other.gameObject.name + other.gameObject.tag);
         obj = other.gameObject;
         StartCoroutine(CheckTrigger(other));
     }
 
     public override void RunEvent()
     {
-        Debug.Log(obj.name);
         if (melee.largeAttack)
             StrongMelee.Play();
         else

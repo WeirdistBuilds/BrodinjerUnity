@@ -151,7 +151,6 @@ public class GearRotation : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Not A Gear");
                     }
                 }
             }
@@ -172,10 +171,6 @@ public class GearRotation : MonoBehaviour
                         previousConnections = connectedGears;
                         UnClog(new List<GearRotation>() { this });
                         connectedGears.Remove(tempConnection);
-                    }
-                    else
-                    {
-                        Debug.Log("Not A Gear");
                     }
                 }
             }
@@ -207,7 +202,6 @@ public class GearRotation : MonoBehaviour
                 gear.UnClog(changedList);
             }
         }
-        Debug.Log("Unclog: " + gameObject.name);
     }
 
     public bool CheckInit(List<GearRotation> checkedList, bool isInit)

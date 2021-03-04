@@ -18,7 +18,6 @@ public class Rib_Cage_Melee_Attack : Enemy_Attack_Base
         currentlyattacking = false;
         if (!currentlyattacking)
         {
-            //Debug.Log("Run Anims");
             if (animations != null)
                 animations.StartAnimation();
             currentlyattacking = true;

@@ -40,7 +40,6 @@ public class Targeting : MonoBehaviour
         {
             if (targetObj != null)
             {
-                Debug.Log("Deactivate");
                 targetObj.target.SetActive(false);
             }            targetObj = currentTarget.GetComponent<TargetObject>();
             if (targetObj == null)
@@ -57,7 +56,6 @@ public class Targeting : MonoBehaviour
         {
             if (targetObj != null)
             {
-                Debug.Log("Deactivate");
                 targetObj.target.SetActive(false);
             } 
         }
@@ -233,7 +231,6 @@ public class Targeting : MonoBehaviour
                     findClosest();
                     if (currentTarget!= null && currentTarget.GetComponentInChildren<TargetObject>()!= null)
                     {
-                        //Debug.Log("Different Target");
                         objtarget = currentTarget.GetComponentInChildren<TargetObject>().gameObject;
                         currTargetObj.SetTransform(objtarget.transform);
                     }
@@ -250,7 +247,6 @@ public class Targeting : MonoBehaviour
                         findRight(currentTarget);
                         if (currentTarget!= null && currentTarget.GetComponentInChildren<TargetObject>()!= null)
                         {
-                            //Debug.Log("Different Target");
                             objtarget = currentTarget.GetComponentInChildren<TargetObject>().gameObject;
                             currTargetObj.SetTransform(objtarget.transform);
                         }
@@ -264,7 +260,6 @@ public class Targeting : MonoBehaviour
                         findLeft(currentTarget); 
                         if (currentTarget!= null && currentTarget.GetComponentInChildren<TargetObject>()!= null)
                         {
-                            //Debug.Log("Different Target");
                             objtarget = currentTarget.GetComponentInChildren<TargetObject>().gameObject;
                             currTargetObj.SetTransform(objtarget.transform);
                         }

@@ -51,7 +51,6 @@ public class Enemy_Side_Step : NavMesh_Enemy_Base
 
     public virtual IEnumerator ChangeDest()
     {
-        Debug.Log("Change Dest");
         agent.speed = 0;
         if (_right)
         {

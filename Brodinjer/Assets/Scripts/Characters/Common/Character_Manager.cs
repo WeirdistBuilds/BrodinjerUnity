@@ -80,12 +80,14 @@ public abstract class Character_Manager : MonoBehaviour
         if (canDamage && !dead)
         {
             Character.Health.TakeDamage(amount, armor);
-            if (damageSound)
+            if (damageSound && !MainCharacter)
                 damageSound.Play();
             if (Character.Health.health.value <= 0)
             {
                 return;
             }
+            if (damageSound && MainCharacter)
+                damageSound.Play();
             
         }
     }
@@ -113,7 +115,6 @@ public abstract class Character_Manager : MonoBehaviour
                     if (!temp.SingleHit || (temp.SingleHit && !temp.hit))
                     {
                         temp.hit = true;
-                        Debug.Log("Hit: " + this.gameObject.name + " " + coll.gameObject.name + " Layer: " + coll.gameObject.layer);
                         TakeDamage(temp.DamageAmount, temp.DecreasedbyArmor);
                     }
 

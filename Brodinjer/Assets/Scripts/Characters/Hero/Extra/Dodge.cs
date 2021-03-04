@@ -29,7 +29,6 @@ public class Dodge : CharacterControlExtraBase
             {
                 if (Input.GetButtonDown(DodgeButton) && !dodging)
                 {
-                    Debug.Log("Dodge");
                     dodging = true;
                     translate.extraControlled = true;
                     while (currentTime < dodgeTime)

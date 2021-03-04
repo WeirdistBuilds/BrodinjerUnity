@@ -118,7 +118,6 @@ public class BowandArrow : WeaponBase
                     }
                     if (playermove.rotate != bowRotate)
                     {
-                        Debug.Log("Swap Movement Bow");
                         playermove.SwapMovement(bowRotate, bowTranslate, playermove.extraControls);
                     }
                     while (Input.GetButton(useButton))

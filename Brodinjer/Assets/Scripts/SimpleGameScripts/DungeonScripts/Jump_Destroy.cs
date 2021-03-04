@@ -24,11 +24,9 @@ public class Jump_Destroy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Trigger");
                 if (!running && other.GetComponent<CharacterController>().velocity.y < minJumpVelocity)
                 {
                     running = true;
-                    Debug.Log("Invoke Jump");
                     JumpEvents[currentJump].Invoke();
                     currentJump++;
                     if (currentJump >= numJumps)

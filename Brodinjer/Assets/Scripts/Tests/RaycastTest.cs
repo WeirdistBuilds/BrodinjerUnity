@@ -21,8 +21,6 @@ public class RaycastTest : MonoBehaviour
                 objectToMove.transform.position = hit.point;
             else
                 objectToMove.transform.position = transform.position + transform.forward * 100;
-            /*if(DebugObj)
-                Debug.Log("Hit Dist: " + hit.distance);*/
         }
         else
         {

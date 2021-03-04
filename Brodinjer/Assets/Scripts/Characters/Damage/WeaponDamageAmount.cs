@@ -36,4 +36,9 @@ public class WeaponDamageAmount : MonoBehaviour
         }
         hit = false;
     }
+
+    private void OnDisable()
+    {
+        hit = false;
+    }
 }

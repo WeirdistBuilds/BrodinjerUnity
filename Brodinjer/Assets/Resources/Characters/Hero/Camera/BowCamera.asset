@@ -16,6 +16,9 @@ MonoBehaviour:
   rotationSpeed: 100
   CameraHorizontal: Mouse X
   CameraVertical: Mouse Y
+  camNum: 0
   cameraTransform: {fileID: 0}
+  FollowObj: {fileID: 0}
+  RotateObject: {fileID: 0}
   minCamAngle: -90
-  maxCamAngle: 90
+  maxCamAngle: 125

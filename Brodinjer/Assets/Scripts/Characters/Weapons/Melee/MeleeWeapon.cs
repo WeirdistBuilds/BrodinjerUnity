@@ -138,7 +138,6 @@ public class MeleeWeapon : WeaponBase
                 damage.DamageAmount = DamageAttack1;
                 if (freezeWhenAttack)
                 {
-                    Debug.Log("Reset Ax");
                     playermove.SwapMovement(origRotation, origMovement);
                     origMovement.RunForwardSpeed = origrunfor;
                     origMovement.RunSideSpeed = origrunside;
@@ -147,7 +146,6 @@ public class MeleeWeapon : WeaponBase
                 }
                 SoundObj.SetActive(false);
                 WeaponTrail.Stop();
-                Debug.Log("Finish Attack");
                 knockbackObj.SetActive(false);
                 anim.SetInteger(ComboNumInteger, 0);
                 anim.SetTrigger(AttackEndTrigger);

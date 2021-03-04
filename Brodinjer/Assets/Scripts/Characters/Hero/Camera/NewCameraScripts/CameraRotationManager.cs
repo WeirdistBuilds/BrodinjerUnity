@@ -100,7 +100,7 @@ public class CameraRotationManager : MonoBehaviour
         {
             if (canRotate && !dead)
             {
-                if (!targetscript.isTargeting)
+                if (targetscript == null || !targetscript.isTargeting)
                 {
                     if (cameraRotation.targeting)
                     {

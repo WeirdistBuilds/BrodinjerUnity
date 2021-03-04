@@ -19,6 +19,7 @@ public class Hand_In_Between : Enemy_Follow_Base
         StartCoroutine(WalkSound());
         agent.speed = Speed;
         agent.updatePosition = true;
+        float currentTime = 0;
         while (moving)
         {
             agent.updateRotation = true;
@@ -48,9 +49,13 @@ public class Hand_In_Between : Enemy_Follow_Base
                 followDest += player.transform.forward * -distanceFromFollowObj;
             }
 
-            if (agent.enabled)
+            if (agent.enabled && currentTime > .5f)
+            {
+                currentTime = 0;
                 agent.destination = followDest;
-            yield return new WaitForFixedUpdate();
+            }
+            currentTime += .1f;
+            yield return new WaitForSeconds(.1f);
         }
     }
 

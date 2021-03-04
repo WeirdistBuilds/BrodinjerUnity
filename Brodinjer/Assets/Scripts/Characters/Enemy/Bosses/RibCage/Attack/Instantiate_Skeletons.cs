@@ -35,7 +35,6 @@ public class Instantiate_Skeletons : MonoBehaviour
         }
 
         numSkeletonsPresent--;
-        Debug.Log(numSkeletonsPresent);
         
         if (numSkeletonsPresent < numSkeletons)
         {

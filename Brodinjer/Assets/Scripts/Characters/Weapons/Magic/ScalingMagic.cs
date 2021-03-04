@@ -35,7 +35,6 @@ public class ScalingMagic : MonoBehaviour
         MagicCollider.SetActive(true);
         VFXCollider.SetActive(true); 
         //GetComponentInParent<Look_At_Script>().StopLookAt();
-        Debug.Log("Fire");
     }
 
     private IEnumerator OnTriggerEnter(Collider other)
@@ -47,7 +46,6 @@ public class ScalingMagic : MonoBehaviour
             if (other.CompareTag("Scalable"))
             {
                 scalescript.SpellHit(true);
-                Debug.Log("Hit obj");
                 hitObj = true;
                 ScalingObj = other.gameObject.transform;
                 scaleObj = ScalingObj.GetComponent<ScalableObjectBase>();

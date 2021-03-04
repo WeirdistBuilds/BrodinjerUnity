@@ -37,7 +37,6 @@ public abstract class NavMesh_Enemy_Base : Enemy_Movement
         }
         if(AnimationBase)
             AnimationBase.StopAnimation();
-        //Debug.Log("Stop Move Enemy Movement");
     }
 
 }

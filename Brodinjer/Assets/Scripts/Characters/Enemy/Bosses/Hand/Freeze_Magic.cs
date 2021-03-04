@@ -9,16 +9,14 @@ public class Freeze_Magic : Trigger_Event_Base
     private PlayerMovement playermove;
     private WeaponManager weapons;
     private Coroutine resetFunc;
-    public UnityEvent OnTrigger;
+    public UnityEvent OnTrigger, OnReset;
     public LayerMask ignoreLayer;
+
 
     private void OnTriggerEnter(Collider other)
     {
         if(!isRunning)
             StartCoroutine(CheckTrigger(other));
-        OnTrigger.Invoke();
-        if(other.gameObject.layer != ToLayer(layer.value))
-            OnTrigger.Invoke();
     }
 
     public override void RunEvent()

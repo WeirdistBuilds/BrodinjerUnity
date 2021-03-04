@@ -23,7 +23,6 @@ public class Swap_Side : MonoBehaviour
     private IEnumerator Swap()
     {
         yield return new WaitForSeconds(WaitTime);
-        Debug.Log("Swap Side");
         if (side1)
         {
             transform.position = Side02.position;

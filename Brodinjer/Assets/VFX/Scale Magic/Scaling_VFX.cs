@@ -48,15 +48,11 @@ public class Scaling_VFX : MonoBehaviour
 
     public void Highlight()
     {
-        Debug.Log("Highlight");
-        //Indicator.Stop();
         Highlighter.Play();
     }
 
     public void UnHighlight()
     {
-        Debug.Log("UnHighlight");
-        //Indicator.Play();
         Highlighter.Stop();
     }
 

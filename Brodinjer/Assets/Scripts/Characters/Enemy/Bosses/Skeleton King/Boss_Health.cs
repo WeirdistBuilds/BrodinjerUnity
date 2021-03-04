@@ -23,7 +23,6 @@ public class Boss_Health : Health_Base
         {
             health.SubFloat(amount);
         }
-        Debug.Log("Current Health " + name + " : " + health.value);
         if (health.value <= 0)
         {
             Death();

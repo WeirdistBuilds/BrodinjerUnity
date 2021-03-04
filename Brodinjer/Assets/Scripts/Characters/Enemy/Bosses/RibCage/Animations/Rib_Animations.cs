@@ -14,13 +14,11 @@ public class Rib_Animations : Animation_Base
         if (anim != null)
         {
             angle = GetDirection();
-            Debug.Log("Original Angle: " + angle);
             if (angle <= maxFrontAngle && angle >= minFrontAngle)
             {
                 tempangle = ConvertRange(minFrontAngle, maxFrontAngle, 0, 1, angle);
                 anim.SetFloat(directionFront, tempangle);
                 anim.SetTrigger(FrontAttack);
-                Debug.Log("Direction: " + tempangle + " Front ");
 
             }
             else
@@ -28,13 +26,11 @@ public class Rib_Animations : Animation_Base
                 if (angle > maxFrontAngle)
                 {
                     tempangle = ConvertRange(maxFrontAngle, 1, 1, .5f, angle);
-                    Debug.Log("Direction: " + tempangle + " Back Right");
 
                 }
                 else
                 {
                     tempangle = ConvertRange(0, minFrontAngle, .5f, 0, angle);
-                    Debug.Log("Direction: " + tempangle + " Back Left");
 
                 }
                 anim.SetFloat(directionBack, tempangle);
