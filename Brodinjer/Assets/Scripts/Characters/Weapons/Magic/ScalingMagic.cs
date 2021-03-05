@@ -23,6 +23,7 @@ public class ScalingMagic : MonoBehaviour
     public GameObject VFX;
     public string ScaleAxis;
     public GameObject MagicCollider, VFXCollider;
+    public GameObject InitialScaleTutorial, ScaleTutorial;
 
     private void Start()
     {
@@ -73,6 +74,15 @@ public class ScalingMagic : MonoBehaviour
     private IEnumerator Scale()
     {
         //movement.StopAll();
+        if (scalescript.InitialScale)
+        {
+            scalescript.InitialScale = false;
+            InitialScaleTutorial.SetActive(true);
+        }
+        else
+        {
+            ScaleTutorial.SetActive(true);
+        }
         bool soundon = false;
         if (scaleObj != null)
         {
@@ -142,6 +152,7 @@ public class ScalingMagic : MonoBehaviour
 
     private void OnDestroy()
     {
+        ScaleTutorial.SetActive(false);
         MagicInUse.value = false;
         if (scaleObj != null)
         {
