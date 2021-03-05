@@ -10,6 +10,7 @@ public class Interaction_Trigger_Event : Trigger_Event_Base
     public UnityEvent inRangeEvent, outOfRangeEvent;
     private Coroutine checkFunc;
     public string InteractButton = "Interact";
+    public GameObject TutorialInteract;
 
     private void Start()
     {
@@ -47,6 +48,8 @@ public class Interaction_Trigger_Event : Trigger_Event_Base
                 case Check.Layer:
                     if (other.gameObject.layer == ToLayer(layer.value))
                     {
+                        if(TutorialInteract != null)
+                            TutorialInteract.SetActive(true);
                         inrange = true;
                         inRangeEvent.Invoke();
                     }
@@ -55,6 +58,8 @@ public class Interaction_Trigger_Event : Trigger_Event_Base
                 case Check.Name:
                     if (other.gameObject.name.Contains(objName))
                     {
+                        if(TutorialInteract != null)
+                            TutorialInteract.SetActive(true);
                         inrange = true;
                         inRangeEvent.Invoke();
                     }
@@ -63,6 +68,8 @@ public class Interaction_Trigger_Event : Trigger_Event_Base
                 case Check.Tag:
                     if (other.gameObject.CompareTag(tagName))
                     {
+                        if(TutorialInteract != null)
+                            TutorialInteract.SetActive(true);
                         inrange = true;
                         inRangeEvent.Invoke();
                     }
@@ -81,6 +88,8 @@ public class Interaction_Trigger_Event : Trigger_Event_Base
                 case Check.Layer:
                     if (other.gameObject.layer == ToLayer(layer.value))
                     {
+                        if(TutorialInteract != null)
+                            TutorialInteract.SetActive(false);
                         inrange = false;
                         outOfRangeEvent.Invoke();
                     }
@@ -89,6 +98,8 @@ public class Interaction_Trigger_Event : Trigger_Event_Base
                 case Check.Name:
                     if (other.gameObject.name.Contains(objName))
                     {
+                        if(TutorialInteract != null)
+                            TutorialInteract.SetActive(false);
                         inrange = false;
                         outOfRangeEvent.Invoke();
                     }
@@ -97,6 +108,8 @@ public class Interaction_Trigger_Event : Trigger_Event_Base
                 case Check.Tag:
                     if (other.gameObject.CompareTag(tagName))
                     {
+                        if(TutorialInteract != null)
+                            TutorialInteract.SetActive(false);
                         inrange = false;
                         outOfRangeEvent.Invoke();
                     }
@@ -112,6 +125,8 @@ public class Interaction_Trigger_Event : Trigger_Event_Base
         {
             if (Input.GetButtonDown(InteractButton) && inrange)
             {
+                if(TutorialInteract != null)
+                            TutorialInteract.SetActive(false);
                 RunEvent();
             }
             yield return new WaitForFixedUpdate();
