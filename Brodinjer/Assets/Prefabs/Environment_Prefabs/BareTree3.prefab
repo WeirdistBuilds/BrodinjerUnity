@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 6343175216040779515}
   - component: {fileID: 3385801377871842914}
   - component: {fileID: 4228288289611241847}
+  - component: {fileID: 3359252390160187052}
   m_Layer: 0
   m_Name: bare_maple_tree_LOD0
   m_TagString: Untagged
@@ -158,6 +159,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &3359252390160187052
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3681803618537135252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25745866
+  m_Height: 17.295174
+  m_Direction: 1
+  m_Center: {x: 0.11819904, y: 7.0760994, z: -0.04324353}
 --- !u!1 &6863050034744377319
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +220,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.25
+  - screenRelativeHeight: 0.18057555
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4228288289611241847}

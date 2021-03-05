@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 8262728821914318276}
   - component: {fileID: 6112274345380226463}
   - component: {fileID: 5625030190827531565}
+  - component: {fileID: 8750871297815515514}
   m_Layer: 0
   m_Name: bare_seven_tree_LOD0
   m_TagString: Untagged
@@ -135,6 +136,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &8750871297815515514
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631555884876993258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1179135
+  m_Height: 7.2523637
+  m_Direction: 1
+  m_Center: {x: -0.040041797, y: 3.3469405, z: 0.04421906}
 --- !u!1 &3326212433001679714
 GameObject:
   m_ObjectHideFlags: 0

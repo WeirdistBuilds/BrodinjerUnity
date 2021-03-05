@@ -8,6 +8,7 @@ public class RandomSoundController : SoundController
     
     public override void Play()
     {
+        //Debug.Log("Play: " + gameObject.name);
         _clipLength = _mClips.Length;
         if (_mSource.isPlaying)
         {

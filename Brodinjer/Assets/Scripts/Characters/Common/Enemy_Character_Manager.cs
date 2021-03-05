@@ -12,6 +12,7 @@ public class Enemy_Character_Manager : Character_Manager
     private Timed_Event Reset;
     private bool running;
     private float currentTime;
+    public Collider box;
 
     public override void Init()
     {
@@ -34,7 +35,8 @@ public class Enemy_Character_Manager : Character_Manager
     {
         if (agent != null)
         {
-            agent.enabled = false;
+            if (box)
+                box.isTrigger = false;
             difference = /*agent.transform.position + */(other.BaseObj.transform.forward*other.KnockbackForce);
             if (!running)
             {
@@ -49,6 +51,8 @@ public class Enemy_Character_Manager : Character_Manager
         running = true;
         if (agent != null)
         {
+            yield return new WaitForSeconds(.1f);
+            agent.enabled = false;
             currentTime = weapon.KnockbackTime;
             while (currentTime > 0)
             {
@@ -57,8 +61,10 @@ public class Enemy_Character_Manager : Character_Manager
                 yield return new WaitForFixedUpdate();
             }
         }
-
         agent.enabled = true;
+        yield return new WaitForSeconds(.1f);
+        if (box)
+            box.isTrigger = true;
         running = false;
     }
 
