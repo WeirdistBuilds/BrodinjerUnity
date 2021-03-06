@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeTimeScale : MonoBehaviour
 {
-    private void Start()
+    private void Awake()
     {
         Time.timeScale = 1;
     }

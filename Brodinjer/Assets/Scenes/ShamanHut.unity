@@ -16448,6 +16448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702ba2a4da317b741929700ad65a2961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnHideCursor: 0
 --- !u!1001 &924296434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19799,7 +19800,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   InteractButton: Interact
-  TutorialInteract: {fileID: 0}
+  TutorialInteract: {fileID: 9167173660089136947}
 --- !u!4 &1212985831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6084116652108500154, guid: 8a909dc2c4b422d4da105dac4ac0031b,
@@ -74020,7 +74021,7 @@ PrefabInstance:
     - target: {fileID: 357899708454793402, guid: 73ea5945b1ba4384f931d8e54ad36f65,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 491023720006696954, guid: 73ea5945b1ba4384f931d8e54ad36f65,
         type: 3}
@@ -74636,6 +74637,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060ec5c3eff0a584fac0a58241484465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &9167173660089136947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7051545883799314842, guid: 73ea5945b1ba4384f931d8e54ad36f65,
+    type: 3}
+  m_PrefabInstance: {fileID: 9167173660089136945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9167173660353814721
 MonoBehaviour:
   m_ObjectHideFlags: 0
