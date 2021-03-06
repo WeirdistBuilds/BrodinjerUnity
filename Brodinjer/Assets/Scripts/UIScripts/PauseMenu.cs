@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public BoolData gameIsPaused;
-    private bool optionsMenuIsActive;
+    public bool optionsMenuIsActive;
     public GameObject pauseMenuUI, optionsMenuUI;
     private bool dead;
 
@@ -23,16 +23,22 @@ public class PauseMenu : MonoBehaviour
             {
                 if (optionsMenuIsActive)
                 {
+                    Debug.Log("Reset Options");
+                    gameIsPaused.value = true;
                     optionsMenuUI.SetActive(false);
+                    optionsMenuIsActive = false;
                     pauseMenuUI.SetActive(true);
                 }
                 else
                 {
+                    Debug.Log("Resume");
                     Resume();    
                 }
             }
             else
             {
+                Debug.Log("Pause");
+                gameIsPaused.value = true;
                 Pause();
             }
         }

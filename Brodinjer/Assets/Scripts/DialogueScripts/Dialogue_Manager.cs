@@ -23,6 +23,8 @@ public class Dialogue_Manager : MonoBehaviour
     private bool continueText;
 
     public PauseMenu menuScript;
+
+    public GameObject TutorialInteract;
     
     
     private void Start()
@@ -33,12 +35,15 @@ public class Dialogue_Manager : MonoBehaviour
         Character_Text.text = "";
         Dialouge_Object.SetActive(false);
         continueText = false;
+        TutorialInteract.SetActive(false);
     }
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            if(TutorialInteract!= null)
+                TutorialInteract.SetActive(true);
             inRange = true;
         }
     }
@@ -47,6 +52,8 @@ public class Dialogue_Manager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if(TutorialInteract != null)
+                TutorialInteract.SetActive(false);
             inRange = false;
         }
     }
@@ -55,6 +62,8 @@ public class Dialogue_Manager : MonoBehaviour
     {
         if (inRange && !(ConvStart.value) && Input.GetButtonDown(interact_key))
         {
+            if(TutorialInteract != null)
+                TutorialInteract.SetActive(false);
             OnInteract.Invoke();
         }
     }
@@ -66,6 +75,7 @@ public class Dialogue_Manager : MonoBehaviour
             Dialouge_Object.SetActive(true);
             StartCoroutine(ScrollText());
             menuScript.enabled = false;
+            TutorialInteract.SetActive(false);
         }
     }
 
@@ -76,6 +86,7 @@ public class Dialogue_Manager : MonoBehaviour
             Dialouge_Object.SetActive(true);
             StartCoroutine(ScrollTextCutscene());
             menuScript.enabled = false;
+            TutorialInteract.SetActive(false);
         }
     }
 
@@ -114,7 +125,9 @@ public class Dialogue_Manager : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(.01f);
+
                 yield return new WaitUntil(() => continueText);
+
             }
         }
         Dialouge_Object.SetActive(false);
@@ -151,6 +164,8 @@ public class Dialogue_Manager : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(.01f);
+                if (TutorialInteract != null)
+                    TutorialInteract.SetActive(true);
                 yield return new WaitUntil(() => Input.GetButtonDown(interact_key));
             }
         }
@@ -159,14 +174,20 @@ public class Dialogue_Manager : MonoBehaviour
         OnFinish.Invoke();
         menuScript.enabled = true;
         ConvStart.value = false;
+        if (TutorialInteract != null)
+            TutorialInteract.SetActive(false);
     }
 
 
 
     public void CloseDialogue()
     {
+        if(TutorialInteract != null)
+            TutorialInteract.SetActive(false);
         Dialouge_Object.SetActive(false);
         ConvStart.value = false;
+        menuScript.enabled = true;
+
     }
 
 

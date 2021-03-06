@@ -26,6 +26,7 @@ public class ScalingScript : WeaponBase
     private Coroutine swapFunc;
     public float CameraSwapTime;
     public GameObject CenterCursor;
+    public bool InitialScale;
     
     //Magic Variables
     public Transform InitPos;

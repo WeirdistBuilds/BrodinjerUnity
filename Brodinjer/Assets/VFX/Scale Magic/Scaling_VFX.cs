@@ -15,32 +15,37 @@ public class Scaling_VFX : MonoBehaviour
     private ParticleSystem.ShapeModule indicatorShape, highlightShape;
     private ParticleSystem.MainModule indicatorMain, highlightMain;
 
+    public bool setup = true;
+
     private void Start()
     {
-        indicatorShape = Indicator.shape;
-        indicatorShape.enabled = true;
-        indicatorMain = Indicator.main;
-        highlightMain = Highlighter.main;
-        highlightShape = Highlighter.shape;
-        highlightShape.enabled = true;
-        if (UseMesh)
+        if (setup)
         {
-            if (ObjectToHighlight != null && (filter = ObjectToHighlight.GetComponent<MeshFilter>()) != null)
+            indicatorShape = Indicator.shape;
+            indicatorShape.enabled = true;
+            indicatorMain = Indicator.main;
+            highlightMain = Highlighter.main;
+            highlightShape = Highlighter.shape;
+            highlightShape.enabled = true;
+            if (UseMesh)
             {
-                indicatorShape.shapeType = ParticleSystemShapeType.Mesh;
-                indicatorShape.mesh = filter.mesh;
-                highlightShape.shapeType = ParticleSystemShapeType.Mesh;
-                highlightShape.mesh = filter.mesh;
+                if (ObjectToHighlight != null && (filter = ObjectToHighlight.GetComponent<MeshFilter>()) != null)
+                {
+                    indicatorShape.shapeType = ParticleSystemShapeType.Mesh;
+                    indicatorShape.mesh = filter.mesh;
+                    highlightShape.shapeType = ParticleSystemShapeType.Mesh;
+                    highlightShape.mesh = filter.mesh;
+                }
             }
-        }
-        else
-        {
-            if (ObjectToHighlight != null && (Rend = ObjectToHighlight.GetComponent<MeshRenderer>()) != null)
+            else
             {
-                indicatorShape.shapeType = ParticleSystemShapeType.MeshRenderer;
-                indicatorShape.meshRenderer = Rend;
-                highlightShape.shapeType = ParticleSystemShapeType.MeshRenderer;
-                highlightShape.meshRenderer = Rend;
+                if (ObjectToHighlight != null && (Rend = ObjectToHighlight.GetComponent<MeshRenderer>()) != null)
+                {
+                    indicatorShape.shapeType = ParticleSystemShapeType.MeshRenderer;
+                    indicatorShape.meshRenderer = Rend;
+                    highlightShape.shapeType = ParticleSystemShapeType.MeshRenderer;
+                    highlightShape.meshRenderer = Rend;
+                }
             }
         }
         Indicator.Play();
