@@ -16,8 +16,15 @@ public class WeaponImage : MonoBehaviour
     {
         running = false;
         Num.text = "";
-        if(NumItems!= null)
-            StartUpdate();
+        /*if(NumItems!= null)
+            StartUpdate();*/
+    }
+
+    private void FixedUpdate()
+    {
+        if (NumItems != null)
+            Num.text = NumItems.value.ToString();
+
     }
 
     public void StartUpdate()
