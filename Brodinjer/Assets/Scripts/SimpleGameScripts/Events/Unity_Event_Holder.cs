@@ -9,7 +9,14 @@ public class Unity_Event_Holder : MonoBehaviour
 
     public void Call()
     {
-        Event.Invoke();
+        try
+        {
+            Event.Invoke();
+        }
+        catch
+        {
+
+        }
     }
 
 }

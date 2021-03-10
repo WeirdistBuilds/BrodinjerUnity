@@ -693,6 +693,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18137731}
   m_Mesh: {fileID: -4499501302108691956, guid: 1b335e7af79b29e42b81022c7d9fb866, type: 3}
+--- !u!114 &18417133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6922501920332891841, guid: 9042d912211ff354b8e7448a83082710,
+    type: 3}
+  m_PrefabInstance: {fileID: 19093565}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &19093565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -996,7 +1008,7 @@ PrefabInstance:
     - target: {fileID: 54750756262698612, guid: 9042d912211ff354b8e7448a83082710,
         type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 54750756262698612, guid: 9042d912211ff354b8e7448a83082710,
         type: 3}
@@ -1021,6 +1033,26 @@ PrefabInstance:
     - target: {fileID: 54750756262698612, guid: 9042d912211ff354b8e7448a83082710,
         type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 54750756262698612, guid: 9042d912211ff354b8e7448a83082710,
+        type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Target
+      value: 
+      objectReference: {fileID: 18417133}
+    - target: {fileID: 54750756262698612, guid: 9042d912211ff354b8e7448a83082710,
+        type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[6].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 54750756262698612, guid: 9042d912211ff354b8e7448a83082710,
+        type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 54750756262698612, guid: 9042d912211ff354b8e7448a83082710,
+        type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 54750756395596016, guid: 9042d912211ff354b8e7448a83082710,
@@ -1208,6 +1240,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 2118654466742070044, guid: 9042d912211ff354b8e7448a83082710,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642254415185662649, guid: 9042d912211ff354b8e7448a83082710,
+        type: 3}
+      propertyPath: WaitTime
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2888482549143498236, guid: 9042d912211ff354b8e7448a83082710,
         type: 3}
       propertyPath: m_IsActive
@@ -1232,6 +1274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234738731503446264, guid: 9042d912211ff354b8e7448a83082710,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200.30002
       objectReference: {fileID: 0}
     - target: {fileID: 5124038301696712500, guid: 9042d912211ff354b8e7448a83082710,
         type: 3}
@@ -1267,6 +1314,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.3499756
+      objectReference: {fileID: 0}
+    - target: {fileID: 7970157904568251788, guid: 9042d912211ff354b8e7448a83082710,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 202
+      objectReference: {fileID: 0}
+    - target: {fileID: 8362591419322555292, guid: 9042d912211ff354b8e7448a83082710,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8958939544638215746, guid: 9042d912211ff354b8e7448a83082710,
         type: 3}
@@ -29846,8 +29903,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607684222}
-  m_LocalRotation: {x: 0.65514904, y: -0.067721434, z: -0.05911612, w: -0.75013256}
-  m_LocalPosition: {x: 19.780247, y: -113.825, z: 78.53634}
+  m_LocalRotation: {x: 0.10782021, y: 0.7374824, z: 0.12116151, w: -0.65560234}
+  m_LocalPosition: {x: 61.26397, y: -57.270523, z: 63.585056}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -38415,9 +38472,9 @@ MonoBehaviour:
   - {fileID: 1857668139}
   - {fileID: 37412616}
   Percentages:
-  - 0.1
-  - 0.35
-  - 0.55
+  - 0.2
+  - 0.4
+  - 0.4
   minInBetween: 3
   maxInBetween: 5
   DamageWaitTime: 4
@@ -41944,6 +42001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957682390}
   - component: {fileID: 957682391}
+  - component: {fileID: 957682392}
   m_Layer: 0
   m_Name: 'Skeleton King '
   m_TagString: Untagged
@@ -41989,21 +42047,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Side01: {fileID: 1506903986}
   Side02: {fileID: 875084434}
-  WaitTime: 5
+  WaitTime: 4
   SwapEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: cbbdf1e377f0a94478cd3f0f1d376653, type: 2}
-        m_MethodName: Toggle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1952929186}
         m_MethodName: SwapSide
         m_Mode: 1
@@ -42047,6 +42094,45 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 957682392}
+        m_MethodName: Call
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &957682392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957682389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5e895456a521d4f9a7abc291ce10d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnAwake: 0
+  WaitTime: 2
+  Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1861362017}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &959474453
 GameObject:
@@ -78331,7 +78417,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62cd6440cddd26443996c9a531bd2bad, type: 2}
+  - {fileID: 2100000, guid: 4871226154fc86349a00f74cd26cb966, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78356,7 +78442,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -8884592712571033611, guid: 2ecb2ed45612f4842a7ee4b54dff2547, type: 3}
+  m_Mesh: {fileID: -922806163236783100, guid: 6ebf82992b385884fb80b166b7701f7e, type: 3}
   m_Bones: []
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
@@ -88750,7 +88836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084023773}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 0.56399584, y: 5.5487823, z: 13.097961}
+  m_LocalPosition: {x: 2.8, y: 5.5487823, z: 17.4}
   m_LocalScale: {x: 1.9349618, y: 2.2693408, z: 2.0186715}
   m_Children:
   - {fileID: 497333640}
@@ -91236,7 +91322,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62cd6440cddd26443996c9a531bd2bad, type: 2}
+  - {fileID: 2100000, guid: 4d44395f40b199d47984a984937eb3df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91261,7 +91347,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -5987228254523673324, guid: 5ffedc1f32a836648b6b09edf4402c27, type: 3}
+  m_Mesh: {fileID: -5987228254523673324, guid: 555f7e70a8401a947833d631fc610f97, type: 3}
   m_Bones:
   - {fileID: 6111115229273955605}
   - {fileID: 5134108428824089889}
@@ -93383,7 +93469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7780956664307903800}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.008018493, y: 1.73, z: 0.04396057}
+  m_LocalPosition: {x: -0.008018493, y: 1.16, z: 0.04396057}
   m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
   m_Children:
   - {fileID: 6571961894267706920}
@@ -94848,7 +94934,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62cd6440cddd26443996c9a531bd2bad, type: 2}
+  - {fileID: 2100000, guid: c780bb5124541194db9c68592230fb2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94873,7 +94959,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 5068473209955710005, guid: 5ffedc1f32a836648b6b09edf4402c27, type: 3}
+  m_Mesh: {fileID: 5068473209955710005, guid: 555f7e70a8401a947833d631fc610f97, type: 3}
   m_Bones:
   - {fileID: 2413048135657418075}
   - {fileID: 4908553526705196702}
@@ -95216,7 +95302,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62cd6440cddd26443996c9a531bd2bad, type: 2}
+  - {fileID: 2100000, guid: 6e2f7ff65a3c99e4398ac18baace5627, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95241,7 +95327,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -8637035107890485870, guid: 5ffedc1f32a836648b6b09edf4402c27, type: 3}
+  m_Mesh: {fileID: -8637035107890485870, guid: 555f7e70a8401a947833d631fc610f97, type: 3}
   m_Bones:
   - {fileID: 4427531707744365648}
   - {fileID: 7532845798106155025}
@@ -98730,7 +98816,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62cd6440cddd26443996c9a531bd2bad, type: 2}
+  - {fileID: 2100000, guid: b16163beaecc25343b8cb08799444daf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98755,7 +98841,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 30964227471366920, guid: 5ffedc1f32a836648b6b09edf4402c27, type: 3}
+  m_Mesh: {fileID: 30964227471366920, guid: 555f7e70a8401a947833d631fc610f97, type: 3}
   m_Bones:
   - {fileID: 563691735929683497}
   - {fileID: 0}
@@ -101919,7 +102005,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62cd6440cddd26443996c9a531bd2bad, type: 2}
+  - {fileID: 2100000, guid: 6e2f7ff65a3c99e4398ac18baace5627, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101944,7 +102030,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 846174012712169989, guid: 5ffedc1f32a836648b6b09edf4402c27, type: 3}
+  m_Mesh: {fileID: 846174012712169989, guid: 555f7e70a8401a947833d631fc610f97, type: 3}
   m_Bones:
   - {fileID: 4504488478529678000}
   - {fileID: 3362095735856485270}

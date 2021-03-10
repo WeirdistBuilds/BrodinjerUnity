@@ -21,7 +21,14 @@ public class Timed_Event : MonoBehaviour
 
     public void ForceEvent()
     {
-        Event.Invoke();
+        try
+        {
+            Event.Invoke();
+        }
+        catch
+        {
+
+        }
     }
 
     public void Call()
@@ -33,7 +40,14 @@ public class Timed_Event : MonoBehaviour
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(WaitTime);
-        Event.Invoke();
+        try
+        {
+            Event.Invoke();
+        }
+        catch
+        {
+
+        }
     }
 
     public void Stop()
