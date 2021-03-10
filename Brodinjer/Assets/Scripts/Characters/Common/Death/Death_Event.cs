@@ -13,7 +13,14 @@ public class Death_Event : Death_Base
     public override IEnumerator Death()
     {
         yield return new WaitForSeconds(waitTime);
-        _event.Invoke();
+        try
+        {
+            _event.Invoke();
+        }
+        catch
+        {
+
+        }
     }
 
     public override Death_Base GetClone()

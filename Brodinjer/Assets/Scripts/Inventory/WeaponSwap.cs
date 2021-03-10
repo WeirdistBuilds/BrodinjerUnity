@@ -39,6 +39,11 @@ public class WeaponSwap : MonoBehaviour
             WeaponKeys.Add(weapon.WeaponNum);
         }
 
+        if(currentWeapon.value <= -1)
+        {
+            currentWeapon.value = 0;
+        }
+
         if (currentWeapon.value > -1)
         {
             try
@@ -71,7 +76,7 @@ public class WeaponSwap : MonoBehaviour
                 if (AvailableWeapons.Count > 0)
                 {
                     scrollWheel = Input.GetAxis("Mouse ScrollWheel");
-                    if (Input.GetButtonDown(PutAwayWeapon))
+                    /*if (Input.GetButtonDown(PutAwayWeapon))
                     {
                         if (currentWeapon.value == -1)
                         {
@@ -86,8 +91,8 @@ public class WeaponSwap : MonoBehaviour
                         }
 
                         UpdateDisplay();
-                    }
-                    else if (scrollWheel < -Sensitivity)
+                    }*/
+                    if (scrollWheel > Sensitivity)
                     {
                         currentWeapon.value--;
                         if (currentWeapon.value < 0)
@@ -99,7 +104,7 @@ public class WeaponSwap : MonoBehaviour
                         UpdateDisplay();
                         yield return new WaitForSeconds(InBetweenTime);
                     }
-                    else if (scrollWheel > Sensitivity)
+                    else if (scrollWheel < -Sensitivity)
                     {
                         currentWeapon.value++;
                         if (currentWeapon.value > AvailableWeapons.Count - 1)
@@ -126,7 +131,7 @@ public class WeaponSwap : MonoBehaviour
                     }
                 }
             }
-            else if(canChange)
+            /*else if(canChange)
             {
                 if (Input.GetButtonDown(PutAwayWeapon))
                 {
@@ -135,15 +140,15 @@ public class WeaponSwap : MonoBehaviour
                         currentWeapon.value = weapon;
                         wm.SwapWeapon(AvailableWeapons[currentWeapon.value], canChange);
                     }
-                    /*else
+                    else
                     {
                         weapon = currentWeapon.value;
                         currentWeapon.value = -1;
                         wm.PutAwayWeapon();
-                    }*/
+                    }
                     yield return new WaitForSeconds(.1f);
                 }
-            }
+            }*/
             yield return new WaitForFixedUpdate();
         }
     }
