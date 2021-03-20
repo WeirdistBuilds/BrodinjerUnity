@@ -60,6 +60,7 @@ public class Enemy_Manager : MonoBehaviour
     {
         if (!dead&&!stunned)
         {
+            Debug.Log("Attack");
             currentAttack.enabled = true;
             currentAttack.StartAttack();
             if (!currentAttack.attackWhileMoving)

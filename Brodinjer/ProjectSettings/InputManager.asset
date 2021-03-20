@@ -297,8 +297,8 @@ InputManager:
     m_Name: Interact
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: e
+    negativeButton: q
+    positiveButton: f
     altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000
@@ -585,8 +585,8 @@ InputManager:
     m_Name: Scale
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: r
-    positiveButton: t
+    negativeButton: e
+    positiveButton: r
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

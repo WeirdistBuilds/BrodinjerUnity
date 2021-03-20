@@ -163,8 +163,8 @@ public class ThirdPersonTranslate : CharacterTranslate
                         JumpSound.Play();
                     while (currentTime < JumpDelay)
                     {
-                        vSpeed -= Gravity * Time.deltaTime;
-                        _moveVec.y = vSpeed;
+                        //vSpeed -= Gravity * Time.deltaTime;
+                        //_moveVec.y = vSpeed;
                         _cc.Move(_moveVec * Time.deltaTime);
                         currentTime += Time.deltaTime;
                         yield return fixedUpdate;

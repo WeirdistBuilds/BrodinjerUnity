@@ -44,6 +44,18 @@ public class BowandArrow : WeaponBase
 
     }
 
+    private void FixedUpdate()
+    {
+        if (currWeapon)
+        {
+            if (!anim.GetBool("Pulled"))
+            {
+                bowstring.Release();
+                inUse = false;
+            }
+        }
+    }
+
     public override void Initialize()
     {
         BowEquiped.Invoke();
@@ -77,7 +89,6 @@ public class BowandArrow : WeaponBase
                 cameraRotation.AnimationOffset = 0;
                 bowstring.Pull();
                 reset.ResetAllTriggers();
-                //anim.SetTrigger("Bow Pull");
                 anim.SetBool("Pulled", true);
                 BowPulled.Invoke();
                 inUse = true;
@@ -98,9 +109,12 @@ public class BowandArrow : WeaponBase
 
                     if (!Input.GetButton(useButton))
                     {
-                        bowstring.Release();
                         reset.ResetAllTriggers();
                         anim.SetBool("Pulled", false);
+                        if (currArrow != null)
+                            Destroy(currArrow);
+                        bowstring.Release();
+                        playermove.SwapMovement(playermove.rotate, originalTranslate, playermove.extraControls);
                         continue;
                     }
                     else
@@ -116,6 +130,9 @@ public class BowandArrow : WeaponBase
                             bowstring.Release();
                             reset.ResetAllTriggers();
                             anim.SetBool("Pulled", false);
+                            if(currArrow!= null)
+                                Destroy(currArrow);
+                            playermove.SwapMovement(playermove.rotate, originalTranslate, playermove.extraControls);
                             continue;
                         }
                         if (playermove.rotate != bowRotate)
@@ -153,10 +170,10 @@ public class BowandArrow : WeaponBase
                         CenterCursor.SetActive(false);
                         cameraRotation.PauseTime(false);
                         yield return new WaitForSeconds(cooldowntime);
+                        currArrow = null;
                         anim.SetBool("Pulled", false);
+                        bowstring.Release();
                         playermove.SwapMovement(playermove.rotate, originalTranslate, playermove.extraControls);
-
-
                     }
                 }
     
