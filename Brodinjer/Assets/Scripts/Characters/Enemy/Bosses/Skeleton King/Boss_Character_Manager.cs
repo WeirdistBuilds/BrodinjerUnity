@@ -17,6 +17,7 @@ public class Boss_Character_Manager : MonoBehaviour
     private bool pause;
     public SoundController damageSound;
     public Head_Follow headlook;
+    public BossHealthBar healthbar;
     
     private void Start()
     {
@@ -47,10 +48,12 @@ public class Boss_Character_Manager : MonoBehaviour
                 death._event = GetComponent<Death_Event_Setup>().DeathEvent;
             }
         }
+        healthbar.AddHealth(health.health as LimitFloatData);
     }
 
     public void StartFight()
     {
+        healthbar.StartHealthCheck();
         currentHealthMark = 0;
         currentPhase = PhaseMovements[currentHealthMark];
         currentPhase.StartPhase();

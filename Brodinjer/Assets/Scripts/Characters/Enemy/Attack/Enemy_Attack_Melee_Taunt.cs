@@ -17,6 +17,7 @@ public class Enemy_Attack_Melee_Taunt : Enemy_Attack_Base
     private WeaponDamageAmount damage;
     private int currentnum;
     public List<SoundController> attackSounds;
+    public Enemy_Manager manager;
 
 
     public override void Init()
@@ -27,12 +28,20 @@ public class Enemy_Attack_Melee_Taunt : Enemy_Attack_Base
 
     public override IEnumerator Attack()
     {
+        while (manager.stunned)
+        {
+            yield return new WaitForFixedUpdate();
+        }
         attacking = true;
         currentnum = GetRandom();
         if (damage)
             damage.DamageAmount = attackDamage[currentnum];
         yield return new WaitForFixedUpdate();
-        if(resetAnims)
+        while (manager.stunned)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        if (resetAnims)
             resetAnims.ResetAllTriggers();
         animations.StartAnimation();
         yield return new WaitForSeconds(attackStartTimes[currentnum]);
