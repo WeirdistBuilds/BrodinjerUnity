@@ -130,7 +130,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Skeleton King Assembly
-  m_Speed: 0.85
+  m_Speed: 0.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6442146567156367627}
@@ -144,7 +144,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 3d77832ff9a890e48903640e5e871a09,
+  m_Motion: {fileID: 1827226128182048838, guid: 6a3ca8e4a6c930349a1ec268ded3323b,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -1338,7 +1338,7 @@ BlendTree:
   m_Name: Skeleton Swipe
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 1409568843598165285, guid: 3abc1d72f44b32946a784439bccdef2d,
+    m_Motion: {fileID: 1827226128182048838, guid: 3c6b9a7ef9448fd4692690d95546dd88,
       type: 3}
     m_Threshold: 0
     m_Position: {x: -1, y: -1}
@@ -1347,7 +1347,7 @@ BlendTree:
     m_DirectBlendParameter: Positionx
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 3abc1d72f44b32946a784439bccdef2d,
+    m_Motion: {fileID: 1827226128182048838, guid: 360d7f017e7aec046a9c4c6c81d6b927,
       type: 3}
     m_Threshold: 0.33333334
     m_Position: {x: -1, y: 1}
@@ -1356,7 +1356,7 @@ BlendTree:
     m_DirectBlendParameter: Positionx
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -8342599004466310665, guid: 3abc1d72f44b32946a784439bccdef2d,
+    m_Motion: {fileID: 1827226128182048838, guid: 9bad746b0e4179b4a9f96f8f3d7cfe58,
       type: 3}
     m_Threshold: 0.6666667
     m_Position: {x: 1, y: -1}
@@ -1365,7 +1365,7 @@ BlendTree:
     m_DirectBlendParameter: Positionx
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -5663876152134586825, guid: 3abc1d72f44b32946a784439bccdef2d,
+    m_Motion: {fileID: 1827226128182048838, guid: 530195fd26b39c247a4e4fa09e39be30,
       type: 3}
     m_Threshold: 1
     m_Position: {x: 1, y: 1}

@@ -22,7 +22,7 @@ public class Swipe_Attack : Enemy_Attack_Base
 
     public void SwapSide()
     {
-        Side01 = side.value;
+        Side01 = !Side01;
         Setup();
     }
 
