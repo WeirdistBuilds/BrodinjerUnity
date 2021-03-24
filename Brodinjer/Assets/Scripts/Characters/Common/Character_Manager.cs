@@ -115,6 +115,10 @@ public abstract class Character_Manager : MonoBehaviour
                     if (!temp.SingleHit || (temp.SingleHit && !temp.hit))
                     {
                         temp.hit = true;
+                        if(temp.singleHitTimer > 0)
+                        {
+                            StartCoroutine(temp.SingelHitTimer());
+                        }
                         TakeDamage(temp.DamageAmount, temp.DecreasedbyArmor);
                     }
 

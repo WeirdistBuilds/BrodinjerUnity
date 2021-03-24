@@ -56,7 +56,9 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
     private bool walking;
     public float MaxFootstep, MinFootstep;
 
-    public BoxCollider boxcollider;
+    private bool toGround;
+
+    //public BoxCollider boxcollider;
 
     private void Start()
     {
@@ -90,6 +92,7 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
 
     public override IEnumerator Attack()
     {
+        toGround = false;
         attacking = true;
         RB.useGravity = false;
         WeaponObj.SetActive(false);     
@@ -218,12 +221,11 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
         //boxcollider.isTrigger = true;
         jumping = true;
         yield return new WaitForSeconds(WallPounceEndTime);
+        toGround = true;
         RB.freezeRotation = false;
         WeaponObj.SetActive(false);
         yield return new WaitForSeconds(FinishTime);
         FinishEvent.Invoke();
-        RB.isKinematic = false;
-        RB.useGravity = true;
         attacking = false;
 
     }
@@ -314,6 +316,12 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
 
             jumping = false;
             animator.SetTrigger("Land");
+            if (toGround)
+            {
+                RB.isKinematic = true;
+                RB.useGravity = false;
+                toGround = false;
+            }
         }
     }
 

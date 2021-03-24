@@ -106,7 +106,7 @@ RectTransform:
   - {fileID: 2222343818595215220}
   - {fileID: 3830410648405331036}
   m_Father: {fileID: 6427186198522317810}
-  m_RootOrder: 14
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -497,7 +497,7 @@ RectTransform:
   - {fileID: 769809773680836819}
   - {fileID: 6325870095734905357}
   m_Father: {fileID: 6427186198522317810}
-  m_RootOrder: 6
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1278,6 +1278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameIsPaused: {fileID: 11400000, guid: 025fd1ef6f8db164d85692795d52f6e5, type: 2}
+  optionsMenuIsActive: 0
   pauseMenuUI: {fileID: 6427186197409776124}
   optionsMenuUI: {fileID: 0}
 --- !u!1 &6427186198496012907
@@ -1468,9 +1469,9 @@ RectTransform:
   - {fileID: 6427186197111246735}
   - {fileID: 1776367537550094126}
   - {fileID: 3178427256668354808}
-  - {fileID: 2245429583188028154}
+  - {fileID: 4788902965963155301}
   - {fileID: 1430880593409220437}
-  - {fileID: 4728411726468539710}
+  - {fileID: 2245429583188028154}
   - {fileID: 6485580096644136343}
   - {fileID: 1313319090869442302}
   - {fileID: 8086652877498478425}
@@ -1478,7 +1479,7 @@ RectTransform:
   - {fileID: 7046253270492407851}
   - {fileID: 1258687196224788571}
   - {fileID: 5219445481441906005}
-  - {fileID: 4788902965963155301}
+  - {fileID: 4728411726468539710}
   m_Father: {fileID: 6427186197409776127}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1737,7 +1738,7 @@ RectTransform:
   - {fileID: 7324815004737058637}
   - {fileID: 3598684977839720403}
   m_Father: {fileID: 6427186198522317810}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
