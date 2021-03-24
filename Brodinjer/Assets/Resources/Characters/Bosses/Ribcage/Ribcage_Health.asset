@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c889e7a98d7207e48a5e22ce0d4b1a86, type: 3}
   m_Name: Ribcage_Health
   m_EditorClassIdentifier: 
-  TotalHealth: 200
+  TotalHealth: 25
   ArmorDamageDecrease: 0
   Death_Version: {fileID: 11400000, guid: 149a323267b510c41a174191f90c9066, type: 2}
   health: {fileID: 11400000, guid: 9b3aac088d1063742be7fc50fd602402, type: 2}

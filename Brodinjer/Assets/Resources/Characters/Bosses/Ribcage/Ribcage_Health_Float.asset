@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be26d71cab37af641b4e2adcdb277889, type: 3}
   m_Name: Ribcage_Health_Float
   m_EditorClassIdentifier: 
-  value: 200
+  value: 0
   MinValue: 0
-  MaxValue: 200
+  MaxValue: 100
