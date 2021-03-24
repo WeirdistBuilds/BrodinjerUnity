@@ -426,7 +426,7 @@ MonoBehaviour:
   dialogueActions: []
   textScrollSpeed: 0.03
   menuScript: {fileID: 4174889705318145231}
-  TutorialInteract: {fileID: 0}
+  TutorialInteract: {fileID: 7051545883799314842}
 --- !u!1 &1041562669
 GameObject:
   m_ObjectHideFlags: 0

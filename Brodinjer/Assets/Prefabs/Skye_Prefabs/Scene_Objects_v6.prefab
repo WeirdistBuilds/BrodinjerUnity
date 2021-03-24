@@ -14869,8 +14869,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54750755276360884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.363, z: 0.084}
-  m_LocalScale: {x: 1.9803241, y: 1.289475, z: 1.5732647}
+  m_LocalPosition: {x: 1.04, y: 0.77, z: 0.08}
+  m_LocalScale: {x: 3.237225, y: 2.1078978, z: 2.5718071}
   m_Children: []
   m_Father: {fileID: 54750756039351362}
   m_RootOrder: 1
@@ -37474,7 +37474,7 @@ MonoBehaviour:
   damageCoolDown: 0.25
   StunTime: 1
   dead: 0
-  DamageAnimation: {fileID: 0}
+  DamageAnimation: {fileID: 11400000, guid: ad395ee30ef29be449c982acf536fe97, type: 2}
   anim: {fileID: 54750756833462289}
   agent: {fileID: 0}
   Knockback: 1
@@ -37497,7 +37497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnAwake: 0
-  WaitTime: 5
+  WaitTime: 4
   Event:
     m_PersistentCalls:
       m_Calls:
@@ -70380,7 +70380,7 @@ MonoBehaviour:
   bowTranslate: {fileID: 11400000, guid: 1d2338334d399dc4dab999ffafd19153, type: 2}
   originalTranslate: {fileID: 11400000, guid: efec437756fb58b4da97d3ce670c6df6, type: 2}
   numArrows: {fileID: 11400000, guid: 454963e9198155841b25d189b8527923, type: 2}
-  CameraSwapTime: 5
+  CameraSwapTime: 0.5
   CenterCursor: {fileID: 2888482549143498236}
   BowEquiped:
     m_PersistentCalls:

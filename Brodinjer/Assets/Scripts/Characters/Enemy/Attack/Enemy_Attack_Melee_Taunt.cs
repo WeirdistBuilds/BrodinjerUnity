@@ -28,18 +28,22 @@ public class Enemy_Attack_Melee_Taunt : Enemy_Attack_Base
 
     public override IEnumerator Attack()
     {
-        while (manager.stunned)
+        if (manager.stunned)
         {
-            yield return new WaitForFixedUpdate();
+            StopAllCoroutines();
+            attacking = false;
+            manager.StartMove();
         }
         attacking = true;
         currentnum = GetRandom();
         if (damage)
             damage.DamageAmount = attackDamage[currentnum];
         yield return new WaitForFixedUpdate();
-        while (manager.stunned)
+        if (manager.stunned)
         {
-            yield return new WaitForFixedUpdate();
+            StopAllCoroutines();
+            attacking = false;
+            manager.StartMove();
         }
         if (resetAnims)
             resetAnims.ResetAllTriggers();
@@ -55,6 +59,7 @@ public class Enemy_Attack_Melee_Taunt : Enemy_Attack_Base
         animations.StopAnimation();
         yield return new WaitForSeconds(attackCoolDownTimes[currentnum]);
         attacking = false;
+        manager.StartMove();
 
     }
 

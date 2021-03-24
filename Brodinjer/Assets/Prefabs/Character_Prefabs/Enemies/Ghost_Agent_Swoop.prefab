@@ -268,6 +268,7 @@ MonoBehaviour:
   damageSound: {fileID: 0}
   enemyManager: {fileID: 1920314186342373006}
   box: {fileID: 0}
+  healthbar: {fileID: 0}
 --- !u!114 &1249274260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,6 +1115,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: 
   RecoveryTime: 0
+  singleHitTimer: 3
 --- !u!1 &7834929240491329627
 GameObject:
   m_ObjectHideFlags: 0

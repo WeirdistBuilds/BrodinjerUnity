@@ -12199,6 +12199,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Smashed
   RecoveryTime: 3
+  singleHitTimer: -1
 --- !u!1 &280710523
 GameObject:
   m_ObjectHideFlags: 0
@@ -15660,6 +15661,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Damage
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!1 &364202898
 GameObject:
   m_ObjectHideFlags: 0
@@ -16484,6 +16486,7 @@ MonoBehaviour:
   knockbackDirection: {x: 1, y: 0.5, z: 1}
   DamageAnimationTrigger: Damage
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!1 &386207923
 GameObject:
   m_ObjectHideFlags: 0
@@ -30307,8 +30310,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607684222}
-  m_LocalRotation: {x: 0.3724174, y: 0.6159301, z: 0.40704513, w: -0.5623608}
-  m_LocalPosition: {x: 18.41114, y: -93.47187, z: 77.108284}
+  m_LocalRotation: {x: -0.20896249, y: 0.23211667, z: 0.05148875, w: 0.9485808}
+  m_LocalPosition: {x: -0.63832486, y: -8.383761, z: 12.983049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35298,6 +35301,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Damage
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!1 &720656718
 GameObject:
   m_ObjectHideFlags: 0
@@ -39238,13 +39242,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   PhaseAttacks:
-  - {fileID: 37412616}
-  - {fileID: 37412616}
+  - {fileID: 1952929186}
+  - {fileID: 1857668139}
   - {fileID: 37412616}
   Percentages:
   - 0.2
-  - 0.4
-  - 0.4
+  - 0.3
+  - 0.5
   minInBetween: 3
   maxInBetween: 5
   DamageWaitTime: 4
@@ -46671,6 +46675,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Damage
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!1 &1039374090
 GameObject:
   m_ObjectHideFlags: 0
@@ -50734,6 +50739,7 @@ MonoBehaviour:
   knockbackDirection: {x: 1, y: 1, z: 1}
   DamageAnimationTrigger: Damage
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!65 &1138196121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57159,6 +57165,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Smashed
   RecoveryTime: 3
+  singleHitTimer: -1
 --- !u!1 &1255060876
 GameObject:
   m_ObjectHideFlags: 0
@@ -61278,6 +61285,7 @@ MonoBehaviour:
   knockbackDirection: {x: 1, y: 1, z: 1}
   DamageAnimationTrigger: Damage
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!65 &1363467308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80486,6 +80494,7 @@ MonoBehaviour:
   knockbackDirection: {x: 1, y: 0.5, z: 1}
   DamageAnimationTrigger: Damage
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!65 &1865810545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91430,6 +91439,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Smashed
   RecoveryTime: 3
+  singleHitTimer: -1
 --- !u!114 &828797971500469528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92533,6 +92543,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Smashed
   RecoveryTime: 3
+  singleHitTimer: -1
 --- !u!114 &1674907976869657385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96691,6 +96702,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Smashed
   RecoveryTime: 3
+  singleHitTimer: -1
 --- !u!114 &4606900489426778062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99643,6 +99655,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Smashed
   RecoveryTime: 3
+  singleHitTimer: -1
 --- !u!114 &7149793184705002680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101265,6 +101278,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: Smashed
   RecoveryTime: 3
+  singleHitTimer: -1
 --- !u!114 &8366270974420807012
 MonoBehaviour:
   m_ObjectHideFlags: 0
