@@ -3871,6 +3871,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 245911655}
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   checksFor: 1
   waitTime: 0
   resetTime: 0
@@ -10953,6 +10964,112 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245692636}
   m_Mesh: {fileID: -4499501302108691956, guid: 1b335e7af79b29e42b81022c7d9fb866, type: 3}
+--- !u!1001 &245911653
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 746436459}
+    m_Modifications:
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.483444
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657821334457961514, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: m_Name
+      value: Glow Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699527377354880560, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: ShapeModule.m_MeshRenderer
+      value: 
+      objectReference: {fileID: 517600250309238724}
+    - target: {fileID: 3699527377354880560, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699527377354880560, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699527377354880560, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699527377354880560, guid: f338bdbda4124dd4b9e15683f00854b2,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.105882354
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f338bdbda4124dd4b9e15683f00854b2, type: 3}
+--- !u!4 &245911654 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 748659083152873638, guid: f338bdbda4124dd4b9e15683f00854b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 245911653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &245911655 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3699527377354880560, guid: f338bdbda4124dd4b9e15683f00854b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 245911653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &250776459
 GameObject:
   m_ObjectHideFlags: 0
@@ -13271,6 +13388,65 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304404087}
   m_Mesh: {fileID: -52394141079593961, guid: 1b335e7af79b29e42b81022c7d9fb866, type: 3}
+--- !u!1 &305717954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 305717955}
+  - component: {fileID: 305717956}
+  m_Layer: 0
+  m_Name: Faint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &305717955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305717954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1404102880}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &305717956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305717954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5e895456a521d4f9a7abc291ce10d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnAwake: 0
+  WaitTime: 2
+  Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1132866702}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Faint
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &306155277
 GameObject:
   m_ObjectHideFlags: 0
@@ -30253,6 +30429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 607684224}
   - component: {fileID: 607684223}
+  - component: {fileID: 607684225}
   m_Layer: 0
   m_Name: Water4SimpleReflectionMain Camera
   m_TagString: Untagged
@@ -30310,13 +30487,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607684222}
-  m_LocalRotation: {x: -0.20896249, y: 0.23211667, z: 0.05148875, w: 0.9485808}
-  m_LocalPosition: {x: -0.63832486, y: -8.383761, z: 12.983049}
+  m_LocalRotation: {x: 0.036033154, y: -0.8240658, z: -0.0246968, w: 0.5648073}
+  m_LocalPosition: {x: -41.151, y: -32.209534, z: 63.188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &607684225
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607684222}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1001 &610098509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36334,6 +36520,7 @@ Transform:
   - {fileID: 502427737}
   - {fileID: 1514439678}
   - {fileID: 1863194808319393947}
+  - {fileID: 245911654}
   m_Father: {fileID: 2516135672151914515}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -21.87, y: 0.48800004, z: 0}
@@ -63702,6 +63889,7 @@ Transform:
   m_Children:
   - {fileID: 388196258}
   - {fileID: 894567829}
+  - {fileID: 305717955}
   m_Father: {fileID: 1121399105}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63767,6 +63955,17 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1438578854}
+        m_MethodName: Call
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 305717956}
         m_MethodName: Call
         m_Mode: 1
         m_Arguments:
@@ -65925,7 +66124,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1480017519}
   - component: {fileID: 1480017520}
-  - component: {fileID: 1480017521}
   m_Layer: 0
   m_Name: Halfway Cutscene
   m_TagString: Untagged
@@ -65980,88 +66178,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1249576266}
         m_MethodName: Play
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1480017521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480017518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d303f4db7ab0f2479bd8c80f2deedeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: 108
-  Event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1480017520}
-        m_MethodName: Call
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1855312294}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Rise
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 413113606}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Assembly
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3269262973762414036}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Raise
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1680605050}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Raise
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 362304200}
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -86784,8 +86900,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.999999, y: 0.15844138, z: 9.999999}
-  m_Center: {x: 0, y: -0.175, z: 0}
+  m_Size: {x: 9.999999, y: 33.584957, z: 9.999999}
+  m_Center: {x: 0, y: -16.88826, z: 0}
 --- !u!23 &2021281974
 MeshRenderer:
   m_ObjectHideFlags: 0
