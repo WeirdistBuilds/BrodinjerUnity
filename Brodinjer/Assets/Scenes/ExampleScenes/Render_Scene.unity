@@ -18420,6 +18420,8 @@ MonoBehaviour:
   ScaleAxis: Scale
   MagicCollider: {fileID: 739703489933548871}
   VFXCollider: {fileID: 318247855807488224}
+  InitialScaleTutorial: {fileID: 0}
+  ScaleTutorial: {fileID: 0}
 --- !u!4 &739703489375830513
 Transform:
   m_ObjectHideFlags: 0
@@ -23518,6 +23520,7 @@ MonoBehaviour:
   originalTranslate: {fileID: 11400000, guid: efec437756fb58b4da97d3ce670c6df6, type: 2}
   CameraSwapTime: 5
   CenterCursor: {fileID: 0}
+  InitialScale: 0
   InitPos: {fileID: 739703490281704947}
   MagicInUse: {fileID: 11400000, guid: d2b7b33625e205c4394f8399b5dcfb20, type: 2}
   decreaseSpeed: 5
@@ -30548,7 +30551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &739703489982872340
 GameObject:
   m_ObjectHideFlags: 0
@@ -62274,6 +62277,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: 
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!33 &2530591798768523458
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -83397,6 +83401,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: 
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!1 &6777814732632377128
 GameObject:
   m_ObjectHideFlags: 0
@@ -93699,6 +93704,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: 
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!114 &8682100861426733498
 MonoBehaviour:
   m_ObjectHideFlags: 0
