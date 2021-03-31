@@ -9,8 +9,10 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer masterMixer;
     public FloatData masterFloatData, sfxFloatData, musicFloatData, ambienceFloatData;
     public Slider masterSlider, sfxSlider, musicSlider, ambienceSlider;
-    public TMPro.TMP_Dropdown resolutionsDropdown;
+    public TMPro.TMP_Dropdown resolutionsDropdown, qualityDropdown;
     private Resolution[] resolutions;
+    public IntData QualityIndex;
+
     void Start()
     {
         resolutions = Screen.resolutions.Select(
@@ -46,6 +48,10 @@ public class SettingsMenu : MonoBehaviour
         sfxSlider.value = sfxFloatData.value;
         musicSlider.value = musicFloatData.value;
         ambienceSlider.value = ambienceFloatData.value;
+
+        Debug.Log("Set Quality: " + QualityIndex.value);
+        qualityDropdown.SetValueWithoutNotify(QualityIndex.value);
+        SetQuality(QualityIndex.value);
     }
     
     public void SetMasterVolume(float volume)
@@ -74,6 +80,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetQuality(int qualityIndex)
     {
+        QualityIndex.value = qualityIndex;
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 

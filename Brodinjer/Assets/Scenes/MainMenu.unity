@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 535408755}
   - component: {fileID: 535408754}
   - component: {fileID: 535408753}
+  - component: {fileID: 535408757}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -423,6 +424,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &535408757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535408752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b377a67c64122be40a37eed30387d7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: 3f9294c4bc69e254896a0395b156bb38, type: 2}
+  masterFloatData: {fileID: 11400000, guid: 8e28146ea89c86f4f82b3094a9127e91, type: 2}
+  sfxFloatData: {fileID: 11400000, guid: 35a06f27a5a8c5f42b9ff727b14f0e24, type: 2}
+  musicFloatData: {fileID: 11400000, guid: d6dc7c82cc66dd6428aac47022e0f1b7, type: 2}
+  ambienceFloatData: {fileID: 11400000, guid: ca8e8c098f9d9f34180981eb85151e7c, type: 2}
+  masterSlider: {fileID: 4528757851255290323}
+  sfxSlider: {fileID: 8881601564423878836}
+  musicSlider: {fileID: 7409309865458660160}
+  ambienceSlider: {fileID: 5460255206822346724}
+  resolutionsDropdown: {fileID: 8881601562844762185}
+  qualityDropdown: {fileID: 8881601563786815330}
+  QualityIndex: {fileID: 11400000, guid: 5423c669c2a0ddf49abe1d2a08c04484, type: 2}
 --- !u!1001 &546923374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3485,7 +3510,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8881601563015794768}
+      - m_Target: {fileID: 535408757}
         m_MethodName: SetMasterVolume
         m_Mode: 0
         m_Arguments:
@@ -3760,7 +3785,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8881601563015794768}
+      - m_Target: {fileID: 535408757}
         m_MethodName: SetAmbienceVolume
         m_Mode: 0
         m_Arguments:
@@ -4140,7 +4165,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8881601563015794768}
+      - m_Target: {fileID: 535408757}
         m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -5032,7 +5057,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8881601563015794768}
+      - m_Target: {fileID: 535408757}
         m_MethodName: SetResolution
         m_Mode: 0
         m_Arguments:
@@ -5273,28 +5298,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8881601563015794768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8881601563015794770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b377a67c64122be40a37eed30387d7eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterMixer: {fileID: 24100000, guid: 3f9294c4bc69e254896a0395b156bb38, type: 2}
-  masterFloatData: {fileID: 11400000, guid: 8e28146ea89c86f4f82b3094a9127e91, type: 2}
-  sfxFloatData: {fileID: 11400000, guid: 35a06f27a5a8c5f42b9ff727b14f0e24, type: 2}
-  musicFloatData: {fileID: 11400000, guid: d6dc7c82cc66dd6428aac47022e0f1b7, type: 2}
-  ambienceFloatData: {fileID: 11400000, guid: ca8e8c098f9d9f34180981eb85151e7c, type: 2}
-  masterSlider: {fileID: 4528757851255290323}
-  sfxSlider: {fileID: 8881601564423878836}
-  musicSlider: {fileID: 7409309865458660160}
-  ambienceSlider: {fileID: 5460255206822346724}
-  resolutionsDropdown: {fileID: 8881601562844762185}
 --- !u!224 &8881601563015794769
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5325,7 +5328,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8881601563015794769}
-  - component: {fileID: 8881601563015794768}
   - component: {fileID: 6493654551902954595}
   - component: {fileID: 5990938665679704636}
   m_Layer: 0
@@ -6911,7 +6913,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8881601563015794768}
+      - m_Target: {fileID: 535408757}
         m_MethodName: SetQuality
         m_Mode: 0
         m_Arguments:
@@ -7267,7 +7269,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8881601563015794768}
+      - m_Target: {fileID: 535408757}
         m_MethodName: SetFullScreen
         m_Mode: 0
         m_Arguments:
@@ -8661,7 +8663,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8881601563015794768}
+      - m_Target: {fileID: 535408757}
         m_MethodName: SetSFXVolume
         m_Mode: 0
         m_Arguments:
