@@ -22,6 +22,7 @@ public class WeaponDamageAmount : MonoBehaviour
     public string DamageAnimationTrigger;
 
     public float RecoveryTime;
+    public float singleHitTimer = -1;
 
     public void SetKnockbackDirection(Vector3 newDirection)
     {
@@ -39,6 +40,13 @@ public class WeaponDamageAmount : MonoBehaviour
 
     private void OnDisable()
     {
+        hit = false;
+        StopAllCoroutines();
+    }
+
+    public IEnumerator SingelHitTimer()
+    {
+        yield return new WaitForSeconds(singleHitTimer);
         hit = false;
     }
 }

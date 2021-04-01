@@ -67,7 +67,7 @@ public class ThirdPersonTranslate : CharacterTranslate
         {
             if (canRun)
             {
-                if (Input.GetButton("Sprint"))
+                /*if (Input.GetButton("Sprint"))
                 {
                     currentForwardSpeed = RunForwardSpeed;
                     currentSideSpeed = RunSideSpeed;
@@ -76,7 +76,9 @@ public class ThirdPersonTranslate : CharacterTranslate
                 {
                     currentForwardSpeed = ForwardSpeed;
                     currentSideSpeed = SideSpeed;
-                }
+                }*/
+                currentForwardSpeed = RunForwardSpeed;
+                currentSideSpeed = RunSideSpeed;
             }
             yield return new WaitForFixedUpdate();
         }
@@ -132,7 +134,7 @@ public class ThirdPersonTranslate : CharacterTranslate
         _moveVec.y = 0;
         if (_cc.isGrounded) {
             vSpeed = -10;
-            if (!jumping && !falling && (Input.GetButtonDown ("Jump"))) {
+            if (!jumping && !falling && (Input.GetButton ("Jump"))) {
                 if (!dodging && (target != null && target.isTargeting) && (Input.GetButton(HorizontalAxis) || Input.GetButton(VerticalAxis)))
                 {
                     if(DodgeAnimations!= null)
@@ -163,8 +165,8 @@ public class ThirdPersonTranslate : CharacterTranslate
                         JumpSound.Play();
                     while (currentTime < JumpDelay)
                     {
-                        vSpeed -= Gravity * Time.deltaTime;
-                        _moveVec.y = vSpeed;
+                        //vSpeed -= Gravity * Time.deltaTime;
+                        //_moveVec.y = vSpeed;
                         _cc.Move(_moveVec * Time.deltaTime);
                         currentTime += Time.deltaTime;
                         yield return fixedUpdate;

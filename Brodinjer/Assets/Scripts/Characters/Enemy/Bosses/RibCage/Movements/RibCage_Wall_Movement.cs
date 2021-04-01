@@ -56,6 +56,10 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
     private bool walking;
     public float MaxFootstep, MinFootstep;
 
+    private bool toGround;
+
+    //public BoxCollider boxcollider;
+
     private void Start()
     {
         RB = GetComponent<Rigidbody>();
@@ -88,6 +92,7 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
 
     public override IEnumerator Attack()
     {
+        toGround = false;
         attacking = true;
         RB.useGravity = false;
         WeaponObj.SetActive(false);     
@@ -103,6 +108,7 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
         RB.velocity = Vector3.zero;
         RB.AddForce(jumpDirection, ForceMode.Impulse);
         transform.Rotate(-90,0,0);
+        //boxcollider.isTrigger = true;
         jumping = true;
         attackSound.Play();
         yield return new WaitForSeconds(jumpAfterTime);
@@ -212,13 +218,14 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
         WeaponObj.SetActive(true);
         RB.AddForce(pounceDirection*WallForwardForce, ForceMode.Impulse);
         transform.Rotate(-90,0,0);
+        //boxcollider.isTrigger = true;
         jumping = true;
         yield return new WaitForSeconds(WallPounceEndTime);
+        toGround = true;
         RB.freezeRotation = false;
         WeaponObj.SetActive(false);
         yield return new WaitForSeconds(FinishTime);
         FinishEvent.Invoke();
-        RB.isKinematic = true;
         attacking = false;
 
     }
@@ -305,8 +312,16 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Floor"))
         {
+            //boxcollider.isTrigger = false;
+
             jumping = false;
             animator.SetTrigger("Land");
+            if (toGround)
+            {
+                RB.isKinematic = true;
+                RB.useGravity = false;
+                toGround = false;
+            }
         }
     }
 

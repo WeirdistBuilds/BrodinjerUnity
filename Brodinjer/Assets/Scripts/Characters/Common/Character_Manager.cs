@@ -30,6 +30,7 @@ public abstract class Character_Manager : MonoBehaviour
     public bool canDamage = true;
 
     public SoundController damageSound;
+    ResetTriggers resettrigger;
 
     protected virtual void Start()
     {
@@ -43,7 +44,7 @@ public abstract class Character_Manager : MonoBehaviour
             DamageAnimation = temp;
             DamageAnimation.Init(this, anim, player, agent);
         }
-
+        resettrigger = anim.GetComponent<ResetTriggers>();
         Init();
     }
 
@@ -108,13 +109,20 @@ public abstract class Character_Manager : MonoBehaviour
                     }
 
                     damaged = true;
+                    /*if (resettrigger)
+                        resettrigger.ResetAllTriggers();*/
                     if (damageAnimate)
                     {
                         RunAnimation(temp.DamageAnimationTrigger, coll.gameObject);
                     }
+
                     if (!temp.SingleHit || (temp.SingleHit && !temp.hit))
                     {
                         temp.hit = true;
+                        if(temp.singleHitTimer > 0)
+                        {
+                            StartCoroutine(temp.SingelHitTimer());
+                        }
                         TakeDamage(temp.DamageAmount, temp.DecreasedbyArmor);
                     }
 
@@ -151,6 +159,7 @@ public abstract class Character_Manager : MonoBehaviour
         }
         else
         {
+            //Debug.Log("Animation Trigger");
             if (DamageAnimation != null)
                 DamageAnimation.StartAnimation();
         }

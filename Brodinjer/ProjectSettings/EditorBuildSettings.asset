@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 5de43077a00167f4cbeb0d5d0afc5a73
   - enabled: 1
-    path: Assets/Scenes/ShamanHut.unity
-    guid: cfbac09d7c3589244a90c5c0895b963f
+    path: Assets/Scenes/ShamanHutStepThrough.unity
+    guid: 2c1cac9eb6fa8f544be8b65a38945e05
   - enabled: 1
     path: Assets/Scenes/Overworld.unity
     guid: 6037a0e5664e2cd469909883def9ec90
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShamanHutEnding.unity
     guid: e67f0f23922ad3e429a88a89d5ecb14d
+  - enabled: 1
+    path: Assets/Scenes/ShamanHut.unity
+    guid: cfbac09d7c3589244a90c5c0895b963f
   m_configObjects: {}

@@ -24,6 +24,8 @@ public class Skeleton_Armor_Setup : MonoBehaviour
         {
             HighArmor.SetActive(true);
             enemy.Character.Health.TotalHealth = 50;
+            LimitFloatData health = enemy.Character.Health.health as LimitFloatData;
+            health.MaxValue = 50;
             enemy.Character.Health.health.value = 50;
         }
         else if(Randomized)
@@ -33,6 +35,8 @@ public class Skeleton_Armor_Setup : MonoBehaviour
             {
                 LowArmor.SetActive(true);
                 enemy.Character.Health.TotalHealth = 15;
+                LimitFloatData health = enemy.Character.Health.health as LimitFloatData;
+                health.MaxValue = 15;
                 enemy.Character.Health.health.value = 15;
 
             }
@@ -40,6 +44,8 @@ public class Skeleton_Armor_Setup : MonoBehaviour
             {
                 MediumArmor.SetActive(true);
                 enemy.Character.Health.TotalHealth = 30;
+                LimitFloatData health = enemy.Character.Health.health as LimitFloatData;
+                health.MaxValue = 30;
                 enemy.Character.Health.health.value = 30;
 
             }

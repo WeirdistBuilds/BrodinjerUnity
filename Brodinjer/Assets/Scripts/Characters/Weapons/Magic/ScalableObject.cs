@@ -31,7 +31,6 @@ public class ScalableObject : ScalableObjectBase
 
     protected float initScaleAmount;
 
-
     public override void SetInit(float scale)
     {
         newScale = Vector3.one * scale;

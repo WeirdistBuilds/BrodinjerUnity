@@ -13,6 +13,13 @@ public class Enemy_Character_Manager : Character_Manager
     private bool running;
     private float currentTime;
     public Collider box;
+    public BossHealthBar healthbar;
+
+    public void AddToHealth()
+    {
+        if(healthbar)
+            healthbar.AddHealth(Character.Health.health as LimitFloatData);
+    }
 
     public override void Init()
     {
@@ -25,6 +32,7 @@ public class Enemy_Character_Manager : Character_Manager
 
     public override IEnumerator Stun(float stuntime, float recoveryTime)
     {
+        Debug.Log("Stun");
         enemyManager.Stun();
         yield return new WaitForSeconds(stuntime);
         enemyManager.UnStun();
