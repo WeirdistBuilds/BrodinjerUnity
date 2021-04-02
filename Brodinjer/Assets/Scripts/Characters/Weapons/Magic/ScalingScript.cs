@@ -41,6 +41,7 @@ public class ScalingScript : WeaponBase
     ScalingMagic temp;
     private bool running;
     public SoundController MagicChargeSound, MagicCastSound;
+    public CharacterController _cc;
 
     public void BreakScalingConnection()
     {
@@ -80,11 +81,11 @@ public class ScalingScript : WeaponBase
     {
         while (currWeapon)
         {
-            if (!MagicInUse.value && !frozen)
+            if (!MagicInUse.value && !frozen && _cc.isGrounded)
             {
                 if (MagicAmount.value > minMagicAmount)
                     yield return _waitforbutton;
-                if (!frozen && MagicAmount.value > minMagicAmount)
+                if (!frozen && MagicAmount.value > minMagicAmount && _cc.isGrounded)
                 {
                     CenterCursor.SetActive(true);
                     if (currWeapon)
@@ -94,7 +95,7 @@ public class ScalingScript : WeaponBase
                         aiming = true;
                     }
 
-                    if (currWeapon && MagicAmount.value > 0 && !frozen)
+                    if (currWeapon && MagicAmount.value > 0 && !frozen && _cc.isGrounded)
                     {
                         if (cameraRotation.cameraRotation != bowCamera)
                         {
@@ -138,6 +139,11 @@ public class ScalingScript : WeaponBase
                             }
 
                             yield return _fixedUpdate;
+                        }
+                        while (!_cc.isGrounded)
+                        {
+                            Debug.Log("Not Grounded");
+                            yield return new WaitForFixedUpdate();
                         }
                         if (!frozen)
                         {

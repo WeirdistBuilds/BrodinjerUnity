@@ -16,7 +16,6 @@ public class Boss_Character_Manager : MonoBehaviour
     private ResetTriggers reset;
     private bool pause;
     public SoundController damageSound;
-    public Head_Follow headlook;
     public BossHealthBar healthbar;
     
     private void Start()
@@ -85,7 +84,6 @@ public class Boss_Character_Manager : MonoBehaviour
             currentPhase.StopDamage();
             if (health.health.value <= healthMarks[currentHealthMark])
             {
-                headlook.SetRotate(false);
                 currentHealthMark++;
                 if(currentHealthMark < healthMarks.Count)
                     StartNextPhase();
