@@ -17,6 +17,7 @@ public class Magic_Slam_Attack : Enemy_Attack_Base
     public bool Side01 = true;
     public BoolData side;
     public SoundController MagicSound;
+    public Transform WristPosition;
 
     public void SwapSide()
     {
@@ -100,8 +101,8 @@ public class Magic_Slam_Attack : Enemy_Attack_Base
         MagicSound.Play();
         scalezonetemp = Instantiate(ScaleZone);
         Vector3 pos = ScaleZone.position;
-        pos.x = scalex;
-        pos.z = scalez;
+        pos.x = WristPosition.position.x;
+        pos.z = WristPosition.position.z;
         scalezonetemp.position = pos;
         scalezonetemp.gameObject.SetActive(true);
         float currentTime = 0;

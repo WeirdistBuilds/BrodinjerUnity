@@ -16,7 +16,7 @@ MonoBehaviour:
   SideSpeed: 2
   RunForwardSpeed: 2
   RunSideSpeed: 2
-  JumpSpeed: 0
+  JumpSpeed: 12
   Gravity: 30
   AnimSpeedMax: 2
   canMove: 0
