@@ -13,13 +13,28 @@ public class ForceMovement : MonoBehaviour
 
     public float TurnTime;
     public Transform destination;
-
+    public GameObject geoObject;
 
     public void StopMove()
     {
         StopAllCoroutines();
         anim.SetTrigger("Idle");
         anim.SetFloat("Speed", 0);
+    }
+
+    public void ForceMoveTowards(Transform destination)
+    {
+        geoObject.gameObject.SetActive(false);
+        StartCoroutine(waitTime(.1f));
+
+    }
+
+    IEnumerator waitTime(float waittime)
+    {
+        yield return new WaitForSeconds(.1f);
+        controller.transform.position = Vector3.MoveTowards(controller.transform.position, destination.position, 5);
+        yield return new WaitForSeconds(waittime);
+        geoObject.gameObject.SetActive(true);
     }
 
     public void JumpBack(Transform direction)

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class ScalingScript : WeaponBase
 {
     private WaitForFixedUpdate _fixedUpdate = new WaitForFixedUpdate();

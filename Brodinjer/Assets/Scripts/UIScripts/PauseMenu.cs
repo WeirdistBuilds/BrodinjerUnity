@@ -4,13 +4,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public BoolData gameIsPaused;
-    public bool optionsMenuIsActive;
-    public GameObject pauseMenuUI, optionsMenuUI;
+    public bool optionsMenuIsActive, controlsMenuUIIsActive;
+    public GameObject pauseMenuUI, optionsMenuUI, controlsMenuUI;
     private bool dead;
 
     void Start()
     {
         optionsMenuIsActive = false;
+        controlsMenuUIIsActive = false;
         gameIsPaused.value = false;
         dead = false;
     }
@@ -23,21 +24,28 @@ public class PauseMenu : MonoBehaviour
             {
                 if (optionsMenuIsActive)
                 {
-                    Debug.Log("Reset Options");
+                    //Debug.Log("Reset Options");
                     gameIsPaused.value = true;
                     optionsMenuUI.SetActive(false);
                     optionsMenuIsActive = false;
                     pauseMenuUI.SetActive(true);
                 }
+                else if (controlsMenuUIIsActive)
+                {
+                    gameIsPaused.value = true;
+                    controlsMenuUI.SetActive(false);
+                    controlsMenuUIIsActive = false;
+                    pauseMenuUI.SetActive(true);
+                }
                 else
                 {
-                    Debug.Log("Resume");
+                    //Debug.Log("Resume");
                     Resume();    
                 }
             }
             else
             {
-                Debug.Log("Pause");
+                //Debug.Log("Pause");
                 gameIsPaused.value = true;
                 Pause();
             }
@@ -59,6 +67,9 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         optionsMenuUI.SetActive(false);
+        controlsMenuUI.SetActive(false);
+        optionsMenuIsActive = false;
+        controlsMenuUIIsActive = false;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         Cursor.lockState = CursorLockMode.None;
@@ -71,6 +82,13 @@ public class PauseMenu : MonoBehaviour
         optionsMenuUI.SetActive(true);
         pauseMenuUI.SetActive(false);
         optionsMenuIsActive = true;
+    }
+
+    public void ControlsMenu()
+    {
+        controlsMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
+        controlsMenuUIIsActive = true;
     }
 
     public void QuitGame()

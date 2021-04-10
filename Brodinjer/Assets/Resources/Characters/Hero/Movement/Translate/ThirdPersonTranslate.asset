@@ -17,7 +17,7 @@ MonoBehaviour:
   RunForwardSpeed: 8
   RunSideSpeed: 8
   JumpSpeed: 12
-  Gravity: 30
+  Gravity: 25
   AnimSpeedMax: 8
   canMove: 1
   canRun: 1
@@ -34,3 +34,4 @@ MonoBehaviour:
   DodgeAnimations: {fileID: 11400000, guid: bd8a522237b2bdf478f01d489e27ec73, type: 2}
   FallTrigger: 
   LandTrigger: Land
+  autorun: {fileID: 11400000, guid: cdd0846f2745fcd4d9a9465974c4bbc5, type: 2}

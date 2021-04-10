@@ -19,7 +19,7 @@ public class ThirdPersonTranslate : CharacterTranslate
     public Animation_Base DodgeAnimations;
 
     public string FallTrigger = "Fall", LandTrigger = "Land";
-
+    public BoolData autorun;
     
     
     public override void Init(MonoBehaviour caller, CharacterController _cc, Transform camera, Z_Targeting target, Animator animator, RandomSoundController jump)
@@ -67,18 +67,32 @@ public class ThirdPersonTranslate : CharacterTranslate
         {
             if (canRun)
             {
-                /*if (Input.GetButton("Sprint"))
+                if (Input.GetButton("Sprint"))
                 {
-                    currentForwardSpeed = RunForwardSpeed;
-                    currentSideSpeed = RunSideSpeed;
+                    if (!autorun.value)
+                    {
+                        currentForwardSpeed = RunForwardSpeed;
+                        currentSideSpeed = RunSideSpeed;
+                    }
+                    else
+                    {
+                        currentForwardSpeed = ForwardSpeed;
+                        currentSideSpeed = SideSpeed;
+                    }
                 }
                 else
                 {
-                    currentForwardSpeed = ForwardSpeed;
-                    currentSideSpeed = SideSpeed;
-                }*/
-                currentForwardSpeed = RunForwardSpeed;
-                currentSideSpeed = RunSideSpeed;
+                    if (autorun.value)
+                    {
+                        currentForwardSpeed = RunForwardSpeed;
+                        currentSideSpeed = RunSideSpeed;
+                    }
+                    else
+                    {
+                        currentForwardSpeed = ForwardSpeed;
+                        currentSideSpeed = SideSpeed;
+                    }
+                }
             }
             yield return new WaitForFixedUpdate();
         }

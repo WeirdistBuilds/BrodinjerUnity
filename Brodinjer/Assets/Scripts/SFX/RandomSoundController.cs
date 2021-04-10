@@ -4,7 +4,7 @@ public class RandomSoundController : SoundController
 {
     private int _clipLength;
     public AudioClip[] _mClips;
-    
+    public int prevnum = -1;
     
     public override void Play()
     {
@@ -14,7 +14,16 @@ public class RandomSoundController : SoundController
         {
             _mSource.Stop();
         }
-        _mSource.clip = _mClips[Random.Range(0, _clipLength - 1)];
+        int randomNum = Random.Range(0, _mClips.Length);
+        if(randomNum == prevnum)
+        {
+            randomNum += 1;
+            if(randomNum >= _mClips.Length)
+            {
+                randomNum -= 2;
+            }
+        }
+        _mSource.clip = _mClips[randomNum];
         _mSource.Play();
     }
 
