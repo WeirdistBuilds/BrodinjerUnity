@@ -10,7 +10,7 @@ public class Hand_Jump_Attack : Enemy_Attack_Base
     private Vector3 jumpdirection;
     public float InBetweenAttackTime;
     private NavMeshAgent agent;
-
+    public float initTime;
     public override void Init()
     {
         base.Init();
@@ -31,6 +31,7 @@ public class Hand_Jump_Attack : Enemy_Attack_Base
     public override IEnumerator Attack()
     {
         attacking = true;
+        yield return new WaitForSeconds(initTime);
         if (animations)
         {
             animations.StartAnimation();

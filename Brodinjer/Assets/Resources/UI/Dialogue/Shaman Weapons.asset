@@ -10,9 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30be924bf930f7840a7553efc66e85fe, type: 3}
-  m_Name: Shaman Outside 02
+  m_Name: Shaman Weapons
   m_EditorClassIdentifier: 
   characterName: Buru the Shaman
   lines:
-  - While you're gone, I'll try to talk some sense into the people of the village.
-  - You are one of them, and they should treat you like that.
+  - Great job, looks like the giant in you works.
+  - This magic is not a harmful magic, so you'll need something else to help you
+    along the way.
+  - ^4
+  - My neighbor has some <#ff00ff>weapons in his shed<#000000>. He's gone right now,
+    but I'm sure he won't mind if you borrow them.
+  - If he asks, I'll let him know where they went.
+  - ^5
