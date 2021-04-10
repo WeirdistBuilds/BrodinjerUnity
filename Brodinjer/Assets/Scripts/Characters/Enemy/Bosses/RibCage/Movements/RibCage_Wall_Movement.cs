@@ -45,7 +45,7 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
         randomWallRotationSpeed, randomTimeWait, currentTimeWait, randomWallSpeed, currentWallSpeed,
         randomWallCrawlTime, currentWallCrawlTime;    
     private Ray ray;
-    private RaycastHit hit;
+    private RaycastHit hit, walldestination;
     public float PouncePauseTime;
 
     public LayerMask wallLayer;
@@ -105,13 +105,23 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
         animator.SetTrigger("Jump");
         yield return new WaitForSeconds(jumpInitTime);
         jumpDirection = transform.forward * ForwardJumpForce + transform.up * UpwardJumpForce;
-        RB.velocity = Vector3.zero;
-        RB.AddForce(jumpDirection, ForceMode.Impulse);
-        transform.Rotate(-90,0,0);
-        //boxcollider.isTrigger = true;
+        //Debug.DrawRay(transform.position, jumpDirection.normalized * 100, Color.red, 10);
+
+        //RB.velocity = Vector3.zero;
+        //RB.AddForce(jumpDirection, ForceMode.Impulse);
+        transform.Rotate(-90, 0, 0);
         jumping = true;
         attackSound.Play();
-        yield return new WaitForSeconds(jumpAfterTime);
+        Physics.Raycast(transform.position, jumpDirection.normalized, out walldestination, 100, wallLayer);
+        currentTime = 0;
+        while(currentTime < jumpAfterTime)
+        {
+            currentTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, walldestination.point, 10 * Time.deltaTime);
+            yield return new WaitForFixedUpdate();
+        }
+        //boxcollider.isTrigger = true;
+        //yield return new WaitForSeconds(jumpAfterTime);
         yield return new WaitForSeconds(.5f);
         animator.SetFloat("Speed", 1);
         currentTime = 90 / InitRotateSpeed;
@@ -126,6 +136,8 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
         rot.x = 0;
         transform.rotation = Quaternion.Euler(rot);
         yield return new WaitForFixedUpdate();
+        animator.SetTrigger("Land");
+        jumping = false;
 
         randomTimeChange = Random.Range(minTimeChange, maxTimeChange);
         currentTimeChange = randomTimeChange;
@@ -216,8 +228,16 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
         yield return new WaitForSeconds(PouncePauseTime);
         attackSound.Play();
         WeaponObj.SetActive(true);
-        RB.AddForce(pounceDirection*WallForwardForce, ForceMode.Impulse);
+        //RB.AddForce(pounceDirection*WallForwardForce, ForceMode.Impulse);
         transform.Rotate(-90,0,0);
+        Physics.Raycast(transform.position, pounceDirection.normalized, out walldestination, 100, wallLayer);
+        currentTime = 0;
+        while (currentTime < jumpAfterTime)
+        {
+            currentTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, walldestination.point, 10 * Time.deltaTime);
+            yield return new WaitForFixedUpdate();
+        }
         //boxcollider.isTrigger = true;
         jumping = true;
         yield return new WaitForSeconds(WallPounceEndTime);
@@ -227,7 +247,10 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
         yield return new WaitForSeconds(FinishTime);
         FinishEvent.Invoke();
         attacking = false;
-
+        RB.useGravity = false;
+        RB.isKinematic = true;
+        animator.SetTrigger("Land");
+        jumping = false;
     }
 
     private IEnumerator GravityForce()
@@ -249,25 +272,6 @@ public class RibCage_Wall_Movement : Enemy_Attack_Base
 
             myNormal = transform.up;
             RB.AddForce(-gravity*RB.mass*myNormal, ForceMode.Force);
-            yield return new WaitForFixedUpdate();
-        }
-    }
-
-    private IEnumerator CheckJump(float jumpTime)
-    {
-        while (checkJump)
-        {
-            if (Physics.Raycast(FrontObj.transform.position, transform.forward, out hit, jumpRange, wallLayer))
-            {
-                // wall ahead?
-                StartCoroutine(RotateToWall(hit.point, hit.normal, jumpTime)); // yes: jump to the wall
-            }
-            if (Physics.Raycast(transform.position, -myNormal, out hit, wallLayer)){ // use it to update myNormal and isGrounded
-                surfaceNormal = hit.normal;
-            }
-            else {
-                surfaceNormal = Vector3.up; 
-            }
             yield return new WaitForFixedUpdate();
         }
     }

@@ -49,6 +49,7 @@ public class Ribcage_Wall_Pounce_Movement : Enemy_Attack_Base
 
     public override IEnumerator Attack()
     {
+        Debug.Log("Wall Attack");
         StartCoroutine(GravityForce());
         checkJump = true;
         StartCoroutine(CheckJump(WallJumpTime));
@@ -184,8 +185,10 @@ public class Ribcage_Wall_Pounce_Movement : Enemy_Attack_Base
 
     private IEnumerator CheckJump(float jumpTime)
     {
+        Debug.Log("Start CheckJump");
         while (checkJump)
         {
+            Debug.Log("Check Jump");
             if (Physics.Raycast(enemyObj.transform.position, enemyObj.transform.forward, out hit, jumpRange))
             {
                 // wall ahead?
