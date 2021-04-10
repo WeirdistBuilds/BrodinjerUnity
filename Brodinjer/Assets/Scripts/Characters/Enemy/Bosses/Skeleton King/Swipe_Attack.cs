@@ -144,10 +144,13 @@ public class Swipe_Attack : Enemy_Attack_Base
             resetAnims.ResetAllTriggers();
         animator.SetTrigger(SwipeAttackTrigger);
         SetPositionSwipe(true);
+        if(right)
+            R_SwipeSound.Play();
+        else
+            L_SwipeSound.Play();
         yield return new WaitForSeconds(SwipeStartTime);
         if (right)
         {
-            R_SwipeSound.Play();
             foreach (var weapon in RightSwipeAttackObj)
             {
                 weapon.SetActive(true);
@@ -155,7 +158,6 @@ public class Swipe_Attack : Enemy_Attack_Base
         }
         else
         {
-            L_SwipeSound.Play();
             foreach (var weapon in LeftSwipeAttackObj)
             {
                 weapon.SetActive(true);
