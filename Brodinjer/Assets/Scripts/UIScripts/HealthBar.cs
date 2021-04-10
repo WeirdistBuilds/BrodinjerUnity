@@ -13,6 +13,15 @@ public class HealthBar : MonoBehaviour
         barUI = GetComponent<Image>();
     }
 
+    public void SetHealthRegen(float num)
+    {
+        if (num > 0)
+            autoRegen = true;
+        else
+            autoRegen = false;
+        increaseSpeed = num;
+    }
+
     void FixedUpdate()
     {
         if (HealthAmount.value

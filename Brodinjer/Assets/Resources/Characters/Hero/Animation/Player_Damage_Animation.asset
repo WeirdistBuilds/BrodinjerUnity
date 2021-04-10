@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   StartTriggerName: Damage
-  StopTriggerName: 
+  StopTriggerName: Recover
   DirectionName: DamageDirection

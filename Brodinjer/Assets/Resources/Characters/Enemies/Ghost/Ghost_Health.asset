@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c889e7a98d7207e48a5e22ce0d4b1a86, type: 3}
   m_Name: Ghost_Health
   m_EditorClassIdentifier: 
-  TotalHealth: 5
+  TotalHealth: 1
   ArmorDamageDecrease: 0
   Death_Version: {fileID: 11400000, guid: c8d744a86d0e5e24898f2aa166214e82, type: 2}
   health: {fileID: 11400000, guid: da6f7d907cb6fbc4a8cc5279f469b05e, type: 2}
