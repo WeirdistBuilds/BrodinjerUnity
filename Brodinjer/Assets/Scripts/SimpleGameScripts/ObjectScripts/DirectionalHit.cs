@@ -44,6 +44,8 @@ public class DirectionalHit : Trigger_Event_Base
                     anim.SetTrigger(AnimHitName);
                     if(coll.tag == "Arrow")
                         coll.gameObject.layer = 0;
+                    Event.Invoke();
+
                 }
                 break;
             case Check.Name:
@@ -54,6 +56,8 @@ public class DirectionalHit : Trigger_Event_Base
                     anim.SetTrigger(AnimHitName);
                     if(coll.tag == "Arrow")
                         coll.gameObject.layer = 0;
+                    Event.Invoke();
+
                 }
                 break;
             case Check.Tag:
@@ -64,6 +68,7 @@ public class DirectionalHit : Trigger_Event_Base
                     anim.SetTrigger(AnimHitName);
                     if(coll.tag == "Arrow")
                         coll.gameObject.layer = 0;
+                    Event.Invoke();
                 }
                 break;
         }

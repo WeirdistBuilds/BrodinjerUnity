@@ -17,10 +17,10 @@ MonoBehaviour:
   RunForwardSpeed: 0
   RunSideSpeed: 0
   JumpSpeed: 0
-  Gravity: 0
+  Gravity: 30
   AnimSpeedMax: 0
-  canMove: 0
-  canRun: 0
+  canMove: 1
+  canRun: 1
   extraControlled: 0
   animation: {fileID: 11400000, guid: e6c708b55f2e2c141a48a980d600745d, type: 2}
   HorizontalAxis: Horizontal
@@ -34,3 +34,4 @@ MonoBehaviour:
   DodgeAnimations: {fileID: 11400000, guid: bd8a522237b2bdf478f01d489e27ec73, type: 2}
   FallTrigger: 
   LandTrigger: 
+  autorun: {fileID: 11400000, guid: cdd0846f2745fcd4d9a9465974c4bbc5, type: 2}

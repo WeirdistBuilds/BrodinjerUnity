@@ -32,6 +32,7 @@ public class BowandArrow : WeaponBase
     private bool running, aiming, exited;
     private ResetTriggers reset;
     public SoundController DrawSound, FireSound;
+    public CharacterController _cc;
 
 
     public BowString bowstring;
@@ -83,7 +84,7 @@ public class BowandArrow : WeaponBase
             
             if(numArrows.value > 0)
                 yield return _waitforbutton;
-            if (!frozen && numArrows.value > 0)
+            if (!frozen && numArrows.value > 0 && _cc.isGrounded)
             {
                 CenterCursor.SetActive(true);
                 cameraRotation.AnimationOffset = 0;
@@ -152,7 +153,7 @@ public class BowandArrow : WeaponBase
                             yield return _fixedUpdate;
                         }
                         currPower = MaxPower;
-                        while (frozen)
+                        while (!_cc.isGrounded || frozen)
                         {
                             yield return new WaitForFixedUpdate();
                         }

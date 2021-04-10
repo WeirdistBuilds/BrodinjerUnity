@@ -34,3 +34,4 @@ MonoBehaviour:
   DodgeAnimations: {fileID: 0}
   FallTrigger: 
   LandTrigger: 
+  autorun: {fileID: 11400000, guid: cdd0846f2745fcd4d9a9465974c4bbc5, type: 2}

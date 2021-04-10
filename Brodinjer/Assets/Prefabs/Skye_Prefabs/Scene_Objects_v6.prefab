@@ -14974,6 +14974,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: 
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!65 &2662013751558754807
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57299,6 +57300,7 @@ MonoBehaviour:
   Direction: {fileID: 3310395447555808114}
   MagicChargeSound: {fileID: 8549027303929748880}
   MagicCastSound: {fileID: 1578151878746680974}
+  _cc: {fileID: 54750756262698504}
 --- !u!1 &54750757028067978
 GameObject:
   m_ObjectHideFlags: 0
@@ -64604,6 +64606,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: 
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!1 &5962937611411259938
 GameObject:
   m_ObjectHideFlags: 0
@@ -70398,6 +70401,7 @@ MonoBehaviour:
   reloadTime: 0.25
   DrawSound: {fileID: 7320455757912279707}
   FireSound: {fileID: 9145719441327671993}
+  _cc: {fileID: 54750756262698504}
   bowstring: {fileID: 5536300625332811418}
 --- !u!114 &3800059475090889701
 MonoBehaviour:
@@ -70547,6 +70551,7 @@ MonoBehaviour:
   knockbackDirection: {x: 0, y: 0, z: 0}
   DamageAnimationTrigger: 
   RecoveryTime: 0
+  singleHitTimer: -1
 --- !u!1 &8598141636512628377
 GameObject:
   m_ObjectHideFlags: 0

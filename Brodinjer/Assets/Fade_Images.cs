@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Events;
 
 public class Fade_Images : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Fade_Images : MonoBehaviour
     private Color FullColor, ClearColor, CurrentColor;
     public float InitWaitTime;
     private bool running;
+    public UnityEvent endTutorialEvent;
 
     private void OnEnable()
     {
@@ -55,6 +57,7 @@ public class Fade_Images : MonoBehaviour
             }
             yield return new WaitForFixedUpdate();
         }
+        endTutorialEvent.Invoke();
         gameObject.SetActive(false);
     }
 

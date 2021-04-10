@@ -125,13 +125,13 @@ public class Swipe_Attack : Enemy_Attack_Base
             resetAnims.ResetAllTriggers();
         animator.SetTrigger(FistInitAnimationTrigger);
         yield return new WaitForSeconds(AttackStartTime);
-        SetPositionFist();
         yield return new WaitForSeconds(MovePauseTime);
         attackSound.Play();
         if (resetAnims)
             resetAnims.ResetAllTriggers();
         animator.SetTrigger(FistAttackTrigger);
         WeaponAttackobj.SetActive(true);
+        SetPositionFist();
         yield return new WaitForSeconds(AttackActiveTime);
         WeaponAttackobj.SetActive(false);
         yield return new WaitForSeconds(CoolDownTime);
@@ -142,8 +142,8 @@ public class Swipe_Attack : Enemy_Attack_Base
     {
         if (resetAnims)
             resetAnims.ResetAllTriggers();
-        SetPositionSwipe();
         animator.SetTrigger(SwipeAttackTrigger);
+        SetPositionSwipe(true);
         yield return new WaitForSeconds(SwipeStartTime);
         if (right)
         {
@@ -161,7 +161,13 @@ public class Swipe_Attack : Enemy_Attack_Base
                 weapon.SetActive(true);
             }
         }
-        yield return new WaitForSeconds(SwipeActiveTime);
+        float currentTime = 0;
+        while(currentTime < SwipeActiveTime)
+        {
+            SetPositionSwipe(false);
+            currentTime += Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
         if (right)
         {
             foreach (var weapon in RightSwipeAttackObj)
@@ -199,7 +205,7 @@ public class Swipe_Attack : Enemy_Attack_Base
         animator.SetFloat(YPositionName, y);
     }
 
-    private void SetPositionSwipe()
+    private void SetPositionSwipe(bool setside)
     {
         Vector3 position = player.position;
         if (Side01)
@@ -207,12 +213,14 @@ public class Swipe_Attack : Enemy_Attack_Base
             if (player.position.x > midpoint)
             {
                 x = 1;
-                right = true;
+                if(setside)
+                    right = true;
             }
             else
             {
                 x = -1;
-                right = false;
+                if(setside)
+                    right = false;
             }
         }
         else
@@ -220,17 +228,33 @@ public class Swipe_Attack : Enemy_Attack_Base
             if (player.position.x < midpoint)
             {
                 x = 1;
-                right = true;
+                if(setside)
+                    right = true;
             }
             else
             {
                 x = -1;
-                right = false;
+                if(setside)
+                    right = false;
             }
         }
         y = Mathf.Clamp(position.y, minY, maxY);
         y = GeneralFunctions.ConvertRange(minY, maxY, -1, 1, y);
         animator.SetFloat(XPositionName, x);
         animator.SetFloat(YPositionName, y);
+    }
+
+    public override void StopAttack()
+    {
+        base.StopAttack();
+        foreach (var weapon in LeftSwipeAttackObj)
+        {
+            weapon.SetActive(false);
+        }
+        foreach (var weapon in RightSwipeAttackObj)
+        {
+            weapon.SetActive(false);
+        }
+        WeaponAttackobj.SetActive(false);
     }
 }

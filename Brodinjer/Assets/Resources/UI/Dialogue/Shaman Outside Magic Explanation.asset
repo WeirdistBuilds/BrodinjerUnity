@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30be924bf930f7840a7553efc66e85fe, type: 3}
-  m_Name: Shaman Outside 01
+  m_Name: Shaman Outside Magic Explanation
   m_EditorClassIdentifier: 
   characterName: Buru the Shaman
   lines:
   - Over that hill is a path that leads straight to the ruins.
   - Take this staff with you. It'll allow you to access some of that giant magic
     within you.
-  - However, your magic will not be strong enough to alter objects on its own,
-  - so make sure to look out for magic-imbued objects within this world.
+  - However, your magic is not strong enough to alter objects on its own,
+  - Look out for <#ff00ff>magic-imbued<#000000> objects within this world. They tend
+    to glow <#ff00ff>purple<#000000> with the giant's magic.
+  - ^0
   - For example, theres a pumpkin in the patch that is filled with that magic. You're
     welcome to practice on that.
-  - Another thing before you leave.
-  - Make sure to stop by the neighbors. I'm sure he has some tools that will help
-    you on your journey.
-  - ^0
+  - ^1

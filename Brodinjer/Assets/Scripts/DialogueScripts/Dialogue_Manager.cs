@@ -13,18 +13,22 @@ public class Dialogue_Manager : MonoBehaviour
     public UnityEvent OnInteract, OnFinish;
     public BoolData ConvStart;
     public List<UnityEvent> dialogueActions;
+    //public Color SpecialColor = Color.magenta;
 
     private bool inRange;
     private string _text_to_display;
     public float textScrollSpeed;
     private string _actionCharacter = "^";
     private int _actionIndex;
+    //private string _colorstring, _origColorString;
 
     private bool continueText;
 
     public PauseMenu menuScript;
 
     public GameObject TutorialInteract;
+
+    //private bool coloring = false;
     
     
     private void Start()
@@ -36,6 +40,10 @@ public class Dialogue_Manager : MonoBehaviour
         Dialouge_Object.SetActive(false);
         continueText = false;
         TutorialInteract.SetActive(false);
+        //coloring = false;
+        //_colorstring = "<" + ColorUtility.ToHtmlStringRGBA(SpecialColor) + ">";
+        //_origColorString = "<" + ColorUtility.ToHtmlStringRGBA(Dialouge_Text.color)+">";
+        //Debug.Log(_colorstring);
     }
     
     private void OnTriggerEnter(Collider other)
@@ -138,9 +146,11 @@ public class Dialogue_Manager : MonoBehaviour
     
     private IEnumerator ScrollText()
     {
+        bool settingup = false;
         Character_Text.text = NPC.dialogue.characterName;
         for (int i = 0; i < NPC.dialogue.lines.Count; i++)
         {
+            
             _text_to_display = "";
             if (NPC.dialogue.lines[i].Contains(_actionCharacter))
             {
@@ -151,15 +161,35 @@ public class Dialogue_Manager : MonoBehaviour
             else
             {
                 textScrollSpeed = .001f;
+                string specialsetup = "";
                 for (int j = 0; j < NPC.dialogue.lines[i].Length; j++)
                 {
-                    _text_to_display += NPC.dialogue.lines[i][j];
-                    Dialouge_Text.text = _text_to_display;
-                    yield return new WaitForSeconds(textScrollSpeed);
-                    if (Input.GetButtonDown(interact_key))
+                    if (NPC.dialogue.lines[i][j] == '<')
                     {
-                        Dialouge_Text.text = NPC.dialogue.lines[i];
-                        break;
+                        settingup = true;
+                        specialsetup = "";
+                        specialsetup += NPC.dialogue.lines[i][j];
+                        
+                    }
+                    else if (settingup)
+                    {
+                        specialsetup += NPC.dialogue.lines[i][j];
+                        if (NPC.dialogue.lines[i][j] == '>')
+                        {
+                            settingup = false;
+                            _text_to_display += specialsetup;
+                        }
+                    }
+                    else
+                    {
+                        _text_to_display += NPC.dialogue.lines[i][j];
+                        Dialouge_Text.text = _text_to_display;
+                        yield return new WaitForSeconds(textScrollSpeed);
+                        if (Input.GetButtonDown(interact_key))
+                        {
+                            Dialouge_Text.text = NPC.dialogue.lines[i];
+                            break;
+                        }
                     }
                 }
 
@@ -189,6 +219,4 @@ public class Dialogue_Manager : MonoBehaviour
         menuScript.enabled = true;
 
     }
-
-
 }
