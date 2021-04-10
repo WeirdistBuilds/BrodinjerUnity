@@ -9,18 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 5de43077a00167f4cbeb0d5d0afc5a73
   - enabled: 1
-    path: Assets/Scenes/WhiteboxTest.unity
-    guid: 643372e5127a2d44da0b90940027955e
-  - enabled: 0
     path: Assets/Scenes/ShamanHutStepThrough.unity
     guid: 2c1cac9eb6fa8f544be8b65a38945e05
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Overworld.unity
     guid: 6037a0e5664e2cd469909883def9ec90
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/WhiteboxTest.unity
+    guid: 643372e5127a2d44da0b90940027955e
+  - enabled: 1
     path: Assets/Scenes/ExampleScenes/Final_Boss_Test.unity
     guid: c2bf9159439f83c46a6c298b3bbef5d6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ShamanHutEnding.unity
     guid: e67f0f23922ad3e429a88a89d5ecb14d
   - enabled: 0

@@ -6055,7 +6055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1374baf995e7ef4db41f88b6151ea61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 3
   AngularSpeed: 120
   enemy: {fileID: 1920314186342373000}
   AnimationBase: {fileID: 0}
