@@ -23,6 +23,7 @@ public class RandomSoundController : SoundController
                 randomNum -= 2;
             }
         }
+        prevnum = randomNum;
         _mSource.clip = _mClips[randomNum];
         _mSource.Play();
     }

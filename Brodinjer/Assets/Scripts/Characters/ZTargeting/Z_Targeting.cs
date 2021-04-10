@@ -183,7 +183,7 @@ public class Z_Targeting : MonoBehaviour
             {
                 objs[i] = copyList[i];
             }
-            if (Physics.Raycast(transform.forward, objs[i].transform.position, Vector3.Distance(transform.position, objs[i].transform.position), ignoreLayers)) {
+            if (objs[i] != null && Physics.Raycast(transform.forward, objs[i].transform.position, Vector3.Distance(transform.position, objs[i].transform.position), ignoreLayers)) {
                 objs.RemoveAt(i);
                 numoOfTargets--;
             }

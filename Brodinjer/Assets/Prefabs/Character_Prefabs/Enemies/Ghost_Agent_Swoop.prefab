@@ -259,6 +259,7 @@ MonoBehaviour:
   damageCoolDown: 0.15
   StunTime: 1
   dead: 0
+  ResetTriggerBool: 1
   DamageAnimation: {fileID: 0}
   anim: {fileID: 1920314188163159381}
   agent: {fileID: 0}
@@ -816,17 +817,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 12ab8f6118865f544834499633317884, type: 2}
-        m_MethodName: DebugPrint
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset movement
-          m_BoolArgument: 0
-        m_CallState: 2
   OnAwake: 0
   Repeat: 0
   repeating: 0
@@ -959,17 +949,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 12ab8f6118865f544834499633317884, type: 2}
-        m_MethodName: DebugPrint
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Reset Attack
           m_BoolArgument: 0
         m_CallState: 2
   OnAwake: 0
@@ -1113,7 +1092,7 @@ MonoBehaviour:
   KnockbackTime: 0
   BaseObj: {fileID: 1920314186342373004}
   knockbackDirection: {x: 0, y: 0, z: 0}
-  DamageAnimationTrigger: 
+  DamageAnimationTrigger: Damage
   RecoveryTime: 0
   singleHitTimer: 3
 --- !u!1 &7834929240491329627
