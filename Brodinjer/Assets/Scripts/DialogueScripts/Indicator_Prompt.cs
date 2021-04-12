@@ -11,12 +11,17 @@ public class Indicator_Prompt : MonoBehaviour
     public List<Graphic> images;
     public float FadeInTime, ActiveTime, FadeOutTime;
     public List<float> fullalphas;
+    float currentTime = 0;
 
     public float InitWaitTime;
-    public SoundController sound;
+
+    private bool running = false;
+    private bool waiting = false;
+    private string nextText;
 
     private void OnEnable()
     {
+        running = false;
         foreach (var img in images)
         {
             img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a);
@@ -25,15 +30,24 @@ public class Indicator_Prompt : MonoBehaviour
 
     public void Activate(string text)
     {
-        indicatorText.text = text;
-        StartCoroutine(TimeActive());
+        if (!running)
+        {
+            indicatorText.text = text;
+            running = true;
+            StartCoroutine(TimeActive());
+        }
+        else
+        {
+            waiting = true;
+            nextText = text;
+        }
     }
 
     private IEnumerator TimeActive()
     {
         yield return new WaitForSeconds(InitWaitTime);
-        sound.Play();
-        float currentTime = 0;
+        running = true;
+        currentTime = 0;
         while (currentTime < FadeInTime)
         {
             currentTime += Time.deltaTime;
@@ -56,5 +70,12 @@ public class Indicator_Prompt : MonoBehaviour
             }
             yield return new WaitForFixedUpdate();
         }
+        if (waiting)
+        {
+            waiting = false;
+            indicatorText.text = nextText;
+            StartCoroutine(TimeActive());
+        }
+        running = false;
     }
 }

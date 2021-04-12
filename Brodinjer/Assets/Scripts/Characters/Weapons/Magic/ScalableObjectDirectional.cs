@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScalableObjectDirectional : ScalableObjectBase
 {
@@ -13,9 +14,13 @@ public class ScalableObjectDirectional : ScalableObjectBase
     private float currentfloat;
     public float autoDecreaseSpeed;
     public Animator elevatorAnim;
+    public UnityEvent InitScaleUpEvent;
+    public BoolData RanEventInit;
 
     private void Start()
     {
+        if (RanEventInit != null)
+            RanEventInit.value = false;
         minimumScale = ObjectToScale.localScale;
         minimumScale.x *= MinimumScaler.x;
         minimumScale.y *= MinimumScaler.y;
@@ -48,6 +53,14 @@ public class ScalableObjectDirectional : ScalableObjectBase
 
         if (currentfloat >= 1)
             return false;
+        if (RanEventInit != null && !RanEventInit.value)
+        {
+            if (!RanEventInit.value)
+            {
+                RanEventInit.value = true;
+                InitScaleUpEvent.Invoke();
+            }
+        }
         currentScalePoint = Mathf.Clamp(currentScalePoint + Time.deltaTime, 0, TimeFromMinToMax);
         currentfloat = GeneralFunctions.ConvertRange(0, TimeFromMinToMax, 0, 1, currentScalePoint);
         ObjectToScale.localScale = Vector3.Lerp(minimumScale, maximumScale, currentfloat);

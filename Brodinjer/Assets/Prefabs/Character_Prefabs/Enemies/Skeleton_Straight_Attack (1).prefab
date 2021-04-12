@@ -5161,6 +5161,7 @@ MonoBehaviour:
   damageCoolDown: 0.1
   StunTime: 1
   dead: 0
+  ResetTriggerBool: 1
   DamageAnimation: {fileID: 11400000, guid: 1f82987831eca27499c93c1d22f1ec3d, type: 2}
   anim: {fileID: 175051244}
   agent: {fileID: 907918970540876437}
@@ -6889,12 +6890,11 @@ MonoBehaviour:
   anim: {fileID: 175051244}
   triggerNames:
   - Walk
-  - Speed
+  - Idle Stand
   - Idle
   - Attack
   - Damage
   - Crypt
-  - Idle Stand
 --- !u!1001 &901407513186092930
 PrefabInstance:
   m_ObjectHideFlags: 0
