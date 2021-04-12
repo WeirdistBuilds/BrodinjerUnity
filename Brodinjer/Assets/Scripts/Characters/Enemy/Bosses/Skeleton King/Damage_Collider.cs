@@ -15,9 +15,11 @@ public class Damage_Collider : MonoBehaviour
     {
         if (coll.gameObject.layer == ToLayer(DamageLayer.value))
         {
+            Debug.Log("HIT");
             WeaponDamageAmount temp = coll.GetComponent<WeaponDamageAmount>();
             if (temp != null)
             {
+                Debug.Log("NOT NULL");
                 if (!temp.SingleHit || (temp.SingleHit && !temp.hit))
                 {
                     temp.hit = true;

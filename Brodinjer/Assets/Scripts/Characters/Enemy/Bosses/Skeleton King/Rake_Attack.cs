@@ -19,7 +19,7 @@ public class Rake_Attack : Enemy_Attack_Base
         PalmAttackObj.SetActive(true);
         yield return new WaitForSeconds(waittime01);
         attackSound.Play();
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
         PalmAttackObj.SetActive(false);
         damageObject.SetActive(true);
         yield return new WaitForSeconds(waittime02);

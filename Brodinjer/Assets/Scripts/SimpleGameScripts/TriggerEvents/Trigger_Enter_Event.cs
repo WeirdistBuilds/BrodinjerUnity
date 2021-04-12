@@ -14,4 +14,9 @@ public class Trigger_Enter_Event : Trigger_Event_Base
     {
         base.Event = Event.Event;
     }
+
+    public void ForceEvent()
+    {
+        Event.Invoke();
+    }
 }
