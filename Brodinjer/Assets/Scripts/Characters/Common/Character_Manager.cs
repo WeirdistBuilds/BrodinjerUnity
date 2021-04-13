@@ -19,6 +19,7 @@ public abstract class Character_Manager : MonoBehaviour
     protected bool damaged, stunned;
     [HideInInspector]public bool dead;
 
+    public bool ResetTriggerBool = true;
     public Animation_Base DamageAnimation;
     public Animator anim;
     public NavMeshAgent agent;
@@ -155,11 +156,12 @@ public abstract class Character_Manager : MonoBehaviour
     {
         if (DamageAnimationTrigger != "" && DamageAnimationTrigger != " ")
         {
+            Debug.Log("Run Animation");
             anim.SetTrigger(DamageAnimationTrigger);
         }
         else
         {
-            //Debug.Log("Animation Trigger");
+            Debug.Log("Animation Trigger");
             if (DamageAnimation != null)
                 DamageAnimation.StartAnimation();
         }

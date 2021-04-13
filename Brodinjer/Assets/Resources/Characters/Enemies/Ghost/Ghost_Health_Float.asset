@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be26d71cab37af641b4e2adcdb277889, type: 3}
   m_Name: Ghost_Health_Float
   m_EditorClassIdentifier: 
-  value: 5
+  value: 1
   MinValue: 0
-  MaxValue: 5
+  MaxValue: 1

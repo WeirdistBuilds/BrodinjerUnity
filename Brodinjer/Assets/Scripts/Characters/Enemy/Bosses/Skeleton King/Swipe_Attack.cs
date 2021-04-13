@@ -9,16 +9,14 @@ public class Swipe_Attack : Enemy_Attack_Base
     public string XPositionName, YPositionName;
     public Transform FistDest01, FistDest02;
     public Transform PlatformMin, Bottom, Top, MidPoint;
-    public List<GameObject> LeftSwipeAttackObj;
-    public List<GameObject> RightSwipeAttackObj;
+    public GameObject LeftSwipeAttackObjSide01, LeftSwipeAttackObjSide02;
+    public GameObject RightSwipeAttackObjSide01, RightSwipeAttackObjSide02;
     private float minZFist, maxZFist, minXFist, maxXFist, maxZPlatform, minY, maxY, midpoint;
     private float x, y;
     private bool right;
     public bool Side01 = true;
     public BoolData side;
-    private List<WeaponDamageAmount> LeftWeapons, RightWeapons;
     public SoundController R_SwipeSound, L_SwipeSound;
-
 
     public void SwapSide()
     {
@@ -53,42 +51,10 @@ public class Swipe_Attack : Enemy_Attack_Base
             maxZFist = FistDest02.position.z;
             minZFist = FistDest01.position.z;
         }
-        if (Side01)
-        {
-            foreach(var weap in LeftWeapons)
-            {
-                weap.SetKnockbackDirection(new Vector3(1,.5f,1));
-            }
-            foreach(var weap in RightWeapons)
-            {
-                weap.SetKnockbackDirection(new Vector3(-1, .5f, 1));
-            }
-        }
-        else
-        {
-            foreach(var weap in LeftWeapons)
-            {
-                weap.SetKnockbackDirection(new Vector3(-1, .5f, -1));
-            }
-            foreach(var weap in RightWeapons)
-            {
-                weap.SetKnockbackDirection(new Vector3(1, .5f, -1));
-            }
-        }
     }
 
     private void Awake()
     {
-        LeftWeapons = new List<WeaponDamageAmount>();
-        foreach(var weap in LeftSwipeAttackObj)
-        {
-            LeftWeapons.Add(weap.GetComponent<WeaponDamageAmount>());
-        }
-        RightWeapons = new List<WeaponDamageAmount>();
-        foreach (var weap in RightSwipeAttackObj)
-        {
-            RightWeapons.Add(weap.GetComponent<WeaponDamageAmount>());
-        }
         Setup();
 
     }
@@ -144,21 +110,31 @@ public class Swipe_Attack : Enemy_Attack_Base
             resetAnims.ResetAllTriggers();
         animator.SetTrigger(SwipeAttackTrigger);
         SetPositionSwipe(true);
+        if(right)
+            R_SwipeSound.Play();
+        else
+            L_SwipeSound.Play();
         yield return new WaitForSeconds(SwipeStartTime);
         if (right)
         {
-            R_SwipeSound.Play();
-            foreach (var weapon in RightSwipeAttackObj)
+            if (Side01)
             {
-                weapon.SetActive(true);
+                RightSwipeAttackObjSide01.SetActive(true);
+            }
+            else
+            {
+                RightSwipeAttackObjSide02.SetActive(true);
             }
         }
         else
         {
-            L_SwipeSound.Play();
-            foreach (var weapon in LeftSwipeAttackObj)
+            if (Side01)
             {
-                weapon.SetActive(true);
+                LeftSwipeAttackObjSide01.SetActive(true);
+            }
+            else
+            {
+                LeftSwipeAttackObjSide02.SetActive(true);
             }
         }
         float currentTime = 0;
@@ -170,16 +146,24 @@ public class Swipe_Attack : Enemy_Attack_Base
         }
         if (right)
         {
-            foreach (var weapon in RightSwipeAttackObj)
+            if (Side01)
             {
-                weapon.SetActive(false);
+                RightSwipeAttackObjSide01.SetActive(false);
+            }
+            else
+            {
+                RightSwipeAttackObjSide02.SetActive(false);
             }
         }
         else
         {
-            foreach (var weapon in LeftSwipeAttackObj)
+            if (Side01)
             {
-                weapon.SetActive(false);
+                LeftSwipeAttackObjSide01.SetActive(false);
+            }
+            else
+            {
+                LeftSwipeAttackObjSide02.SetActive(false);
             }
         }
         yield return new WaitForSeconds(SwipeCoolDownTime);
@@ -247,14 +231,10 @@ public class Swipe_Attack : Enemy_Attack_Base
     public override void StopAttack()
     {
         base.StopAttack();
-        foreach (var weapon in LeftSwipeAttackObj)
-        {
-            weapon.SetActive(false);
-        }
-        foreach (var weapon in RightSwipeAttackObj)
-        {
-            weapon.SetActive(false);
-        }
+        RightSwipeAttackObjSide01.SetActive(false);
+        RightSwipeAttackObjSide02.SetActive(false);
+        LeftSwipeAttackObjSide01.SetActive(false);
+        LeftSwipeAttackObjSide02.SetActive(false);
         WeaponAttackobj.SetActive(false);
     }
 }

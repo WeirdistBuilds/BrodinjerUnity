@@ -17,6 +17,7 @@ public class Scaling_VFX : MonoBehaviour
 
     public bool setup = true;
 
+    public GameObject extraHighlight;
     private void Start()
     {
         if (setup)
@@ -54,11 +55,15 @@ public class Scaling_VFX : MonoBehaviour
     public void Highlight()
     {
         Highlighter.Play();
+        if (extraHighlight != null)
+            extraHighlight.SetActive(true);
     }
 
     public void UnHighlight()
     {
         Highlighter.Stop();
+        if (extraHighlight != null)
+            extraHighlight.SetActive(false);
     }
 
     public void Scale(float current)

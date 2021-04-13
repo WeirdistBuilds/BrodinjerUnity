@@ -39,8 +39,13 @@ public class Main_Character_Manager : Character_Manager
             movement.Stun();
             weapons.WeaponFreeze();
             yield return new WaitForSeconds(stuntime);
-            anim.SetTrigger("Recover");
+            if (!dead)
+            {
+                anim.SetTrigger("Recover");
+                anim.SetBool("RecoverBool", true);
+            }
             yield return new WaitForSeconds(recoveryTime);
+            anim.SetBool("RecoverBool", false);
             movement.UnStun();
             weapons.WeaponUnfreeze();
             stunned = false;
