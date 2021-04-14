@@ -24,6 +24,7 @@ public class ScalingMagic : MonoBehaviour
     public string ScaleAxis;
     public GameObject MagicCollider, VFXCollider;
     public GameObject InitialScaleTutorial, ScaleTutorial;
+    public ParticleSystem MagicGood01, MagicGood02, MagicFail, MagicSuccess;
 
     private void Start()
     {
@@ -33,6 +34,8 @@ public class ScalingMagic : MonoBehaviour
     
     public void Fire()
     {
+        MagicGood01.Play();
+        MagicGood02.Play();
         MagicCollider.SetActive(true);
         VFXCollider.SetActive(true); 
         //GetComponentInParent<Look_At_Script>().StopLookAt();
@@ -62,7 +65,10 @@ public class ScalingMagic : MonoBehaviour
                 {
                     scalescript.SpellHit(false);
                     MagicInUse.value = false;
-                    Destroy(this);          
+                    Destroy(this);
+                    MagicFail.gameObject.SetActive(true);
+                    MagicGood01.Stop();
+                    MagicGood02.Stop();
                 }
             }
 
@@ -82,6 +88,7 @@ public class ScalingMagic : MonoBehaviour
         else
         {
             ScaleTutorial.SetActive(true);
+            MagicSuccess.gameObject.SetActive(true);
         }
         bool soundon = false;
         if (scaleObj != null)
@@ -92,7 +99,7 @@ public class ScalingMagic : MonoBehaviour
             {
                 if (Input.GetAxis(ScaleAxis) > 0)
                 {
-                    
+
                     MagicAmount.SubFloat(decreaseSpeed * Time.deltaTime);
                     if (scaleObj.ScaleUp(true))
                     {
@@ -112,9 +119,9 @@ public class ScalingMagic : MonoBehaviour
                     }
                 }
                 else if (Input.GetAxis(ScaleAxis) < 0)
-                {                    
+                {
                     MagicAmount.SubFloat(decreaseSpeed * Time.deltaTime);
-                    if(scaleObj.ScaleDown(true))
+                    if (scaleObj.ScaleDown(true))
                     {
                         if (!soundon)
                         {
@@ -146,6 +153,12 @@ public class ScalingMagic : MonoBehaviour
                 }
                 yield return _fixedUpdate;
             }
+            if(MagicAmount.value <= 0)
+            {
+                MagicFail.gameObject.SetActive(true);
+                MagicGood01.Stop();
+                MagicGood02.Stop();
+            }
         }
         Destroy(this.gameObject);
     }
@@ -154,6 +167,8 @@ public class ScalingMagic : MonoBehaviour
     {
         ScaleTutorial.SetActive(false);
         MagicInUse.value = false;
+        MagicGood01.Stop();
+        MagicGood02.Stop();
         if (scaleObj != null)
         {
             scaleObj.highlightFX.UnHighlight();

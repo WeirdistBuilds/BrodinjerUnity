@@ -42,6 +42,12 @@ public class ScalingScript : WeaponBase
     private bool running;
     public SoundController MagicChargeSound, MagicCastSound;
     public CharacterController _cc;
+    public ParticleSystem MagicGood01, MagicGood02, MagicFail;
+
+    public void SetInitial(bool value)
+    {
+        InitialScale = value;
+    }
 
     public void BreakScalingConnection()
     {
@@ -54,6 +60,8 @@ public class ScalingScript : WeaponBase
                     temp.scaleObj.highlightFX.gameObject.SetActive(false);
                 }
             }
+            MagicGood01.Stop();
+            MagicGood02.Stop();
             Destroy(currSpell);
                        
         }
@@ -85,7 +93,8 @@ public class ScalingScript : WeaponBase
             {
                 if (MagicAmount.value > minMagicAmount)
                     yield return _waitforbutton;
-                if (!frozen && MagicAmount.value > minMagicAmount && _cc.isGrounded)
+                yield return new WaitForSeconds(.1f);
+                if (!frozen && MagicAmount.value > minMagicAmount && _cc.isGrounded && Input.GetButton(useButton))
                 {
                     CenterCursor.SetActive(true);
                     if (currWeapon)
@@ -95,7 +104,7 @@ public class ScalingScript : WeaponBase
                         aiming = true;
                     }
 
-                    if (currWeapon && MagicAmount.value > 0 && !frozen && _cc.isGrounded)
+                    if (currWeapon && MagicAmount.value > 0 && !frozen && _cc.isGrounded && Input.GetButton(useButton))
                     {
                         if (cameraRotation.cameraRotation != bowCamera)
                         {
@@ -188,6 +197,9 @@ public class ScalingScript : WeaponBase
                         {
                             inUse = false;
                             MagicInUse.value = false;
+                            MagicGood01.Stop();
+                            MagicGood02.Stop();
+                            MagicFail.gameObject.SetActive(true);
                             //Destroy(currSpell);
                             StartCoroutine(WaitDestroy());
                             try
