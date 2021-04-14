@@ -48069,8 +48069,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54750756715126805}
-  m_LocalRotation: {x: -0, y: 0.99833584, z: -0, w: 0.057668068}
-  m_LocalPosition: {x: -31.508423, y: -87.4987, z: -32.86316}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -1.75, y: 49.837296, z: 83.72998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 54750756242659458}
@@ -103962,8 +103962,14 @@ PrefabInstance:
     - target: {fileID: 4334838542085008020, guid: 73ea5945b1ba4384f931d8e54ad36f65,
         type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4334838542085008020, guid: 73ea5945b1ba4384f931d8e54ad36f65,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3613951949184932659, guid: 2635ea56040052243ae2032e6f8a19b3,
+        type: 2}
     - target: {fileID: 4399745918263936258, guid: 73ea5945b1ba4384f931d8e54ad36f65,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -104450,6 +104456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720654419815953823, guid: 73ea5945b1ba4384f931d8e54ad36f65,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6748474398531008643, guid: 73ea5945b1ba4384f931d8e54ad36f65,
         type: 3}

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366f4cf0cd596eb4ebb0c76ae8962768, type: 3}
   m_Name: QualityIndex
   m_EditorClassIdentifier: 
-  value: 2
+  value: 1

@@ -112,6 +112,7 @@ public class ScalingScript : WeaponBase
                                 playermove.SwapMovement(bowRotate, freezePlayer, playermove.extraControls);
                             else
                                 playermove.SwapMovement(bowRotate, playermove.translate, playermove.extraControls);
+                            cameraRotation.SwapRotation(bowCamera);
                             StartTimeSwap(CameraSwapTime);
                         }
                         anim.SetBool("Magic Equipped", true);

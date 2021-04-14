@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be26d71cab37af641b4e2adcdb277889, type: 3}
   m_Name: PlayerHealthFloat
   m_EditorClassIdentifier: 
-  value: 40
+  value: 50
   MinValue: 0
   MaxValue: 50
