@@ -21,7 +21,7 @@ public class Magic_Slam_Attack : Enemy_Attack_Base
 
     public void SwapSide()
     {
-        Side01 = side.value;
+        Side01 = !side.value;
         Setup();
     }
 
