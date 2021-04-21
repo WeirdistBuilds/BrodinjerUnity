@@ -39,7 +39,9 @@ public class Dialogue_Manager : MonoBehaviour
         Character_Text.text = "";
         Dialouge_Object.SetActive(false);
         continueText = false;
-        TutorialInteract.SetActive(false);
+        if (TutorialInteract != null)
+
+            TutorialInteract.SetActive(false);
         //coloring = false;
         //_colorstring = "<" + ColorUtility.ToHtmlStringRGBA(SpecialColor) + ">";
         //_origColorString = "<" + ColorUtility.ToHtmlStringRGBA(Dialouge_Text.color)+">";
@@ -83,7 +85,8 @@ public class Dialogue_Manager : MonoBehaviour
             Dialouge_Object.SetActive(true);
             StartCoroutine(ScrollText());
             menuScript.enabled = false;
-            TutorialInteract.SetActive(false);
+            if (TutorialInteract != null)
+                TutorialInteract.SetActive(false);
         }
     }
 
@@ -94,7 +97,8 @@ public class Dialogue_Manager : MonoBehaviour
             Dialouge_Object.SetActive(true);
             StartCoroutine(ScrollTextCutscene());
             menuScript.enabled = false;
-            TutorialInteract.SetActive(false);
+            if(TutorialInteract!= null)
+                TutorialInteract.SetActive(false);
         }
     }
 
