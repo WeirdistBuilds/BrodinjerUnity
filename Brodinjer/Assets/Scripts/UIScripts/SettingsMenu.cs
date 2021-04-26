@@ -12,6 +12,8 @@ public class SettingsMenu : MonoBehaviour
     public TMPro.TMP_Dropdown resolutionsDropdown, qualityDropdown;
     private Resolution[] resolutions;
     public IntData QualityIndex;
+    public BoolData VsyncOn;
+    public Toggle VsyncToggle;
 
     void Start()
     {
@@ -52,6 +54,11 @@ public class SettingsMenu : MonoBehaviour
         Debug.Log("Set Quality: " + QualityIndex.value);
         qualityDropdown.SetValueWithoutNotify(QualityIndex.value);
         SetQuality(QualityIndex.value);
+        VsyncToggle.isOn = VsyncOn.value;
+        if (VsyncOn.value)
+            QualitySettings.vSyncCount = 1;
+        else
+            QualitySettings.vSyncCount = 0;
     }
     
     public void SetMasterVolume(float volume)
@@ -93,5 +100,18 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void SetVsync(bool vsync)
+    {
+        VsyncOn.value = vsync;
+        if (vsync)
+        {
+            QualitySettings.vSyncCount = 1;
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 0;
+        }
     }
 }
