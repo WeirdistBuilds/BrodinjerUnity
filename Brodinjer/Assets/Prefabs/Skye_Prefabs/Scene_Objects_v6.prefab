@@ -57874,7 +57874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_TrackedObjectOffset: {x: 0, y: 0.06, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
@@ -67990,7 +67990,7 @@ MonoBehaviour:
   OnAwake: 1
   speed: -1
   x: 1
-  y: 0
+  y: 1
   z: 1
   OffsetUse: 1
   PauseFollow: 0
@@ -83762,14 +83762,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4720847322120697013}
-  m_LocalRotation: {x: 0.26284564, y: 0.022185327, z: -0.0060455464, w: 0.9645639}
-  m_LocalPosition: {x: -0.10999966, y: 1.4900005, z: -2.3900013}
+  m_LocalRotation: {x: 0.35756516, y: 0.022110693, z: -0.008468419, w: 0.933588}
+  m_LocalPosition: {x: -0.1, y: 1.94, z: -2.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6641063848686328593}
   m_Father: {fileID: 2020894643421118050}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 42.501003, y: 2.6350002, z: 0}
 --- !u!114 &6372457372133490067
 MonoBehaviour:
   m_ObjectHideFlags: 0

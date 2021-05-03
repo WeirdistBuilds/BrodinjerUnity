@@ -53,6 +53,8 @@ public class CameraRotationManager : MonoBehaviour
         drowned = true;
         DrownCam.SetActive(true);
         cameraRotation.cameraObject.SetActive(false);
+        canRotate = false;
+        DrownCam.transform.parent.GetComponent<Follow_Object>().TurnOffY();
     }
 
     public void ResetDrown()
@@ -62,6 +64,8 @@ public class CameraRotationManager : MonoBehaviour
             drowned = false;
             cameraRotation.cameraObject.SetActive(true);
             DrownCam.SetActive(false);
+            canRotate = true;
+            DrownCam.transform.parent.GetComponent<Follow_Object>().TurnOnY();
         }
     }
 
