@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Buru the Shaman
   lines:
-  - Great job, looks like the giant in you works.
+  - Great job looks like the giant in you works.
   - This magic is not a harmful magic, so you'll need something else to help you
     along the way.
   - ^4
