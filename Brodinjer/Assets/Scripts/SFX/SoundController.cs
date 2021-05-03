@@ -4,12 +4,14 @@ using UnityEngine;
 public class SoundController : MonoBehaviour
 {
     protected AudioSource _mSource;
-
+    private float initSound;
     void Start()
     {
         _mSource = GetComponent<AudioSource>();
+        initSound = _mSource.volume;
+
     }
-    
+
     public virtual void Play()
     {
         if (_mSource.isPlaying)
@@ -31,7 +33,7 @@ public class SoundController : MonoBehaviour
     {
         if (_mSource == null)
             _mSource = GetComponent<AudioSource>();
-        float endVolume = _mSource.volume;
+        float endVolume = initSound;
         _mSource.volume = 0f;
         _mSource.Play();
         StartCoroutine(Fade(0, endVolume, fadeTime, false));

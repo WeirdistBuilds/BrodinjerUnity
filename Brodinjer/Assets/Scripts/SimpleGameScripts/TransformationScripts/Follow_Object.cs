@@ -67,4 +67,14 @@ public class Follow_Object : MonoBehaviour
     {
         following = false;
     }
+
+    public void TurnOffY()
+    {
+        y = false;
+    }
+
+    public void TurnOnY()
+    {
+        y = true;
+    }
 }
