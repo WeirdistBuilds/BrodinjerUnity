@@ -54526,6 +54526,12 @@ MonoBehaviour:
   - Fall
   - Drown
   - JumpBack
+  boolNames:
+  - Pulled
+  - Fall
+  floatNames: []
+  intNames:
+  - Hit Number
 --- !u!1 &54750756836412007
 GameObject:
   m_ObjectHideFlags: 0

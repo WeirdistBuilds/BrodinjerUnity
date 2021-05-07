@@ -1356,6 +1356,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 19093565}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &19093571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6807579821967097634, guid: 9042d912211ff354b8e7448a83082710,
+    type: 3}
+  m_PrefabInstance: {fileID: 19093565}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29c29d65d9f5b641b3faf972143030b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &20293337
 GameObject:
   m_ObjectHideFlags: 0
@@ -3741,8 +3753,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.8364513, y: 2.4154766, z: 3.6215663}
-  m_Center: {x: 0.7430565, y: 1.0546651, z: 0}
+  m_Size: {x: 2.4558997, y: 2.415476, z: 1.9047636}
+  m_Center: {x: 1.4344971, y: 1.0546649, z: -0.06867777}
 --- !u!23 &90778126
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23641,6 +23653,9 @@ MonoBehaviour:
   - Death
   - Reset
   - Assembly
+  boolNames: []
+  floatNames: []
+  intNames: []
 --- !u!114 &413113608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31180,8 +31195,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607684222}
-  m_LocalRotation: {x: -0.2706282, y: -0.3924397, z: -0.122234136, w: 0.87052304}
-  m_LocalPosition: {x: 13.576099, y: -19.143066, z: -12.001068}
+  m_LocalRotation: {x: -0.288315, y: -0.69653726, z: -0.3708546, w: 0.5423811}
+  m_LocalPosition: {x: -26.661104, y: -61.29312, z: 67.13933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -36822,6 +36837,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 19093571}
+        m_MethodName: ResetAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1132866702}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Walk
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &729825367
 GameObject:
   m_ObjectHideFlags: 0
@@ -39501,7 +39538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826062123}
   m_LocalRotation: {x: -0, y: -0.5286378, z: -0, w: -0.84884757}
-  m_LocalPosition: {x: -24.05942, y: 24.870157, z: 58.7}
+  m_LocalPosition: {x: -15.2, y: 24.870157, z: 61.47}
   m_LocalScale: {x: 1.3705003, y: 1.3705, z: 1.3705003}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82185,12 +82222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 520146448}
   JumpBackDistance: 20
-  JumpTime: 3
+  JumpTime: 3.5
   JumpBackString: JumpBack
   anim: {fileID: 1132866702}
   RotationSpeed: 20
-  RunSpeed: 6
-  TurnTime: 5
+  RunSpeed: 10
+  TurnTime: 7
   destination: {fileID: 826062124}
   geoObject: {fileID: 0}
 --- !u!4 &1857222796

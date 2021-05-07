@@ -8,7 +8,11 @@ public class SoundController : MonoBehaviour
     void Start()
     {
         _mSource = GetComponent<AudioSource>();
-        initSound = _mSource.volume;
+        try
+        {
+            initSound = _mSource.volume;
+        }
+        catch { }
 
     }
 

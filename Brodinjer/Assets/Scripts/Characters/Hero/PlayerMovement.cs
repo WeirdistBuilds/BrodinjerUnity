@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
+        dead = true;
         Deactivate();
         translate = deadTranslate;
         translate.Init(this, _cc, DirectionReference, targetScript, anim, Jumpsound);
@@ -64,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_cc.isGrounded)
+        {
+            anim.SetBool("Fall", false);
+        }
         if (paused.value && !pauseInits)
         {
             pauseInits = true;
@@ -93,6 +98,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 walking = false;
             }
+        }
+        if (dead)
+        {
+            anim.SetTrigger("Death");
         }
     }
 
