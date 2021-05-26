@@ -8,6 +8,7 @@ public class Head_Rotation_Set : MonoBehaviour
     public float MinX, MaxX, MinY, MaxY, MinZ, MaxZ;
     private float X, Y, Z;
     public Transform FollowObj;
+    public BoolData Side;
 
     private void Start()
     {
@@ -18,13 +19,24 @@ public class Head_Rotation_Set : MonoBehaviour
     {
         while (true)
         {
-            X = GeneralFunctions.ConvertRange(MinX, MaxX, -1, 1, FollowObj.position.x);
-            Y = GeneralFunctions.ConvertRange(MinY, MaxY, -1, 1, FollowObj.position.y);
-            Z = GeneralFunctions.ConvertRange(MinZ, MaxZ, -1, 1, FollowObj.position.z);
+            if (!Side.value)
+            {
+                X = GeneralFunctions.ConvertRange(MinX, MaxX, -1, 1, FollowObj.position.x);
+                Y = GeneralFunctions.ConvertRange(MinY, MaxY, -1, 1, FollowObj.position.y);
+                Z = GeneralFunctions.ConvertRange(MinZ, MaxZ, -1, 1, FollowObj.position.z);
+                
+            }
+            else
+            {
+                X = GeneralFunctions.ConvertRange(MinX, MaxX, 1, -1, FollowObj.position.x);
+                Y = GeneralFunctions.ConvertRange(MinY, MaxY, -1, 1, FollowObj.position.y);
+                Z = GeneralFunctions.ConvertRange(MinZ, MaxZ, -1, 1, FollowObj.position.z);
+            }
             anim.SetFloat("X", X);
             anim.SetFloat("Y", Y);
             anim.SetFloat("Z", Z);
             yield return new WaitForFixedUpdate();
+
         }
     }
 
